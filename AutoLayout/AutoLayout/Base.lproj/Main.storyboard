@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dyq-jx-6uj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AutoLayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-AJ-7YC">
+                                <rect key="frame" x="147" y="629" width="80" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressedx:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WqB-hl-xdr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AA-U0-0rf">
+                                <rect key="frame" x="147" y="559" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.52692866819999995" green="1" blue="0.34695889990000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="myT-iz-vbh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressedx:" destination="BYZ-38-t0r" eventType="touchUpInside" id="64e-M7-LL7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4bT-AJ-7YC" firstAttribute="leading" secondItem="0AA-U0-0rf" secondAttribute="leading" id="0KH-Ra-Qx0"/>
+                            <constraint firstItem="4bT-AJ-7YC" firstAttribute="top" secondItem="0AA-U0-0rf" secondAttribute="bottom" constant="40" id="7E2-BL-dF5"/>
+                            <constraint firstItem="4bT-AJ-7YC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CPm-BP-ajn"/>
+                            <constraint firstItem="4bT-AJ-7YC" firstAttribute="width" secondItem="0AA-U0-0rf" secondAttribute="width" id="DiC-4a-x5z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4bT-AJ-7YC" secondAttribute="bottom" constant="8" id="q5L-BH-4Uu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="82d-b3-bD9">
+            <objects>
+                <viewController id="dyq-jx-6uj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K4Q-T2-WaH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="8WC-fh-NHd">
+                                <rect key="frame" x="80" y="33" width="160" height="372"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Panda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-NA-2PD">
+                                        <rect key="frame" x="20" y="331" width="120" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="creature-panda-fun.png" translatesAutoresizingMaskIntoConstraints="NO" id="hDp-dd-Gn1">
+                                        <rect key="frame" x="20" y="20" width="120" height="303"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.52692866819999995" green="1" blue="0.34695889990000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ezQ-NA-2PD" firstAttribute="leading" secondItem="8WC-fh-NHd" secondAttribute="leading" constant="20" id="1Sz-wc-Aoq"/>
+                                    <constraint firstAttribute="height" constant="372" id="5Oc-nG-sjK"/>
+                                    <constraint firstAttribute="trailing" secondItem="hDp-dd-Gn1" secondAttribute="trailing" constant="20" id="Cye-9u-Ugl"/>
+                                    <constraint firstItem="ezQ-NA-2PD" firstAttribute="top" secondItem="hDp-dd-Gn1" secondAttribute="bottom" constant="8" id="SNb-Zu-Jzy"/>
+                                    <constraint firstItem="hDp-dd-Gn1" firstAttribute="leading" secondItem="8WC-fh-NHd" secondAttribute="leading" constant="20" id="aIN-eE-AgY"/>
+                                    <constraint firstItem="hDp-dd-Gn1" firstAttribute="top" secondItem="8WC-fh-NHd" secondAttribute="top" constant="20" id="k3J-aD-VvU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ezQ-NA-2PD" secondAttribute="trailing" constant="20" id="kAD-RP-EeW"/>
+                                    <constraint firstAttribute="bottom" secondItem="ezQ-NA-2PD" secondAttribute="bottom" constant="20" id="n9c-GE-Fal"/>
+                                    <constraint firstAttribute="width" constant="160" id="oJc-nq-iR7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8WC-fh-NHd" firstAttribute="leading" secondItem="lYO-41-PvU" secondAttribute="leading" constant="80" id="3Lu-j4-qnk"/>
+                            <constraint firstItem="8WC-fh-NHd" firstAttribute="top" secondItem="lYO-41-PvU" secondAttribute="top" constant="13" id="AEl-6h-RAe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lYO-41-PvU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gE-FG-l6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVd-ej-LoB">
+                    <rect key="frame" x="0.0" y="0.0" width="215" height="471"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Panda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBU-72-l2F">
+                            <rect key="frame" x="20" y="430" width="175" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creature-panda-fun.png" translatesAutoresizingMaskIntoConstraints="NO" id="hAR-Vh-6i2">
+                            <rect key="frame" x="20" y="20" width="175" height="402"/>
+                            <color key="backgroundColor" red="0.92104540589999995" green="1" blue="0.98295267819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.52692866819999995" green="1" blue="0.34695889990000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="471" id="6Np-vr-w5E"/>
+                        <constraint firstItem="WBU-72-l2F" firstAttribute="leading" secondItem="wVd-ej-LoB" secondAttribute="leading" constant="20" id="8MY-MB-ihI"/>
+                        <constraint firstItem="WBU-72-l2F" firstAttribute="top" secondItem="hAR-Vh-6i2" secondAttribute="bottom" constant="8" id="FBG-nl-i9N"/>
+                        <constraint firstItem="hAR-Vh-6i2" firstAttribute="top" secondItem="wVd-ej-LoB" secondAttribute="top" constant="20" id="GAD-xH-INd"/>
+                        <constraint firstAttribute="bottom" secondItem="WBU-72-l2F" secondAttribute="bottom" constant="20" id="J5U-eU-g4P"/>
+                        <constraint firstAttribute="trailing" secondItem="hAR-Vh-6i2" secondAttribute="trailing" constant="20" id="R2q-OL-BWH"/>
+                        <constraint firstAttribute="width" constant="215" id="UVi-oI-87e"/>
+                        <constraint firstAttribute="trailing" secondItem="WBU-72-l2F" secondAttribute="trailing" constant="20" id="cCj-JL-EFD"/>
+                        <constraint firstItem="hAR-Vh-6i2" firstAttribute="leading" secondItem="wVd-ej-LoB" secondAttribute="leading" constant="20" id="hFh-7e-fn4"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="b2P-Na-ypL"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="1343" y="92"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="creature-panda-fun.png" width="150" height="150"/>
+    </resources>
+</document>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/WelcomeDisplayViewController.swift"
+            timestampString = "546073494.9326349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/RegistrationViewController.swift"
+            timestampString = "546157984.7297831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "isValidEmailAddress(emailAddressString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/DatabaseHelper.swift"
+            timestampString = "546157984.730275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "DatabaseHelper"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of FundooNotes.DatabaseHelper.context : __ObjC.NSManagedObjectContext"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073457.125959"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FundooNotes.DatabaseHelper.context.getter : __ObjC.NSManagedObjectContext"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073457.130185"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FundooNotes.DatabaseHelper.init() -&gt; FundooNotes.DatabaseHelper"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073457.134464"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/DatabaseHelper.swift"
+            timestampString = "546157984.730352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "DatabaseHelper"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_7D4EFE11690BB28D2E358FDA8925C22B_func0"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073488.270601"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FundooNotes.DatabaseHelper.shareInstance.unsafeMutableAddressor : FundooNotes.DatabaseHelper"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073488.275063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static FundooNotes.DatabaseHelper.shareInstance.getter : FundooNotes.DatabaseHelper"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073488.279049"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "81">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static FundooNotes.DatabaseHelper.shareInstance.setter : FundooNotes.DatabaseHelper"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546073488.2823761"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "95">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/DatabaseHelper.swift"
+            timestampString = "546157984.730418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "save(object:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FundooNotes.DatabaseHelper.save(object: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546154333.563076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FundooNotes.DatabaseHelper.save(object: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; ()"
+                  moduleName = "FundooNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bridgelabz/Documents/iOS/FundooNotes/FundooNotes/DatabaseHelper.swift"
+                  timestampString = "546154333.570207"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "3069">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/DatabaseHelper.swift"
+            timestampString = "546157984.730481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "save(object:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FundooNotes/ViewController.swift"
+            timestampString = "546156062.371128"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
