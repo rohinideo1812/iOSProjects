@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8B3670209ED6B300666C0D /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B366F209ED6B300666C0D /* NoteModel.swift */; };
 		0A94C432209D7F550044ABCF /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C430209D7F550044ABCF /* ENSideMenu.swift */; };
 		0A94C433209D7F550044ABCF /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C431209D7F550044ABCF /* ENSideMenuNavigationController.swift */; };
 		0A94C43B209D7F850044ABCF /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C435209D7F850044ABCF /* MyMenuTableViewController.swift */; };
@@ -15,7 +16,10 @@
 		0A94C43E209D7F850044ABCF /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A94C438209D7F850044ABCF /* ProfileViewController.xib */; };
 		0A94C43F209D7F850044ABCF /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C439209D7F850044ABCF /* TableViewCell1.swift */; };
 		0A94C440209D7F850044ABCF /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A94C43A209D7F850044ABCF /* TableViewCell1.xib */; };
-		0A94C442209D936F0044ABCF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C441209D936F0044ABCF /* Service.swift */; };
+		0A94C442209D936F0044ABCF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C441209D936F0044ABCF /* UserService.swift */; };
+		0A94C444209DA7250044ABCF /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C443209DA7250044ABCF /* NoteViewController.swift */; };
+		0A94C483209DB7AD0044ABCF /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C482209DB7AD0044ABCF /* AddNoteViewController.swift */; };
+		0A94C485209DBF640044ABCF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C484209DBF640044ABCF /* NavigationController.swift */; };
 		0A99DDED2091A42500377D6D /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99DDEC2091A42500377D6D /* AppUtil.swift */; };
 		0A9A4935209034CE00E1552B /* UserDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4934209034CE00E1552B /* UserDataBase.swift */; };
 		0A9A493A209035AB00E1552B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4936209035AB00E1552B /* User+CoreDataClass.swift */; };
@@ -33,6 +37,7 @@
 		0A9B84F6208F5BD500EF3BCB /* FundooNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B84F5208F5BD500EF3BCB /* FundooNotesTests.swift */; };
 		0A9B8501208F5BD500EF3BCB /* FundooNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B8500208F5BD500EF3BCB /* FundooNotesUITests.swift */; };
 		0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */; };
+		0AC5D41F20A05E5600F3E92C /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5D41E20A05E5600F3E92C /* UserPresenter.swift */; };
 		0ACC674E208F698F007E7B4C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC674C208F698F007E7B4C /* RegistrationViewController.swift */; };
 		0ACC674F208F698F007E7B4C /* HomeDashBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC674D208F698F007E7B4C /* HomeDashBoard.swift */; };
 		0ACC6751208F6CEE007E7B4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC6750208F6CEE007E7B4C /* ViewController.swift */; };
@@ -57,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8B366F209ED6B300666C0D /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0A94C430209D7F550044ABCF /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		0A94C431209D7F550044ABCF /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		0A94C435209D7F850044ABCF /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +71,10 @@
 		0A94C438209D7F850044ABCF /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0A94C439209D7F850044ABCF /* TableViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		0A94C43A209D7F850044ABCF /* TableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
-		0A94C441209D936F0044ABCF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		0A94C441209D936F0044ABCF /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		0A94C443209DA7250044ABCF /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		0A94C482209DB7AD0044ABCF /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		0A94C484209DBF640044ABCF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		0A99DDEC2091A42500377D6D /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		0A9A4934209034CE00E1552B /* UserDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataBase.swift; sourceTree = "<group>"; };
 		0A9A4936209035AB00E1552B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -91,6 +100,7 @@
 		0AAFBDA42096D43C002B84C0 /* FundooNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FundooNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0AAFBDA72096D442002B84C0 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0AC5D41E20A05E5600F3E92C /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		0ACC674C208F698F007E7B4C /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		0ACC674D208F698F007E7B4C /* HomeDashBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDashBoard.swift; sourceTree = "<group>"; };
 		0ACC6750208F6CEE007E7B4C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +144,6 @@
 		0A94C434209D7F850044ABCF /* Xib */ = {
 			isa = PBXGroup;
 			children = (
-				0A94C435209D7F850044ABCF /* MyMenuTableViewController.swift */,
-				0A94C436209D7F850044ABCF /* MyNavigationController.swift */,
 				0A94C437209D7F850044ABCF /* ProfileViewController.swift */,
 				0A94C438209D7F850044ABCF /* ProfileViewController.xib */,
 				0A94C439209D7F850044ABCF /* TableViewCell1.swift */,
@@ -176,6 +184,11 @@
 		0A9A49472090518D00E1552B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A94C484209DBF640044ABCF /* NavigationController.swift */,
+				0A94C482209DB7AD0044ABCF /* AddNoteViewController.swift */,
+				0A94C435209D7F850044ABCF /* MyMenuTableViewController.swift */,
+				0A94C436209D7F850044ABCF /* MyNavigationController.swift */,
+				0A94C443209DA7250044ABCF /* NoteViewController.swift */,
 				0ACC6750208F6CEE007E7B4C /* ViewController.swift */,
 				0ACC674C208F698F007E7B4C /* RegistrationViewController.swift */,
 				0ACC674D208F698F007E7B4C /* HomeDashBoard.swift */,
@@ -186,6 +199,7 @@
 		0A9A4948209051E200E1552B /* Dto */ = {
 			isa = PBXGroup;
 			children = (
+				0A8B366F209ED6B300666C0D /* NoteModel.swift */,
 				0A9A49492090520700E1552B /* UserModel.swift */,
 			);
 			path = Dto;
@@ -230,7 +244,8 @@
 				0A9A494320903A3E00E1552B /* Utils */,
 				0AD3AC5B2095F290007A4048 /* TableViewCell.swift */,
 				0AAFBDA42096D43C002B84C0 /* FundooNotes-Bridging-Header.h */,
-				0A94C441209D936F0044ABCF /* Service.swift */,
+				0A94C441209D936F0044ABCF /* UserService.swift */,
+				0AC5D41E20A05E5600F3E92C /* UserPresenter.swift */,
 			);
 			path = FundooNotes;
 			sourceTree = "<group>";
@@ -400,24 +415,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD3AC5C2095F290007A4048 /* TableViewCell.swift in Sources */,
-				0A94C442209D936F0044ABCF /* Service.swift in Sources */,
+				0A94C442209D936F0044ABCF /* UserService.swift in Sources */,
 				0ACC6751208F6CEE007E7B4C /* ViewController.swift in Sources */,
 				0A9B84E6208F5BD500EF3BCB /* FundooNotes.xcdatamodeld in Sources */,
 				0A9A49422090396300E1552B /* ViewUtil.swift in Sources */,
 				0A9A49402090363700E1552B /* ValidationUtil.swift in Sources */,
 				0A9A493B209035AB00E1552B /* User+CoreDataProperties.swift in Sources */,
 				0A94C433209D7F550044ABCF /* ENSideMenuNavigationController.swift in Sources */,
+				0A94C483209DB7AD0044ABCF /* AddNoteViewController.swift in Sources */,
 				0A9A494A2090520700E1552B /* UserModel.swift in Sources */,
+				0A8B3670209ED6B300666C0D /* NoteModel.swift in Sources */,
 				0A9A4935209034CE00E1552B /* UserDataBase.swift in Sources */,
 				0ACC674F208F698F007E7B4C /* HomeDashBoard.swift in Sources */,
 				0A94C432209D7F550044ABCF /* ENSideMenu.swift in Sources */,
 				0ACC674E208F698F007E7B4C /* RegistrationViewController.swift in Sources */,
 				0A99DDED2091A42500377D6D /* AppUtil.swift in Sources */,
 				0A94C43C209D7F850044ABCF /* MyNavigationController.swift in Sources */,
+				0AC5D41F20A05E5600F3E92C /* UserPresenter.swift in Sources */,
 				0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */,
+				0A94C444209DA7250044ABCF /* NoteViewController.swift in Sources */,
 				0A94C43B209D7F850044ABCF /* MyMenuTableViewController.swift in Sources */,
 				0A9A493C209035AB00E1552B /* Note+CoreDataClass.swift in Sources */,
 				0A9B84DE208F5BD500EF3BCB /* AppDelegate.swift in Sources */,
+				0A94C485209DBF640044ABCF /* NavigationController.swift in Sources */,
 				0A94C43D209D7F850044ABCF /* ProfileViewController.swift in Sources */,
 				0A94C43F209D7F850044ABCF /* TableViewCell1.swift in Sources */,
 				0A9A493A209035AB00E1552B /* User+CoreDataClass.swift in Sources */,

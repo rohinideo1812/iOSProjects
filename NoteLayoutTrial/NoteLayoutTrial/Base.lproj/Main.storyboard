@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMh-JE-psP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="0RJ-Jn-tBC">
+            <objects>
+                <viewController id="VMh-JE-psP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P0P-bX-bHl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKJ-48-S3s">
+                                <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="QRb-3w-1sL"/>
+                                    <constraint firstAttribute="height" constant="44" id="a4e-6H-1K8"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="xBd-E4-79Z">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="eEX-Vf-h0f">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q7f-Dm-IhH">
+                                                <rect key="frame" x="335" y="10" width="24" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="ic_add"/>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.52692866819999995" green="1" blue="0.34695889990000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oKJ-48-S3s" firstAttribute="top" secondItem="wZO-Yh-VNo" secondAttribute="top" constant="20" id="AMO-s2-x8W"/>
+                            <constraint firstItem="oKJ-48-S3s" firstAttribute="trailing" secondItem="wZO-Yh-VNo" secondAttribute="trailing" id="ws6-Cy-fYW"/>
+                            <constraint firstItem="oKJ-48-S3s" firstAttribute="leading" secondItem="wZO-Yh-VNo" secondAttribute="leading" id="yHh-fC-22T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wZO-Yh-VNo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTP-6Z-pfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="-708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_add" width="24" height="24"/>
+    </resources>
+</document>

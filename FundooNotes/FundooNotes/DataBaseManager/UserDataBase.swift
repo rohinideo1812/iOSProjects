@@ -67,4 +67,34 @@ class UserDataBase {
         }
 
 }
+    
+    //MARK: Insert User Data
+    func insertNoteData(object : NoteModel?) {
+        var id = 1
+        let note = Note(context: appDelegate.persistentContainer.viewContext)
+        if let title = object?.title {
+            note.title = title
+        }
+        if let takeNote = object?.note {
+          note.subtitle = takeNote
+        }
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        note.isPin = false
+        note.isArchive = false
+        note.imageUrl = ""
+        note.remindDate = ""
+        note.color = ""
+        note.createDate = result
+        note.modifyDate = ""
+        note.remindDate = ""
+        note.id = String(id)
+        id += 1
+//        appDelegate.saveContext()
+
+    }
+    
 }

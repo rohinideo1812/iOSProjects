@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var viewutil = viewUtil()
+    
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpButton.layer.cornerRadius = 5
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
         loginLabel.alpha = 0
         
         }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField{
         userNameTextField.resignFirstResponder()
@@ -37,9 +40,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginButonAction(_ sender: UIButton) {
-        UserDataBase.sharedInstance.fetchUserData(email: userNameTextField.text, callback: {isavailable,object in
+    UserDataBase.sharedInstance.fetchUserData(email: userNameTextField.text,callback: {isavailable,object in
             if isavailable{
-                
+            
          ApUtil.shareInstance.setDefaultValue(email: userNameTextField.text)
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeDashBoard") as! HomeDashBoard
