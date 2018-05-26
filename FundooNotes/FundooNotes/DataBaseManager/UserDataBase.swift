@@ -12,6 +12,9 @@ import UIKit
 
 class UserDataBase {
     static var sharedInstance = UserDataBase()
+    public init(){
+        
+    }
     var userdata : UserModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user : User?
@@ -40,10 +43,17 @@ class UserDataBase {
     //MARK: Fetch User Data
     func fetchUserData(email : String?,callback: (_ isAvailable :Bool,_ object : UserModel?) -> Void){
     
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email = %@", email!)
         request.returnsObjectsAsFaults = false
         do {
+        let result1 = try appDelegate.persistentContainer.viewContext.fetch(request) as! [User]
+            if result1.count == 1{
+                let user1 = result1[0]
+                //logic for store user
+                print(user1.firstName)
+            }
             let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
             for obj in result{
                 print(obj.value(forKey: "email") as! String)
@@ -68,16 +78,21 @@ class UserDataBase {
 
 }
     
-    //MARK: Insert User Data
+    //MARK: Insert Note Data
     func insertNoteData(object : NoteModel?) {
         var id = 1
         let note = Note(context: appDelegate.persistentContainer.viewContext)
         if let title = object?.title {
             note.title = title
         }
-        if let takeNote = object?.note {
-          note.subtitle = takeNote
+        if let subtitle = object?.note {
+          note.subtitle = subtitle
         }
+        if let image = object?.image{
+            let imageToBeStored = UIImagePNGRepresentation(image) as! NSData
+            let dataString = String(data: imageToBeStored as Data, encoding: String.Encoding.utf8)
+            note.imageUrl = dataString
+            }
         
         let date = Date()
         let formatter = DateFormatter()
@@ -85,16 +100,20 @@ class UserDataBase {
         let result = formatter.string(from: date)
         note.isPin = false
         note.isArchive = false
-        note.imageUrl = ""
         note.remindDate = ""
         note.color = ""
         note.createDate = result
-        note.modifyDate = ""
+        note.modifyDate = result
         note.remindDate = ""
         note.id = String(id)
         id += 1
+        
 //        appDelegate.saveContext()
 
     }
     
+    //MARK: Fetch Note Data
+    func fetchNoteData(id : Int?){
+    
+}
 }

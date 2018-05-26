@@ -15,6 +15,7 @@
 		0A0E9CB820A2DC6A004C253E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E9CB620A2DC6A004C253E /* LaunchScreen.storyboard */; };
 		0A0E9CC320A2DC6A004C253E /* ButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E9CC220A2DC6A004C253E /* ButtonTests.swift */; };
 		0A0E9CCE20A2DC6A004C253E /* ButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E9CCD20A2DC6A004C253E /* ButtonUITests.swift */; };
+		0A8DB94720A845FB006D1CBD /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DB94620A845FB006D1CBD /* RadioButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0A0E9CC920A2DC6A004C253E /* ButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E9CCD20A2DC6A004C253E /* ButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUITests.swift; sourceTree = "<group>"; };
 		0A0E9CCF20A2DC6A004C253E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A8DB94620A845FB006D1CBD /* RadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				0A0E9CAA20A2DC6A004C253E /* AppDelegate.swift */,
-				0A0E9CAC20A2DC6A004C253E /* ViewController.swift */,
 				0A0E9CAE20A2DC6A004C253E /* Main.storyboard */,
+				0A8DB94620A845FB006D1CBD /* RadioButtonViewController.swift */,
+				0A0E9CAC20A2DC6A004C253E /* ViewController.swift */,
 				0A0E9CB420A2DC6A004C253E /* Assets.xcassets */,
 				0A0E9CB620A2DC6A004C253E /* LaunchScreen.storyboard */,
 				0A0E9CB920A2DC6A004C253E /* Info.plist */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8DB94720A845FB006D1CBD /* RadioButtonViewController.swift in Sources */,
 				0A0E9CAD20A2DC6A004C253E /* ViewController.swift in Sources */,
 				0A0E9CAB20A2DC6A004C253E /* AppDelegate.swift in Sources */,
 				0A0E9CB320A2DC6A004C253E /* Button.xcdatamodeld in Sources */,

@@ -9,6 +9,7 @@
 import Foundation
 class ValidationUtil {
     
+    //Mark: Check emailId valid or not
     func isValidEmailAddress(emailAddressString: String) -> Bool {
         
         var returnValue = true

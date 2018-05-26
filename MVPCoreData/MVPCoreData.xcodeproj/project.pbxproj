@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC166CA20AAAE00008C21DD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC166C920AAAE00008C21DD /* CollectionViewCell.swift */; };
 		0AC5D42D20A06A3B00F3E92C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5D42C20A06A3B00F3E92C /* AppDelegate.swift */; };
 		0AC5D42F20A06A3B00F3E92C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5D42E20A06A3B00F3E92C /* ViewController.swift */; };
 		0AC5D43220A06A3B00F3E92C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC5D43020A06A3B00F3E92C /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AC166C920AAAE00008C21DD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0AC5D42920A06A3B00F3E92C /* MVPCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC5D42C20A06A3B00F3E92C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC5D42E20A06A3B00F3E92C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				0AC5D42C20A06A3B00F3E92C /* AppDelegate.swift */,
 				0AC5D42E20A06A3B00F3E92C /* ViewController.swift */,
 				0AC5D43020A06A3B00F3E92C /* Main.storyboard */,
+				0AC166C920AAAE00008C21DD /* CollectionViewCell.swift */,
 				0AC5D43620A06A3B00F3E92C /* Assets.xcassets */,
 				0AC5D43820A06A3B00F3E92C /* LaunchScreen.storyboard */,
 				0AC5D43B20A06A3B00F3E92C /* Info.plist */,
@@ -279,6 +282,7 @@
 			files = (
 				0AC5D46620A06BA300F3E92C /* DataBaseManager.swift in Sources */,
 				0AC5D43520A06A3B00F3E92C /* MVPCoreData.xcdatamodeld in Sources */,
+				0AC166CA20AAAE00008C21DD /* CollectionViewCell.swift in Sources */,
 				0AC5D46420A06AA100F3E92C /* Presenter.swift in Sources */,
 				0AC5D42F20A06A3B00F3E92C /* ViewController.swift in Sources */,
 				0AC5D45F20A06A8400F3E92C /* User+CoreDataClass.swift in Sources */,

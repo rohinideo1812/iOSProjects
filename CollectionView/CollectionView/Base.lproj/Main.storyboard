@@ -21,7 +21,8 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6kr-6G-lXl">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.89826135610000002" green="0.89826135610000002" blue="0.89826135610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ppB-FL-fd5">
+                                <inset key="scrollIndicatorInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="ppB-FL-fd5">
                                     <size key="itemSize" width="170" height="171"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -35,13 +36,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="171"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vgh-kw-EIa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="115"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vgh-kw-EIa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="142.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9z-e1-RXl">
-                                                    <rect key="frame" x="0.0" y="123" width="170" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9z-e1-RXl">
+                                                    <rect key="frame" x="0.0" y="150.5" width="170" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -49,6 +48,15 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="R9z-e1-RXl" firstAttribute="top" secondItem="Vgh-kw-EIa" secondAttribute="bottom" constant="8" id="3L3-AU-vBw"/>
+                                            <constraint firstItem="Vgh-kw-EIa" firstAttribute="top" secondItem="Xps-Lw-lrn" secondAttribute="top" id="8E0-N8-IcI"/>
+                                            <constraint firstAttribute="bottom" secondItem="R9z-e1-RXl" secondAttribute="bottom" id="GvY-DZ-dIq"/>
+                                            <constraint firstItem="R9z-e1-RXl" firstAttribute="leading" secondItem="Xps-Lw-lrn" secondAttribute="leading" id="IrB-Ou-PUL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vgh-kw-EIa" secondAttribute="trailing" id="hVP-Xc-1Fy"/>
+                                            <constraint firstItem="Vgh-kw-EIa" firstAttribute="leading" secondItem="Xps-Lw-lrn" secondAttribute="leading" id="r4A-W5-Z9X"/>
+                                            <constraint firstAttribute="trailing" secondItem="R9z-e1-RXl" secondAttribute="trailing" id="tHo-cf-m8a"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="Vgh-kw-EIa" id="B2J-hd-Zbb"/>
                                             <outlet property="label" destination="R9z-e1-RXl" id="5iQ-ba-6bw"/>

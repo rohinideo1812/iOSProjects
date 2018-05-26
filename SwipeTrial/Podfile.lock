@@ -1,0 +1,16 @@
+PODS:
+  - SwipeMenuViewController (2.0.8)
+
+DEPENDENCIES:
+  - SwipeMenuViewController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwipeMenuViewController
+
+SPEC CHECKSUMS:
+  SwipeMenuViewController: fed508575c76dd69d9f806536ace3ad0cd34afb6
+
+PODFILE CHECKSUM: c2b114602f00a88db3ca4c08cc395959e654ac15
+
+COCOAPODS: 1.5.2

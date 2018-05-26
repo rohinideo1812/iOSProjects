@@ -1,0 +1,47 @@
+[
+ {
+ "title" : "Welcome To Collection View",
+ "subtitle" : "Welcome to iOS"
+ "image" : "pic1"
+ },
+ {
+ "title" : "Hello Swift",
+ "subtitle" : "Hii"
+ "image" : "pic2"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic3"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic4"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic5"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic6"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic7"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic8"
+ },
+ {
+ "title" : "Welcome to  Swift",
+ "subtitle" : "Hii Hello How Are You"
+ "image" : "pic9"
+ }
+ ]

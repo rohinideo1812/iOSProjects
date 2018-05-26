@@ -20,14 +20,14 @@ class ViewController: UIViewController {
         let user = User(context: context)
         let note = Note(context : context)
         var object : User?
-        user.firstName = "Madhuri"
-        user.lastName = "Deo"
-        user.mobile = "134567890"
-        user.email = "rohini@gmail.com"
-        user.password = "1234"
+        user.firstName = "Shahebz"
+        user.lastName = "Shaikh"
+        user.mobile = "456456676875645"
+        user.email = "shahebaz@gmail.com"
+        user.password = "12344567"
         appDelegate.saveContext()
 
-        note.id = "4"
+        note.id = "10"
         note.color = "orange"
         note.createDate = "2/2/2018"
         note.imageUrl = "dfvd"
@@ -40,6 +40,8 @@ class ViewController: UIViewController {
 
 
         var request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "id = %@", "10")
+
         request.returnsObjectsAsFaults = false
         do {
             let result = try context.fetch(request)
@@ -47,8 +49,8 @@ class ViewController: UIViewController {
                 print(data.value(forKey: "firstName") as! String)
                 print(data.value(forKey: "lastName") as! String)
                 print(data.value(forKey: "email") as! String)
-                context.delete(data)
-                context.delete(data)
+//                context.delete(data)
+//                context.delete(data)
                 
             }
 //            object = User()
@@ -59,7 +61,8 @@ class ViewController: UIViewController {
         }
 
         request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        request.predicate = NSPredicate(format: "id = %@", "4")
+        
+//        request.predicate = NSPredicate(format: "id = %@", "4")
 //        request.predicate = NSPredicate(format: "id = %@", "2")
 
         request.returnsObjectsAsFaults = false
@@ -71,7 +74,7 @@ class ViewController: UIViewController {
                 print(data.value(forKey: "createDate") as! String)
 //                print(data.value(forKey: "user") as! String)
 
-                context.delete(data)
+//                context.delete(data)
             }
         }catch {
             

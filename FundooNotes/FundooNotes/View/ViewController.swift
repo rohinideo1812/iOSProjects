@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var viewutil = viewUtil()
     
+    //Mark : IBOutlet
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
@@ -26,8 +27,8 @@ class ViewController: UIViewController {
         facebookButton.alpha = 0
         googleButton.alpha = 0
         loginLabel.alpha = 0
-        
-        }
+    }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField{
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
         return true
     }
 
+    //Mark : Action on loginButonPress
     @IBAction func loginButonAction(_ sender: UIButton) {
     UserDataBase.sharedInstance.fetchUserData(email: userNameTextField.text,callback: {isavailable,object in
             if isavailable{
@@ -48,15 +50,14 @@ class ViewController: UIViewController {
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeDashBoard") as! HomeDashBoard
                 newViewController.text = object?.firstName
                 self.present(newViewController, animated: true, completion: nil)
-
             }else{
             viewutil.alertMessageDisplay(target: self, title: "Title ", message: "You have not registred\nPlease signup to register")
             }
-
         })
-        
     }
     
+    
+    //Mark : Action on signUpButonPress
     @IBAction func signUpButton(_ sender: UIButton) {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

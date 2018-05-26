@@ -13,11 +13,9 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var user:User?
+//    var user:User?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-            checkLogedIn()
-        
-        
+//            checkLogedIn()
         
         // Override point for customization after application launch.
         return true
@@ -101,13 +99,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         var lastName = object?.lastName
                         firstName = firstName?.uppercased()
                         lastName = lastName?.uppercased()
-                        let profileViewController = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-                        profileViewController.name = "\(String(describing: firstName)) \(String(describing: lastName))"
-                        profileViewController.email = object?.email
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MyNavigationController") as! MyNavigationController
-                        self.window?.rootViewController = newViewController
-                        
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
+                        if let fName = firstName ,let lName = lastName ,let email = object?.email {
+                                newViewController.name = fName + " " + lName
+                                newViewController.email = email
+                            }
+                        let navigationController = UINavigationController(rootViewController: newViewController)
+                        self.window!.rootViewController = navigationController
+
                     }else{
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController

@@ -18,20 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Google_Keepin_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="vHz-7N-r1p">
-                                <rect key="frame" x="112" y="228" width="151" height="142"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="142" id="WjQ-yt-scm"/>
-                                    <constraint firstAttribute="width" constant="151" id="vWC-TX-FFK"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Google_Keepin_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="vHz-7N-r1p">
+                                <rect key="frame" x="137" y="291" width="101" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="vHz-7N-r1p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="208" id="IZ1-6d-6wB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vHz-7N-r1p" secondAttribute="trailing" constant="112" id="QL5-wz-o0L"/>
-                            <constraint firstItem="vHz-7N-r1p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="zre-s9-oQs"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

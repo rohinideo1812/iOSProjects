@@ -25,6 +25,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         let textData = textArray[indexPath.item]
         cell.imageView.image = UIImage(named : imageData)
         cell.label.text = textData
+        cell.label.sizeToFit()
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
         return cell
@@ -39,5 +40,14 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
 //        layout.itemSize = CGSize(width : (self.collectionView.frame.size.width - 20)/2,height :(self.collectionView.frame.size.height/3) )
     }
 
+}
+
+extension ViewController:UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.size.width - 8)/2
+        let height = width
+        return CGSize(width: width, height: height)
+    }
 }
 

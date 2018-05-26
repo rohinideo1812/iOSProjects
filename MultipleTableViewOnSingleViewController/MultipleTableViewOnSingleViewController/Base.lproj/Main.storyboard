@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultipleTableViewOnSingleViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pJC-wi-Y17">
+                                <rect key="frame" x="30" y="20" width="315" height="29"/>
+                                <segments>
+                                    <segment title="Animals"/>
+                                    <segment title="Fruits"/>
+                                    <segment title="Vegetables"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentPress:" destination="BYZ-38-t0r" eventType="valueChanged" id="uks-fM-sSB"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BCX-p1-B2X">
+                                <rect key="frame" x="0.0" y="82" width="375" height="585"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="81" id="x1U-PD-wYp" customClass="TableViewCell" customModule="MultipleTableViewOnSingleViewController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x1U-PD-wYp" id="id7-q7-VWF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeS-2C-yhA">
+                                                    <rect key="frame" x="15" y="11" width="345" height="59"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZeS-2C-yhA" secondAttribute="bottom" id="WBa-tW-l2S"/>
+                                                <constraint firstItem="ZeS-2C-yhA" firstAttribute="leading" secondItem="id7-q7-VWF" secondAttribute="leadingMargin" id="WRO-Ww-3S4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZeS-2C-yhA" secondAttribute="trailing" id="cPv-jV-30F"/>
+                                                <constraint firstItem="ZeS-2C-yhA" firstAttribute="top" secondItem="id7-q7-VWF" secondAttribute="topMargin" id="dhI-b1-Pje"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="ZeS-2C-yhA" id="ZV7-G5-SSc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ao1-jR-A3K"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rNz-vR-RaS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BCX-p1-B2X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ac4-Lv-UZF"/>
+                            <constraint firstItem="BCX-p1-B2X" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OhA-L6-tS3"/>
+                            <constraint firstItem="pJC-wi-Y17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="PPO-Xq-qeE"/>
+                            <constraint firstItem="BCX-p1-B2X" firstAttribute="top" secondItem="pJC-wi-Y17" secondAttribute="bottom" constant="34" id="UqF-fl-wFB"/>
+                            <constraint firstItem="BCX-p1-B2X" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ves-No-GIB"/>
+                            <constraint firstItem="pJC-wi-Y17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lYQ-A5-IMD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pJC-wi-Y17" secondAttribute="trailing" constant="30" id="wsC-V5-v83"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="segOut" destination="pJC-wi-Y17" id="azd-qD-hL4"/>
+                        <outlet property="tableView" destination="BCX-p1-B2X" id="ALE-TF-Gg6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>

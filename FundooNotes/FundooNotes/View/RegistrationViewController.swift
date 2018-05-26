@@ -9,17 +9,22 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    var defaults = UserDefaults.standard
-    var obj  = HomeDashBoard()
-    var validation : ValidationUtil?
-    var viewutil : viewUtil?
-    var user : UserModel?
+   
+    //Mark: IBOutlet
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var mobileTextField: UITextField!
+    
+    //Mark: Properties
+    var defaults = UserDefaults.standard
+    var obj  = HomeDashBoard()
+    var validation : ValidationUtil?
+    var viewutil : viewUtil?
+    var user : UserModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,7 @@ class RegistrationViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
         
     }
+    
     
     @IBAction func signUpButton(_ sender: UIButton) {
         validation = ValidationUtil()

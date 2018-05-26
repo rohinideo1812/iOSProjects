@@ -1,0 +1,16 @@
+PODS:
+  - ENSwiftSideMenu (0.1.1)
+
+DEPENDENCIES:
+  - ENSwiftSideMenu
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ENSwiftSideMenu
+
+SPEC CHECKSUMS:
+  ENSwiftSideMenu: a934caefbe811e4925f172009349da4a49901307
+
+PODFILE CHECKSUM: dcaa454265cfef3c127d7ac8232dee32bc3b46cd
+
+COCOAPODS: 1.5.2

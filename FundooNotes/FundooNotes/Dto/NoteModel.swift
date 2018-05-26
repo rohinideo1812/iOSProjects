@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
 struct NoteModel {
     let title : String?
     let note : String?
-    
+    let image : UIImage?
+    let isPin : Bool?
+    let isArchive : Bool?
+    let remindDate : String?
 }
+

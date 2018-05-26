@@ -12,6 +12,7 @@ import UIKit
 class viewUtil : UIViewController {
     
     static var shareInstance = viewUtil()
+   
     
     //MARK:Alert Message Display
     func alertMessageDisplay(target:UIViewController, title : String , message : String){
@@ -19,6 +20,6 @@ class viewUtil : UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         target.present(alert, animated: true)
     }
-        
-    }
+    
+}
 

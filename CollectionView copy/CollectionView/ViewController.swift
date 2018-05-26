@@ -36,7 +36,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        let layout = self.collectionView.collectionViewLayout
 //        layout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
 //        layout.minimumInteritemSpacing = 5
 //        layout.itemSize = CGSize(width : (self.collectionView.frame.size.width - 20)/2,height :(self.collectionView.frame.size.height/3) )

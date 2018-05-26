@@ -14,6 +14,7 @@ struct UserData{
     var firstName  : String?
     var lastName : String?
 }
+
 class DatabaseManager {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -41,14 +42,15 @@ class DatabaseManager {
         do {
             let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
             for obj in result{
+                
                 print(obj.value(forKey: "firstName") as! String)
             }
             if result.count > 0{
                 let user = result[0]
                 let firstName =  ((user as AnyObject).value(forKey: "firstName"))
                 let lastName =  ((user as AnyObject).value(forKey: "lastName"))
-                userdata = UserData(firstName: firstName as! String, lastName: lastName as! String)
-      callback(true,userdata)
+                 userdata = UserData(firstName: firstName as! String, lastName: lastName as! String)
+                callback(true,userdata)
 
             }else{
                 callback(false,userdata)

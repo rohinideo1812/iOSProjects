@@ -1,0 +1,6 @@
+framework module Pods_FundooNotesTests {
+  umbrella header "Pods-FundooNotesTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

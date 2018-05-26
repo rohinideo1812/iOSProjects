@@ -36,6 +36,9 @@ class Presenter{
         self.userView?.startLoading()
         service?.getUsers(name: firstName, callBack: {isAvailable,object in
             callback(isAvailable,object)
+       self.userView?.finishLoading()
+            
+           
         }
         
             )

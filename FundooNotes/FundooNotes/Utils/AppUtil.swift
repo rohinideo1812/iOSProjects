@@ -10,6 +10,8 @@ import Foundation
 class ApUtil {
     
     static var shareInstance = ApUtil()
+    
+    private init(){}
     let userdefault = UserDefaults.standard
     func setDefaultValue(email : String?) {
        userdefault.set(email, forKey: "email")
