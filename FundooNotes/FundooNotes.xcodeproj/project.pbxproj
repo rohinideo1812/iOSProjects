@@ -49,6 +49,7 @@
 		0AA28B8E20B6CDAE00F1CD08 /* DashBoardBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA28B8D20B6CDAE00F1CD08 /* DashBoardBottomView.xib */; };
 		0AA5320020B7E56E000F129A /* AddNoteBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA531FF20B7E56E000F129A /* AddNoteBottomView.xib */; };
 		0AA5320220B7E6A6000F129A /* AddNoteBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5320120B7E6A6000F129A /* AddNoteBottomView.swift */; };
+		0AAAF2F120BBDCB20089111C /* NoteDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAAF2F020BBDCB20089111C /* NoteDataBase.swift */; };
 		0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */; };
 		0AC166C820AA9F0E008C21DD /* Photos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166C720AA9F0E008C21DD /* Photos.xcassets */; };
 		0AC166CC20AAE2D7008C21DD /* NoteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166CB20AAE2D7008C21DD /* NoteData.json */; };
@@ -138,6 +139,7 @@
 		0AA28B8D20B6CDAE00F1CD08 /* DashBoardBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoardBottomView.xib; sourceTree = "<group>"; };
 		0AA531FF20B7E56E000F129A /* AddNoteBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNoteBottomView.xib; sourceTree = "<group>"; };
 		0AA5320120B7E6A6000F129A /* AddNoteBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteBottomView.swift; sourceTree = "<group>"; };
+		0AAAF2F020BBDCB20089111C /* NoteDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataBase.swift; sourceTree = "<group>"; };
 		0AAFBDA42096D43C002B84C0 /* FundooNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FundooNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0AAFBDA72096D442002B84C0 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				0A9A4934209034CE00E1552B /* UserDataBase.swift */,
+				0AAAF2F020BBDCB20089111C /* NoteDataBase.swift */,
 			);
 			path = DataBaseManager;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				0A9A4935209034CE00E1552B /* UserDataBase.swift in Sources */,
 				0ACC674F208F698F007E7B4C /* HomeDashBoard.swift in Sources */,
 				0A94C432209D7F550044ABCF /* ENSideMenu.swift in Sources */,
+				0AAAF2F120BBDCB20089111C /* NoteDataBase.swift in Sources */,
 				0AA5320220B7E6A6000F129A /* AddNoteBottomView.swift in Sources */,
 				0A98CC1120B598E300CC3E89 /* Helper.swift in Sources */,
 				0ACC674E208F698F007E7B4C /* RegistrationViewController.swift in Sources */,

@@ -27,6 +27,7 @@ extension Note {
     @NSManaged public var remindDate: String?
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
+    @NSManaged public var seqId: Int32
     @NSManaged public var user: User?
 
 }

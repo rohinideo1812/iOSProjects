@@ -831,6 +831,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWg-tv-Uge"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="sqK-lN-YHp" id="yzF-kC-syb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qD2-OS-iiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -913,7 +916,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-Ii-xJs" customClass="NoteAddUIView" customModule="FundooNotes" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
-                                                <color key="backgroundColor" red="0.59131877060000004" green="1" blue="0.48668069650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="320" id="pvX-61-ZaR"/>
                                                 </constraints>

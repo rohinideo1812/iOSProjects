@@ -40,6 +40,7 @@ class UserDataBase {
 
     }
     
+    
     //MARK: Fetch User Data
     func fetchUserData(email : String?,callback: (_ isAvailable :Bool,_ object : UserModel?) -> Void){
     
@@ -77,43 +78,6 @@ class UserDataBase {
         }
 
 }
-    
-    //MARK: Insert Note Data
-    func insertNoteData(object : NoteModel?) {
-        var id = 1
-        let note = Note(context: appDelegate.persistentContainer.viewContext)
-        if let title = object?.title {
-            note.title = title
-        }
-        if let subtitle = object?.note {
-          note.subtitle = subtitle
-        }
-        if let image = object?.image{
-            let imageToBeStored = UIImagePNGRepresentation(image) as! NSData
-            let dataString = String(data: imageToBeStored as Data, encoding: String.Encoding.utf8)
-            note.imageUrl = dataString
-            }
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        let result = formatter.string(from: date)
-        note.isPin = false
-        note.isArchive = false
-        note.remindDate = ""
-        note.color = ""
-        note.createDate = result
-        note.modifyDate = result
-        note.remindDate = ""
-        note.id = String(id)
-        id += 1
-        
-//        appDelegate.saveContext()
+   
 
-    }
-    
-    //MARK: Fetch Note Data
-    func fetchNoteData(id : Int?){
-    
-}
 }

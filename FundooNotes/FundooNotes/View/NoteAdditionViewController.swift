@@ -18,22 +18,19 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     
     //Mark: Properties
-    //var heightConstraintOfImageView: NSLayoutConstraint!
     let imagePicker = UIImagePickerController()
     var isBottonMenuVisible = true
     var note : NoteModel?
-    var ispin = false
+    var isPin = false
     var isArchive = false
     var remindDate : String?
-//    var noteAddView : NoteAddUIView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         configureNavigationBar()
         updateView()
-//        noteAddUIView = NoteAddUIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 98))
        setTextFieldDelegates()
         addNoteBottomView.leftBottomMenuButton.addTarget(self, action: #selector(leftBottomButtonPress), for: .touchUpInside)
     }
@@ -58,12 +55,11 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
   self.navigationController?.pushViewController(newViewController, animated: true)
 
-    }else {
-        
-//        note = NoteModel(title: noteAddView.titleTextView.text, note: noteAddView.noteTextView.text,image: noteAddView.imageView.image)
-//            UserDataBase.sharedInstance.insertNoteData(object: note)
-        
-                }
+   }
+    else {
+        note = NoteModel(title: noteAddUIView.titleTextView.text, note: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate)
+        NoteDataBase.sharedInstance.insertNoteData(object: note)
+    }
     }
     
     //Mark: Action on Bottom Left Button Press
@@ -88,12 +84,21 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     //Mark: Action on pinBarButtonPress
     @objc func pinBarButtonPress(){
-        print("Tapped with Pin Button")
+        if isPin == false{
+            isPin = true
+        }else{
+            isPin = false
+        }
     }
     
     //Mark: Action on archiveBarButtonPress
     @objc func archiveBarButtonPress(){
-        print("Tapped with Archive Button")
+        if isArchive == false{
+            isArchive = true
+        }else{
+            isArchive = false
+        }
+        
     }
     
     //Mark: Action on reminderBarButtonPress
@@ -147,14 +152,12 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             let height = heightForView(text: text, font: font, width: width)
             self.updateView(titleHeight : height)
             self.noteAddUIView.heightConstraintOftitleTextView.constant = height
-            print("Title height is increasing  = ",height)
         } else if textView.tag == 2{
             text = self.noteAddUIView.noteTextView.text
             width = self.noteAddUIView.noteTextView.frame.size.width
             let height = heightForView(text: text, font: font, width: width)
             self.updateView(noteHeight : height)
             self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
-            print("Notes height is increasing  = ",height)
         }
         
         if textView.tag == 1{
@@ -198,7 +201,6 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 titleHeightConstant = titleHeight
             }
         let height = self.noteAddUIView.heightConstraintOfImageView.constant + 38 + titleHeightConstant + noteHeightConstant
-        print("Height of the updated view = ",height)
         self.noteAddUIView.contentView.frame.size.height = height + 50
         self.heightConstraintOfView.constant = height + 50
         self.noteAddUIView.layoutIfNeeded()
@@ -225,6 +227,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
 }
         
         
+        //Mark: Set TextView Size
         func setTextViewSize(textview : UITextView){
             if textview.contentSize.height > textview.frame.size.height {
                 
@@ -240,6 +243,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             }
         }
         
+        //Mark: Set TextField Delegates
         func setTextFieldDelegates(){
             noteAddUIView.titleTextView.delegate = self
             noteAddUIView.titleTextView.tag = 1

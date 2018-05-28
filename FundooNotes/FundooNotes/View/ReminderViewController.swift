@@ -18,11 +18,12 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     //Mark: Properties
     var titles = ["Date","Time","Repeat"]
-    var subtitles : [String] = []
-    var time = ""
-    var repeatTime = ""
+    var subtitles : [String] = ["dfddf","gfg","gfdbfg"]
+    var repeatTime = "Does not repeat"
     var selectedDate = ""
     var selectedTime = ""
+    var remindDate = ""
+    var selectedIndexPath:IndexPath!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
@@ -30,14 +31,15 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell") as! UITableViewCell
-        cell.textLabel?.text = titles[indexPath.row]
-        cell.detailTextLabel?.text = subtitles[indexPath.row]
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell")
+        cell?.textLabel?.text = titles[indexPath.row]
+        cell?.detailTextLabel?.text = subtitles[indexPath.row]
+        return cell!
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
         if indexPath.row == 0 {
         print("Date pressed")
             dateClick()
@@ -56,7 +58,7 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
         setDate(increament : 0)
     }
     
-    
+  
     func configureNavigationBar(){
         
         let cancelBarButton = UIBarButtonItem(image : UIImage(named: "ic_wrong"),landscapeImagePhone: nil, style: .done, target: self, action: #selector(cancelBarButtonPress))
@@ -79,7 +81,13 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     @objc func checkBarButtonPress(){
-        
+        remindDate = selectedDate + "," + selectedTime + "," + repeatTime
+        let noteAdditionViewController = NoteAdditionViewController()
+        noteAdditionViewController.remindDate = remindDate
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as! NoteAdditionViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+
     }
     
       func dateClick(){
@@ -159,22 +167,25 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     let currentDate = Date()
     var dateComponents = DateComponents()
     dateComponents.month = -3
-    let threeMonthAgo = Calendar.current.date(byAdding: dateComponents, to: currentDate)
+        _ = Calendar.current.date(byAdding: dateComponents, to: currentDate)
 
     let datePicker = DatePickerDialog(textColor: .red,
                                       buttonColor: .red,
                                       font: UIFont.boldSystemFont(ofSize: 17),
                                       showCancelButton: true)
+        
     datePicker.show("DatePickerDialog",
     doneButtonTitle: "Done",
     cancelButtonTitle: "Cancel",
-    minimumDate: threeMonthAgo,
-    maximumDate: currentDate,
+    minimumDate: nil,
+    maximumDate: nil,
     datePickerMode: .date) { (date) in
     if let dt = date {
     let formatter = DateFormatter()
-    formatter.dateFormat = "MM/dd/yyyy"
+    formatter.dateFormat = "yyyy-MM-dd"
         self.selectedDate =  formatter.string(from: dt)
+        self.subtitles[self.selectedIndexPath.row] = self.selectedDate
+        self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
     }
     }
 }
@@ -184,7 +195,7 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
         let currentTime = Date()
         var timeComponents = DateComponents()
         timeComponents.month = -3
-        let threeMonthAgo = Calendar.current.date(byAdding: timeComponents, to: currentTime)
+        _ = Calendar.current.date(byAdding: timeComponents, to: currentTime)
 
         let datePicker = DatePickerDialog(textColor: .red,
                                           buttonColor: .red,
@@ -193,13 +204,18 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
         datePicker.show("DatePickerDialog",
                         doneButtonTitle: "Done",
                         cancelButtonTitle: "Cancel",
-                        minimumDate: threeMonthAgo,
-                        maximumDate: currentTime,
+                        minimumDate: nil,
+                        maximumDate: nil,
                         datePickerMode: .time) { (time) in
                             if let tme = time {
                                 let formatter = DateFormatter()
-                                formatter.dateFormat = "MM/dd/yyyy"
+                                formatter.dateFormat = "hh:mm a "
+                                formatter.amSymbol = "AM"
+                                formatter.pmSymbol = "PM"
                                  self.selectedTime =  formatter.string(from: tme)
+                                    print("Selected Time",self.selectedTime)
+                                self.subtitles[self.selectedIndexPath.row] = self.selectedTime
+                                self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
 
                             }
         }
@@ -213,27 +229,37 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     formatter.timeStyle = .short
     let time = formatter.string(from: date)
     formatter.dateFormat = "yyyy-MM-dd"
-    let todaysDate = formatter.string(from: date)
-        print(todaysDate)
+        let currentDate = formatter.string(from: date)
+        print("Current Date",currentDate)
         if increament > 0 {
     let next = Calendar.current.date(byAdding: .day, value: increament, to: date)
-    let nextDate = formatter.string(from : next!)
-    print(nextDate)
-    subtitles = ["\(nextDate)","\(time)","Does not repeat"]
+     selectedDate = formatter.string(from : next!)
+            self.subtitles[self.selectedIndexPath.row] = self.selectedDate
+            self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
+            
         }else {
-            subtitles = ["\(todaysDate)","\(time)","Does not repeat"]
+            selectedDate = currentDate
+            selectedTime = time
+
         }
+        subtitles = ["\(selectedDate)","\(selectedTime)","\(repeatTime)"]
+        self.tableView.reloadData()
+
     }
     
     func setTime(choice : Int){
         switch choice{
 
-        case 1: time = "8:00 AM"
-        case 2: time = "1:00 PM"
-        case 3: time = "6:00 PM"
-        case 4: time = "8:00 PM"
+        case 1: selectedTime = "08:00 AM"
+        case 2: selectedTime = "01:00 PM"
+        case 3: selectedTime = "06:00 PM"
+        case 4: selectedTime = "08:00 PM"
         default: break
         }
+
+        self.subtitles[self.selectedIndexPath.row] = self.selectedTime
+        self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
+
     }
     
     func setRepeat(choice : Int){
@@ -247,7 +273,11 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
             
         default: break
         }
+
+        self.subtitles[self.selectedIndexPath.row] = self.repeatTime
+        self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
     }
+    
 }
 
 

@@ -34,7 +34,7 @@ class AddNoteBottomView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth,.flexibleWidth]
         contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowOpacity = 0.5
         contentView.layer.shadowOffset = CGSize.zero
         contentView.layer.shadowRadius = 10
 }
