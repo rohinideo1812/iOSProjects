@@ -28,7 +28,6 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         signUpButton.layer.cornerRadius = 5
         passwordTextField.isSecureTextEntry = true
         

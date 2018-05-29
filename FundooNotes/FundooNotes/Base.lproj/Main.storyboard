@@ -757,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="1194" y="-1452"/>
         </scene>
-        <!--ReminderViewController-->
+        <!--Reminder View Controller-->
         <scene sceneID="AN0-c3-gxQ">
             <objects>
-                <viewController storyboardIdentifier="ReminderViewController" title="ReminderViewController" id="P46-6R-bZz" customClass="ReminderViewController" customModule="FundooNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReminderViewController" id="P46-6R-bZz" customClass="ReminderViewController" customModule="FundooNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eIp-kv-gmV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

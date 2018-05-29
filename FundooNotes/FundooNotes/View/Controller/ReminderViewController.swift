@@ -18,12 +18,13 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     //Mark: Properties
     var titles = ["Date","Time","Repeat"]
-    var subtitles : [String] = ["dfddf","gfg","gfdbfg"]
+    var subtitles : [String] = []
     var repeatTime = "Does not repeat"
     var selectedDate = ""
     var selectedTime = ""
     var remindDate = ""
     var selectedIndexPath:IndexPath!
+    let noteAdditionViewController = NoteAdditionViewController()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
@@ -73,20 +74,15 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     @objc func cancelBarButtonPress(){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as! NoteAdditionViewController
-    self.navigationController?.pushViewController(newViewController, animated: true)
-        
+    self.navigationController?.popViewController(animated: true)
+    
     }
     
     
     @objc func checkBarButtonPress(){
         remindDate = selectedDate + "," + selectedTime + "," + repeatTime
-        let noteAdditionViewController = NoteAdditionViewController()
         noteAdditionViewController.remindDate = remindDate
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as! NoteAdditionViewController
-        self.navigationController?.pushViewController(newViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
 
     }
     
@@ -279,12 +275,5 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
 }
-
-
-
-
-
-
-
 
 

@@ -66,8 +66,30 @@ class Helper{
         let attrs2 = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)]
          normalStr = NSMutableAttributedString(string: subtitle, attributes:attrs2)
         }
-        
         boldStr.append(normalStr)
         return boldStr
     }
+    
+    //Mark: Get Cache Data
+    func getUserDefaultInstance() -> [String:Any]{
+        let defaults = UserDefaults.standard
+        if let dict = defaults.dictionary(forKey: Constants.CacheKeys.FUNDOONTES){
+            return dict
+        }else{
+            defaults.set([:], forKey: Constants.CacheKeys.FUNDOONTES)
+            return [:]
+        }
+    }
+    
+    //Mark: Remove Cache Data
+    func updateUserDefaultVCData(forKey : String,value:Any){
+       var dictionary = getUserDefaultInstance()
+        if let dict = dictionary[forKey] {
+            dictionary[forKey] = value
+        }else{
+            dictionary[forKey] = value
+        }
+        UserDefaults.standard.set(dictionary, forKey: Constants.CacheKeys.FUNDOONTES)
+        }
+ 
 }

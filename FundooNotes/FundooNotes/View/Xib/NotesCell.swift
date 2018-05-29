@@ -50,16 +50,22 @@ class NotesCell: UICollectionViewCell {
         }else {
             self.imageViewHeightConstraint.constant = 0
         }
-
         let text = Helper.shared.getAttributedString(mTitle: note.title, mSubtitle: note.subtitle)
+        if text.length != 0{
         let textHeight = Helper.shared.getAttributedStringHeight(text: text, width: self.frame.size.width)
         self.titleLabel.attributedText = text
         self.titleLabelHeightConstraint.constant = textHeight
+        }else{
+            self.titleLabelHeightConstraint.constant = 0
+
+        }
         if let date = note.date {
             let font = UIFont.systemFont(ofSize: 12)
             let dateHeight = Helper.shared.getStringHeight(text: date, width: self.frame.size.width,font: font)
             dateLabel.text = date
             self.dateLabelHeightConstraint.constant = dateHeight
+        }else{
+            self.dateLabelHeightConstraint.constant = 0
         }
       
     //let height = self.imageViewHeightConstraint.constant + self.titleLabelHeightConstraint.constant + 24

@@ -55,6 +55,7 @@ class TableViewCell3: UITableViewCell,UICollectionViewDataSource,UICollectionVie
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var nextCellLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        cell1Label.sizeToFit()
         // Initialization code
     }
 

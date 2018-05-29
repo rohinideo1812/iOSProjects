@@ -24,6 +24,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     var isPin = false
     var isArchive = false
     var remindDate : String?
+    var dictionary = [String : Any]()
     
     
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         updateView()
        setTextFieldDelegates()
         addNoteBottomView.leftBottomMenuButton.addTarget(self, action: #selector(leftBottomButtonPress), for: .touchUpInside)
+        navigationController?.navigationBar.barTintColor = UIColor.white
     }
 
     
@@ -49,6 +51,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
          navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
+    
     @objc func backBarButtonPress(){
     if noteAddUIView.titleTextView.text == nil && noteAddUIView.noteTextView.text == nil && noteAddUIView.imageView.image == nil {
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -59,8 +62,15 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     else {
         note = NoteModel(title: noteAddUIView.titleTextView.text, note: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate)
         NoteDataBase.sharedInstance.insertNoteData(object: note)
+        Helper.shared.updateUserDefaultVCData(forKey: Constants.CacheKeys.ADD_NOTE_VC, value: [:])
+        NoteDataBase.sharedInstance.fetchNoteData()
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+
     }
     }
+    
     
     //Mark: Action on Bottom Left Button Press
     @objc func leftBottomButtonPress() {
@@ -103,6 +113,19 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     //Mark: Action on reminderBarButtonPress
     @objc func reminderBarButtonPress() {
+        if let title = noteAddUIView.titleTextView.text{
+            dictionary.updateValue(title, forKey: "Title")
+
+        }
+        if let note = noteAddUIView.noteTextView.text{
+            dictionary.updateValue(note, forKey: "Note")
+
+        }
+        if let image = noteAddUIView.imageView.image{
+            
+    dictionary.updateValue(UIImagePNGRepresentation(image), forKey: "Image")
+        }
+        Helper.shared.updateUserDefaultVCData(forKey:Constants.CacheKeys.ADD_NOTE_VC , value: dictionary)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ReminderViewController") as! ReminderViewController
         self.navigationController?.pushViewController(newViewController, animated: true)
@@ -151,13 +174,13 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             width = self.noteAddUIView.titleTextView.frame.size.width
             let height = heightForView(text: text, font: font, width: width)
             self.updateView(titleHeight : height)
-            self.noteAddUIView.heightConstraintOftitleTextView.constant = height
+        self.noteAddUIView.heightConstraintOftitleTextView.constant = height
         } else if textView.tag == 2{
             text = self.noteAddUIView.noteTextView.text
             width = self.noteAddUIView.noteTextView.frame.size.width
             let height = heightForView(text: text, font: font, width: width)
             self.updateView(noteHeight : height)
-            self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
+        self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
         }
         
         if textView.tag == 1{
@@ -250,4 +273,44 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             noteAddUIView.noteTextView.delegate = self
             noteAddUIView.noteTextView.tag = 2
         }
-}
+        
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+           navigationController?.navigationBar.barTintColor = UIColor.white
+            var cacheData = Helper.shared.getUserDefaultInstance();
+            guard let addNoteCache = cacheData[Constants.CacheKeys.ADD_NOTE_VC] as? [String:Any] else {
+                return
+            }
+            let font = UIFont.systemFont(ofSize: 14)
+
+            guard let title = addNoteCache["Title"] as? String else{
+                return
+            }
+            self.noteAddUIView.titleTextView.text = title
+            var text = title
+            var width = self.noteAddUIView.titleTextView.frame.size.width
+            var height = heightForView(text: text, font: font, width: width)
+            self.updateView(titleHeight : height)
+        self.noteAddUIView.heightConstraintOftitleTextView.constant = height + 50
+            guard let note = addNoteCache["Note"] as? String else{
+                return
+            }
+            self.noteAddUIView.noteTextView.text = note
+            text = note
+             width = self.noteAddUIView.noteTextView.frame.size.width
+            height = heightForView(text: text, font: font, width: width)
+            self.updateView(noteHeight : height)
+        self.noteAddUIView.heightConstraintOfNoteTextView.constant = height + 50
+            guard let data = addNoteCache["Image"] as? Data else{
+                return
+            }
+                guard let image = UIImage(data: data) else{
+                    return
+            }
+            self.noteAddUIView.imageView.image = image
+            updateView(imageHeight : image.size.height)
+
+                }
+            }
+
+

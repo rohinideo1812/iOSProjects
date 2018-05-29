@@ -57,7 +57,6 @@ class DashBoardViewController: UIViewController,ENSideMenuDelegate {
         
     }
     
-    
     func configureNavigationBar(){
         viewTypeBtn = UIBarButtonItem(image: UIImage(named: "ic_view_stream"), style: .plain, target: self, action: #selector(changeViewType))
         self.navigationItem.rightBarButtonItem = viewTypeBtn
@@ -112,7 +111,6 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         self.collectionView.reloadData()
     }
     
-    
     func setEmptyNotes() {
         
     }
@@ -126,7 +124,6 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NotesCell
         cell.configureData(note: notes[indexPath.row])
-
         return cell
     }
     
@@ -156,7 +153,6 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         }
         if let date = note.date {
             let font = UIFont.systemFont(ofSize: 12)
-
             let dateHeight = Helper.shared.getStringHeight(text: date, width: withWidth,font: font)
             height += dateHeight
         }
@@ -164,13 +160,25 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
      return height
     }
     
-   @objc func takeNoteButtonPress(){
-    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
-    self.navigationController?.pushViewController(newViewController, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
 
     }
     
+   @objc func takeNoteButtonPress(){
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
+   self.navigationController?.pushViewController(newViewController, animated: true)
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+navigationController?.navigationBar.barTintColor = UIColor.white
+    }
     
 }
 

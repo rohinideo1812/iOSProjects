@@ -20,7 +20,7 @@ extension Note {
     @NSManaged public var color: String?
     @NSManaged public var createDate: String?
     @NSManaged public var id: String?
-    @NSManaged public var imageUrl: String?
+    @NSManaged public var imageUrl: Data?
     @NSManaged public var isArchive: Bool
     @NSManaged public var isPin: Bool
     @NSManaged public var modifyDate: String?
