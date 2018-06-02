@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DatePickerDialog
 
 
 class Helper{
@@ -92,4 +93,52 @@ class Helper{
         UserDefaults.standard.set(dictionary, forKey: Constants.CacheKeys.FUNDOONTES)
         }
  
-}
+    
+    //Mark: Get Formated Date
+    func getFormatedDate()-> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    
+    //Mark: UIDatePicker
+    func openDialogFor(mode:UIDatePickerMode,title: String,format:String,callback: @escaping (_ returnString:String) -> Void){
+        let currentDate = Date()
+        var dateComponents = DateComponents()
+        dateComponents.month = -3
+        _ = Calendar.current.date(byAdding: dateComponents, to: currentDate)
+        
+        let datePicker = DatePickerDialog(textColor: .red,
+                                          buttonColor: .red,
+                                          font: UIFont.boldSystemFont(ofSize: 17),
+                                          showCancelButton: true)
+        
+        datePicker.show("\(title)",
+                        doneButtonTitle: "Done",
+                        cancelButtonTitle: "Cancel",
+                        minimumDate: nil,
+                        maximumDate: nil,
+                        datePickerMode: mode) { (date) in
+                            if let dt = date {
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "\(format)"
+                                if format == "hh:mm a"{
+                                    formatter.amSymbol = "AM"
+                                    formatter.pmSymbol = "PM"
+                                    let selectedTime = formatter.string(from: dt)
+                                    callback(selectedTime)
+                                }else{
+                                let selectedDate =  formatter.string(from: dt)
+                                    callback(selectedDate)
+                                }
+
+                            }
+        }
+    }
+    
+    
+    }
+

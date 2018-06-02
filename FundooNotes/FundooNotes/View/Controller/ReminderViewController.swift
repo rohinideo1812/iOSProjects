@@ -8,8 +8,11 @@
 
 import UIKit
 import XLActionController
-import DatePickerDialog
 
+//Mark: Protocol used for sending data back
+protocol ReminderSetDelegate: class {
+    func pressedCheckButton(info: String)
+}
 
 class ReminderViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -25,6 +28,8 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     var remindDate = ""
     var selectedIndexPath:IndexPath!
     let noteAdditionViewController = NoteAdditionViewController()
+    weak var delegate: ReminderSetDelegate? = nil
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
@@ -78,10 +83,10 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     }
     
-    
     @objc func checkBarButtonPress(){
         remindDate = selectedDate + "," + selectedTime + "," + repeatTime
-        noteAdditionViewController.remindDate = remindDate
+        print(remindDate)
+        delegate?.pressedCheckButton(info: remindDate)
         self.navigationController?.popViewController(animated: true)
 
     }
@@ -160,63 +165,22 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     func selectDate(){
-    let currentDate = Date()
-    var dateComponents = DateComponents()
-    dateComponents.month = -3
-        _ = Calendar.current.date(byAdding: dateComponents, to: currentDate)
-
-    let datePicker = DatePickerDialog(textColor: .red,
-                                      buttonColor: .red,
-                                      font: UIFont.boldSystemFont(ofSize: 17),
-                                      showCancelButton: true)
-        
-    datePicker.show("DatePickerDialog",
-    doneButtonTitle: "Done",
-    cancelButtonTitle: "Cancel",
-    minimumDate: nil,
-    maximumDate: nil,
-    datePickerMode: .date) { (date) in
-    if let dt = date {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-        self.selectedDate =  formatter.string(from: dt)
-        self.subtitles[self.selectedIndexPath.row] = self.selectedDate
-        self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
+        Helper.shared.openDialogFor(mode: .time, title: "Select Time", format: "hh:mm a", callback: { result in
+            self.selectedDate = result
+            self.subtitles[self.selectedIndexPath.row] = self.selectedDate
+            self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
+        })
     }
-    }
-}
 
-    
     func selectTime(){
-        let currentTime = Date()
-        var timeComponents = DateComponents()
-        timeComponents.month = -3
-        _ = Calendar.current.date(byAdding: timeComponents, to: currentTime)
-
-        let datePicker = DatePickerDialog(textColor: .red,
-                                          buttonColor: .red,
-                                          font: UIFont.boldSystemFont(ofSize: 17),
-                                          showCancelButton: true)
-        datePicker.show("DatePickerDialog",
-                        doneButtonTitle: "Done",
-                        cancelButtonTitle: "Cancel",
-                        minimumDate: nil,
-                        maximumDate: nil,
-                        datePickerMode: .time) { (time) in
-                            if let tme = time {
-                                let formatter = DateFormatter()
-                                formatter.dateFormat = "hh:mm a "
-                                formatter.amSymbol = "AM"
-                                formatter.pmSymbol = "PM"
-                                 self.selectedTime =  formatter.string(from: tme)
-                                    print("Selected Time",self.selectedTime)
-                                self.subtitles[self.selectedIndexPath.row] = self.selectedTime
-                                self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
-
-                            }
-        }
+  
+        Helper.shared.openDialogFor(mode: .time, title: "Select Time", format: "hh:mm a", callback: { result in
+            self.selectedTime = result
+            self.subtitles[self.selectedIndexPath.row] = self.selectedTime
+            self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
+        })
+        
     }
-    
     
     func setDate(increament : Int) {
     let date = Date()
@@ -255,7 +219,7 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
 
         self.subtitles[self.selectedIndexPath.row] = self.selectedTime
         self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
-
+        
     }
     
     func setRepeat(choice : Int){
@@ -273,6 +237,8 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
         self.subtitles[self.selectedIndexPath.row] = self.repeatTime
         self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)
     }
+    
+   
     
 }
 

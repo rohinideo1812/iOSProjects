@@ -40,7 +40,6 @@ class RegistrationViewController: UIViewController {
         let isEmailValid = validation?.isValidEmailAddress(emailAddressString: providedEmailAddress!)
         if isEmailValid == true {
             UserDataBase.sharedInstance.fetchUserData(email: emailTextField.text, callback: { isavailable,object   in
-                print(object)
                 if isavailable == false{
                     user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
                     UserDataBase.sharedInstance.insertUserData(object: user)
@@ -60,6 +59,7 @@ class RegistrationViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
         
     }
+    
     
     @IBAction func loginButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         let navigationController = UINavigationController(rootViewController: newViewController)
                         self.window!.rootViewController = navigationController
 
-                    }else{
+                    }else {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                         self.window?.rootViewController = newViewController

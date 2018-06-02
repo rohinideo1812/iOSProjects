@@ -9,14 +9,26 @@
 import UIKit
 import Foundation
 
-struct NotesJSON : Codable {
-    let title : String
-    let subtitle : String
-    let image : String
-}
-
 
 class NoteViewController: UIViewController,ENSideMenuDelegate{
+    
+    
+    //Mark: Properties
+    var name = ""
+    var email = ""
+    
+    
+    //Mark: IBOutlet
+    @IBOutlet weak var collectionView: UICollectionView!
+ 
+    //Mark: Action on takeNoteButtonPress
+    @IBAction func takeNoteButtonPress(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as! NoteAdditionViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+
+    }
+    
     func sideMenuWillOpen() {
         
     }
@@ -36,21 +48,6 @@ class NoteViewController: UIViewController,ENSideMenuDelegate{
     func sideMenuDidClose() {
         
     }
-    
-    
-    //Mark: IBOutlet
-    @IBOutlet weak var collectionView: UICollectionView!
- 
-    //Mark: Action on takeNoteButtonPress
-    @IBAction func takeNoteButtonPress(_ sender: UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as! NoteAdditionViewController
-        self.navigationController?.pushViewController(newViewController, animated: true)
-
-    }
-    //Mark: Properties
-    var name = ""
-    var email = ""
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +74,12 @@ class NoteViewController: UIViewController,ENSideMenuDelegate{
         print("Tapped")
     }
     
+    
     //Mark: Action on searchBarButtonPress
     @objc func searchBarButtonPress(){
         print("Tapped")
     }
+    
     
     //Mark: Action on navigatioBarButtonPress
     @objc func navigatioBarButtonPress(){

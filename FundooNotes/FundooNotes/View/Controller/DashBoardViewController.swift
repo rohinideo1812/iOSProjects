@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DashBoardViewController: UIViewController,ENSideMenuDelegate {
  
     @IBOutlet weak var dashboardBottomView: DashBoardBottomView!
@@ -19,10 +20,11 @@ class DashBoardViewController: UIViewController,ENSideMenuDelegate {
     let reuseIdentifier = "NotesCell"
     var viewTypeBtn:UIBarButtonItem!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self
-       configureNavigationBar()
+        configureNavigationBar()
         dashBoardPresenter.attachView(view: self)
         dashBoardPresenter.getNotes()
         dashboardBottomView.addNoteBtn.addTarget(self, action: #selector(takeNoteButtonPress), for: .touchUpInside)
@@ -60,7 +62,6 @@ class DashBoardViewController: UIViewController,ENSideMenuDelegate {
     func configureNavigationBar(){
         viewTypeBtn = UIBarButtonItem(image: UIImage(named: "ic_view_stream"), style: .plain, target: self, action: #selector(changeViewType))
         self.navigationItem.rightBarButtonItem = viewTypeBtn
-        
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width:2.0,height: 2.0)
         self.navigationController?.navigationBar.layer.shadowRadius = 4.0
@@ -161,23 +162,28 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
+        newViewController.isUpdate = true
+        newViewController.noteObject = notes[indexPath.item]
         self.navigationController?.pushViewController(newViewController, animated: true)
 
     }
     
    @objc func takeNoteButtonPress(){
+    NoteDataBase.sharedInstance.removeNotesFromDB()
+    print("Notes",notes)
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
+    
    self.navigationController?.pushViewController(newViewController, animated: true)
 
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-navigationController?.navigationBar.barTintColor = UIColor.white
+     navigationController?.navigationBar.barTintColor = UIColor.white
+        
     }
     
 }

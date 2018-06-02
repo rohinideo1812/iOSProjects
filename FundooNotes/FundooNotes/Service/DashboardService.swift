@@ -9,17 +9,12 @@
 import Foundation
 import UIKit
 
-struct NoteItem {
-    let title : String?
-    let image : UIImage?
-    let date : String?
-    let subtitle : String?
-}
+
 class DashBoardService {
     
     func getNotes(callBack:([NoteItem]) -> Void){
-
         let notes = NoteDataBase.sharedInstance.fetchNoteData()
+        print("Notes-------------------------------",notes)
         callBack(notes)
     }
 }

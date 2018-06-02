@@ -44,7 +44,6 @@ class UserDataBase {
     //MARK: Fetch User Data
     func fetchUserData(email : String?,callback: (_ isAvailable :Bool,_ object : UserModel?) -> Void){
     
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.predicate = NSPredicate(format: "email = %@", email!)
         request.returnsObjectsAsFaults = false
@@ -73,11 +72,8 @@ class UserDataBase {
             }
         
         }catch {
-            
             print("Failed")
         }
-
 }
-   
-
+  
 }

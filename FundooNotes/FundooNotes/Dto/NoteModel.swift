@@ -9,12 +9,23 @@
 import Foundation
 import UIKit
 
-struct NoteModel {
+
+struct NoteItem {
     let title : String?
-    let note : String?
+    let subtitle : String?
     let image : UIImage?
     let isPin : Bool?
     let isArchive : Bool?
     let remindDate : String?
+    let date : String?
+    let id : String?
+    
 }
 
+
+struct NoteToDisplay {
+    let title : String?
+    let subtitle : String?
+    let image : UIImage?
+    let date : String?
+}
