@@ -1,11 +1,3 @@
-//
-//  MyMenuTableViewController.swift
-//  SwiftSideMenu
-//
-//  Created by Evgeny Nazarov on 29.09.14.
-//  Copyright (c) 2014 Evgeny Nazarov. All rights reserved.
-//
-
 import UIKit
 
 class MyMenuTableViewController: UITableViewController {
@@ -16,6 +8,8 @@ class MyMenuTableViewController: UITableViewController {
     let imagearray = ["ic_lightbulb_outline","ic_touch_app","ic_add","ic_archive","ic_delete","ic_settings","ic_help"]
     var name = ""
     var email = ""
+    var delegate:MenuDelegate?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +57,6 @@ class MyMenuTableViewController: UITableViewController {
         cell!.imageView?.image  = UIImage(named : imagedata)
         return cell!
         }else {
-           
             cell?.imageView?.image = UIImage(named : "ic_signout")
             cell?.textLabel?.text = "SignOut"
             return cell!
@@ -80,55 +73,43 @@ class MyMenuTableViewController: UITableViewController {
         
         selectedMenuItem = indexPath.row
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        var destViewController : UIViewController
         if (indexPath.section == 0){
             switch (indexPath.row) {
                 case 0:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "DashBoardViewController")
-                break
+                    delegate?.sideMenuDidSelected(noteType: .notes)
+                    break
                 case 1:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc2")
-                break
-                case 2:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc3")
-                break
+                    delegate?.sideMenuDidSelected(noteType: .reminders)
+                    break
                 case 3:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc4")
-                break
+                    delegate?.sideMenuDidSelected(noteType: .archive)
+                    break
                 case 4:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc5")
-                break
-                case 5:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc6")
-                break
-                case 6:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc7")
-                break
-       
+                    delegate?.sideMenuDidSelected(noteType: .delete)
+                    break
                 default:
-                destViewController = mainStoryboard.instantiateViewController(withIdentifier: "vc7")
                 break
-                }
-            sideMenuController()?.setContentViewController(destViewController)
-
-            }  else if indexPath.section == 1{
+            }
+            sideMenuController()?.sideMenu?.toggleMenu()
+        }else if indexPath.section == 1{
                 switch(indexPath.row){
                 case 0 :
                     let alert = UIAlertController(title: "Alert Message", message: "Do you want to sign out", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                        ApUtil.shareInstance.setDefaultValue(email: nil)
+                        AppUtil.shareInstance.setUserCredential(email: nil,password: nil)
+                        AppUtil.shareInstance.setUser(currentUser: nil)
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as!  ViewController
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as!  LoginViewController
                         self.present(newViewController, animated: true, completion: nil)
                     }))
                     
                 default:
                     break
-                }
-        }            }
-    
 
+            
+        }            }
+
+}
 }

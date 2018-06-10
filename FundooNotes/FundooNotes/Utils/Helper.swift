@@ -1,11 +1,3 @@
-//
-//  Helper.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 23/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import DatePickerDialog
@@ -33,6 +25,7 @@ class Helper{
     
     }
     
+    
     //Mark: Get String Height of Attributed Text
      func getAttributedStringHeight(text:NSAttributedString,width:CGFloat) -> CGFloat {
         let label = UILabel()
@@ -53,6 +46,7 @@ class Helper{
         return newSize.height
     }
     
+    
     //Mark: Get attributed String
     func getAttributedString(mTitle:String?,mSubtitle:String?) -> NSAttributedString{
         var normalStr = NSMutableAttributedString()
@@ -71,6 +65,7 @@ class Helper{
         return boldStr
     }
     
+    
     //Mark: Get Cache Data
     func getUserDefaultInstance() -> [String:Any]{
         let defaults = UserDefaults.standard
@@ -81,6 +76,7 @@ class Helper{
             return [:]
         }
     }
+    
     
     //Mark: Remove Cache Data
     func updateUserDefaultVCData(forKey : String,value:Any){
@@ -139,6 +135,16 @@ class Helper{
         }
     }
     
+    func getIndexPathRow(selectedNotes:[IndexPath])->[Int]{
+        var selectedRows = [Int]()
+        for selectedPosition in selectedNotes{
+            let row = selectedPosition[0]
+            let column = selectedPosition[1]
+            let indexpathrow = (2 * row + column)
+            selectedRows.append(indexpathrow)
+        }
+        return selectedRows
+    }
     
     }
 

@@ -1,11 +1,3 @@
-//
-//  NoteDataBase.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 28/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import Foundation
 import CoreData
 import UIKit
@@ -20,59 +12,74 @@ class NoteDataBase {
     
     
     //MARK: Insert Note Data
-    func insertNoteData(object : NoteItem?) {
-        print("Insert Note Data")
-        let note = Note(context: appDelegate.persistentContainer.viewContext)
-        if let title = object?.title {
-            note.title = title
+    func insertNoteData(object : NoteItem?,callback:(_ result:Bool,_ message:String)->Void) {
+        if let user = AppUtil.shareInstance.getUser(){
+            print("Insert Note Data")
+            let note = Note(context: appDelegate.persistentContainer.viewContext)
+            if let title = object?.title {
+                note.title = title
+            }
+            if let subtitle = object?.subtitle {
+                note.subtitle = subtitle
+            }
+            if let image = object?.image{
+                let imageToBeStored = UIImageJPEGRepresentation(image, 1)
+                note.imageUrl = imageToBeStored
+                
+            }
+            if let id = object?.id{
+                note.id = id
+            }
+            if let date = object?.date{
+                note.createDate = date
+                note.modifyDate = date
+            }
+            if let remindDate = object?.remindDate{
+                note.remindDate = remindDate
+            }
+            if let isPin = object?.isPin{
+                note.isPin = isPin
+            }
+            if let isArchive = object?.isArchive{
+                note.isArchive = isArchive
+            }
+            if let isDelete = object?.isDelete{
+                note.isDelete = isDelete
+            }
+            
+            note.user = user
+            note.color = ""
+            appDelegate.saveContext()
+            print("Data Saved")
+            callback(true,"Note Added SuccessFully")
         }
-        if let subtitle = object?.subtitle {
-            note.subtitle = subtitle
-        }
-        if let image = object?.image{
-            let imageToBeStored = UIImageJPEGRepresentation(image, 1)
-            note.imageUrl = imageToBeStored
+        else{
             
         }
-        if let id = object?.id{
-            note.id = id
-        }
-        if let date = object?.date{
-            note.createDate = date
-            note.modifyDate = date
-        }
-        if let remindDate = object?.remindDate{
-            note.remindDate = remindDate
-        }
-        if let isPin = object?.isPin{
-            note.isPin = isPin
-        }
-        if let isArchive = object?.isArchive{
-            note.isArchive = isArchive
-        }
-        note.color = ""
-        appDelegate.saveContext()
-        print("Data Saved")
     }
-    
     
     //MARK: Fetch Note Data
     func fetchNoteData()->[NoteItem]{
-        var notes = [NoteItem]()
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        request.returnsObjectsAsFaults = false
-        do {
-        let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [Note]
-            for data in result{
-                let noteobj =  getNoteObject(note : data)
-                notes.append(noteobj)
+        if let user = AppUtil.shareInstance.getUser(){
+            var notes = [NoteItem]()
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+            request.predicate = NSPredicate(format: "user = %@",user)
+            request.returnsObjectsAsFaults = false
+            do {
+            let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [Note]
+                for data in result{
+                    let noteobj =  getNoteObject(note : data)
+                    notes.append(noteobj)
+                }
+            } catch {
+                print("Failed")
             }
-        } catch {
-            print("Failed")
-        }
-        return notes
+            return notes
+
+        }else{
+                return []
+            }
     }
-    
     
     //Mark: Get Note Object
     func getNoteObject(note : Note)->NoteItem{
@@ -105,31 +112,45 @@ class NoteDataBase {
             isArchive = note.isArchive
             remindDate = note.remindDate
 
-        let noteItem = NoteItem(title: title, subtitle: subtitle,image: image,isPin: isPin,isArchive: isArchive,remindDate: remindDate,date: date,id: id)
+        let noteItem = NoteItem(title: title, subtitle: subtitle,image: image,isPin: isPin,isArchive: isArchive,remindDate: remindDate,date: date,id: id,isDelete : false)
         return noteItem
     }
     
     
     //Mark: Remove DB
     func removeNotesFromDB(){
-        let context = appDelegate.persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch {
-            print ("There was an error")
-        }
-
+        if let user = AppUtil.shareInstance.getUser(){
+            let context = appDelegate.persistentContainer.viewContext
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+            deleteFetch.predicate = NSPredicate(format: "user = %@",user)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+            } catch {
+                print ("There was an error")
+            }
+    }
     }
     
+    
+    func updateNotes(objects : [NoteItem],callback:(_ result:Bool,_ message:String)->Void){
+        
+        for note in objects{
+            updateNoteData(object: note, callback: { success,message in
+                print(success)
+            })
+        }
+        callback(true, "Updated")
+        
+    }
+
+    
     //Mark: Update Note in DB
-    func updateNoteData(id: String,object : NoteItem?){
+    func updateNoteData(object : NoteItem?,callback:(_ result:Bool,_ message:String)->Void){
+        if let user = AppUtil.shareInstance.getUser(){
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        request.predicate = NSPredicate(format: "id = %@", (object?.id!)!)
-        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "user = %@ && id=%@",user,(object?.id!)!)
         do {
             let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [Note]
             if result.count > 0{
@@ -156,14 +177,24 @@ class NoteDataBase {
                 if let remindDate = object?.remindDate{
                     updateNote.setValue(remindDate, forKey: "remindDate")
                 }
+                if let delete = object?.isDelete{
+                    updateNote.setValue(delete, forKey: "isDelete")
+                    //updateNote.setValue("DELETE CHANGES SAVED", forKey: "title")
+                }
             }
             appDelegate.saveContext()
-
+           // let notess = fetchNoteData()
+          //  print(notess)
+            callback(true,"Note Updated Successfully")
         }catch {
             
             print("Failed")
         }
-        
+        }
     }
     
 }
+
+
+
+

@@ -23,6 +23,7 @@ extension Note {
     @NSManaged public var imageUrl: Data?
     @NSManaged public var isArchive: Bool
     @NSManaged public var isPin: Bool
+    @NSManaged public var isDelete: Bool
     @NSManaged public var modifyDate: String?
     @NSManaged public var remindDate: String?
     @NSManaged public var subtitle: String?

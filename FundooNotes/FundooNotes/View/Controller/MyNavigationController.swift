@@ -1,11 +1,3 @@
-//
-//  MyNavigationController.swift
-//  SwiftSideMenu
-//
-//  Created by Evgeny Nazarov on 30.09.14.
-//  Copyright (c) 2014 Evgeny Nazarov. All rights reserved.
-//
-
 import UIKit
 
 class MyNavigationController: ENSideMenuNavigationController {
@@ -22,7 +14,8 @@ class MyNavigationController: ENSideMenuNavigationController {
         myMenuTableViewController.name = name
         
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController:myMenuTableViewController, menuPosition:.left)
-        sideMenu?.menuWidth = (85 * self.view.frame.size.width) / 100
+        
+        sideMenu?.menuWidth = 150
         sideMenu?.bouncingEnabled = false
         view.bringSubview(toFront: navigationBar)
     }
@@ -30,6 +23,11 @@ class MyNavigationController: ENSideMenuNavigationController {
 
 
 extension MyNavigationController: ENSideMenuDelegate {
+    func sideMenuDidSelected(type: NoteType) {
+        
+        
+    }
+    
     func sideMenuWillOpen() {
         print("sideMenuWillOpen")
     }
@@ -49,4 +47,5 @@ extension MyNavigationController: ENSideMenuDelegate {
     func sideMenuShouldOpenSideMenu() -> Bool {
         return true
     }
+    
 }

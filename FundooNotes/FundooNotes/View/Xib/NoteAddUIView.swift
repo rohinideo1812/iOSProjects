@@ -1,12 +1,6 @@
-//
-//  NoteAddUIView.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 18/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
+import UITextView_Placeholder
+
 
 class NoteAddUIView: UIView{
   
@@ -22,8 +16,6 @@ class NoteAddUIView: UIView{
     override init(frame : CGRect){
         super.init(frame: frame)
         commonInit()
-    //        UIColor(hexString: "")
-
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +28,10 @@ class NoteAddUIView: UIView{
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth,.flexibleWidth]
+        titleTextView.placeholder = "Title"
+        noteTextView.placeholder = "Note"
     
     }
+    
     
 }

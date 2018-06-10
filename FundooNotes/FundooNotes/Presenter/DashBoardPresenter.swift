@@ -1,22 +1,12 @@
-//
-//  DashBoardPresenter.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 22/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import Foundation
 
-protocol DashBoardView: NSObjectProtocol {
-    func startLoading()
-    func finishLoading()
-    func setNoteItems(notes: [NoteItem])
-    func setEmptyNotes()
-}
+
     class DashBoardPresenter {
+  
         private let dashBoardService:DashBoardService
+        var userEnteredString:String?
         weak private var dashBoardView : DashBoardView?
+        
         init(dashBoardService:DashBoardService){
             self.dashBoardService = dashBoardService
         }
@@ -29,18 +19,30 @@ protocol DashBoardView: NSObjectProtocol {
             dashBoardView = nil
         }
         
-        func getNotes(){
+        func getNotes(type:NoteType){
+            dashBoardService.userenteredString = userEnteredString
             self.dashBoardView?.startLoading()
-            dashBoardService.getNotes{ [weak self] notes in
+             dashBoardService.getNotes(noteType: type){ [weak self] notes in
                 self?.dashBoardView?.finishLoading()
                 if(notes.count == 0){
-                    self?.dashBoardView?.setEmptyNotes()
+                    self?.dashBoardView?.setNoteItems(notes: [])
                 }else{
                     self?.dashBoardView?.setNoteItems(notes: notes)
                     }
                 }
             }
         
+        func updateNote(object:NoteItem?){
+            self.dashBoardView?.startLoading()
+            dashBoardService.updateNoteData(object: object,callback: {result,message in
+                print(message)
+            })
+        }
+        
+        func updateNotes(objects:[NoteItem]){
+            self.dashBoardView?.startLoading()
+            dashBoardService.updateNotes(objects: objects,callback: {result,message in
+                print(message)
+            })
+        }
 }
-
-

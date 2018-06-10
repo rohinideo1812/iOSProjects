@@ -8,19 +8,41 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-//    var user:User?
+    var user:User?
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//            checkLogedIn()
-        
-        // Override point for customization after application launch.
+        checkLogedIn()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound],completionHandler: { (granted,error) in
+            print(granted)
+            UNUserNotificationCenter.current().delegate = self
+            // Override point for customization after application launch.
+            
+        })
         return true
+
     }
 
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.notification.request.identifier == "TestIdentifier" {
+            print("handling notifications with the TestIdentifier Identifier")
+            completionHandler()
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.badge,.sound])
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -33,10 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -89,35 +114,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
     func checkLogedIn(){
-        let getEmail =  ApUtil.shareInstance.getDefaultValue()
-        if let checkEmail = getEmail {
-            if checkEmail != nil {
-                UserDataBase.sharedInstance.fetchUserData(email: checkEmail, callback: {isavailable,object in
-                    if isavailable{
-                        var firstName = object?.firstName
-                        var lastName = object?.lastName
-                        firstName = firstName?.uppercased()
-                        lastName = lastName?.uppercased()
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
-                        if let fName = firstName ,let lName = lastName ,let email = object?.email {
-                                newViewController.name = fName + " " + lName
-                                newViewController.email = email
-                            }
-                        let navigationController = UINavigationController(rootViewController: newViewController)
-                        self.window!.rootViewController = navigationController
+        let getEmail = AppUtil.shareInstance.getUserCredential().email
+        let getPassword = AppUtil.shareInstance.getUserCredential().password
 
+      if let checkEmail = getEmail, let checkPassword = getPassword{
+                UserDataBase.sharedInstance.checkUser(email: checkEmail,password: checkPassword,callback: {isavailable,object in
+                    if isavailable{
+                     let mainVC = AppUtil.shareInstance.getMainVC()
+                        self.window?.rootViewController = mainVC
                     }else {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                         self.window?.rootViewController = newViewController
-                        
+
                     }
                 })
             }
         }
     }
 
-}
+
 

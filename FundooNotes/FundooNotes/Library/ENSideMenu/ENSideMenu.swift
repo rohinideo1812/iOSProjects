@@ -1,13 +1,12 @@
-//
-//  SideMenu.swift
-//  SwiftSideMenu
-//
-//  Created by Evgeny on 24.07.14.
-//  Copyright (c) 2014 Evgeny Nazarov. All rights reserved.
-//
-
 import UIKit
-
+ enum NoteType{
+    case notes
+    case reminders
+    case archive
+    case delete
+    case search
+    
+}
 public protocol ENSideMenuDelegate: class {
     func sideMenuWillOpen()
     func sideMenuWillClose()
@@ -123,7 +122,7 @@ public extension UIViewController {
 
 open class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
     /// The width of the side menu view. The default value is 160.
-    open var menuWidth : CGFloat = 160.0 {
+    open var menuWidth : CGFloat = (UIScreen.main.bounds.width * 70)/100 {
         didSet {
             needUpdateApperance = true
             updateSideMenuApperanceIfNeeded()

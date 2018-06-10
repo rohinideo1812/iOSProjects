@@ -1,11 +1,3 @@
-//
-//  DatabaseManager.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 25/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import Foundation
 import CoreData
 import UIKit
@@ -21,7 +13,7 @@ class UserDataBase {
     
 
     //MARK: Insert User Data
-    func insertUserData(object : UserModel?) {
+    func insertUserData(object : UserModel?,callback:(_ result:Bool,_ message:String)->Void){
         let user = User(context: appDelegate.persistentContainer.viewContext)
 
         if let firstName = object?.firstName {
@@ -37,22 +29,25 @@ class UserDataBase {
             user.password = password
         }
         appDelegate.saveContext()
-
+        callback(true,"SuccessFull Registration")
     }
-    
+
     
     //MARK: Fetch User Data
-    func fetchUserData(email : String?,callback: (_ isAvailable :Bool,_ object : UserModel?) -> Void){
-    
+    func checkUser(email:String,password:String,callback: (_ isAvailable :Bool,_ message : String) -> Void){
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        request.predicate = NSPredicate(format: "email = %@", email!)
+        request.predicate = NSPredicate(format: "email = %@ && password = %@", email,password)
         request.returnsObjectsAsFaults = false
         do {
+            
         let result1 = try appDelegate.persistentContainer.viewContext.fetch(request) as! [User]
+            
             if result1.count == 1{
-                let user1 = result1[0]
-                //logic for store user
-                print(user1.firstName)
+                let currentUser = result1[0]
+                
+            AppUtil.shareInstance.setUserCredential(email:currentUser.email, password:currentUser.password )
+            AppUtil.shareInstance.setUser(currentUser: currentUser)
             }
             let result = try appDelegate.persistentContainer.viewContext.fetch(request) as! [NSManagedObject]
             for obj in result{
@@ -65,15 +60,36 @@ class UserDataBase {
                 let password =  ((user as AnyObject).value(forKey: "password"))
                 let email = ( (user as AnyObject).value(forKey: "email"))
                 userdata = UserModel(firstName: firstName as! String, lastName: lastName as! String, email: email as! String, password: password as! String)
-                callback(true,userdata)
+                callback(true,"Successfull Login")
                 
             }else{
-                callback(false,userdata)
+                callback(false,"User with this id does not exists.Please register to login!!!")
             }
         
         }catch {
             print("Failed")
         }
 }
+    
+    
+    //Mark: Remove DB
+    func removeUsersFromDB(){
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            let result = try context.fetch(fetchRequest) as! [User]
+            for user in result{
+                context.delete(user)
+                
+            }
+            try context.save()
+            //try context.execute(fetchRequest)
+            //try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
   
 }

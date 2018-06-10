@@ -1,14 +1,8 @@
-//
-//  RegistrationViewController.swift
-//  LoginAndRegistration
-//
-//  Created by BridgeLabz on 20/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
+import Foundation
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController,SignUpView {
+  
    
     //Mark: IBOutlet
     @IBOutlet weak var signUpButton: UIButton!
@@ -16,55 +10,55 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var mobileTextField: UITextField!
     
     //Mark: Properties
     var defaults = UserDefaults.standard
-    var obj  = HomeDashBoard()
-    var validation : ValidationUtil?
-    var viewutil : viewUtil?
     var user : UserModel?
-    
+    var signUpPresenter:SignUpPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUpPresenter = SignUpPresenter(signUpService:SignUpService())
         signUpButton.layer.cornerRadius = 5
         passwordTextField.isSecureTextEntry = true
-        
+        signUpPresenter?.attachView(view: self)
+
     }
     
     
-    @IBAction func signUpButton(_ sender: UIButton) {
-        validation = ValidationUtil()
-        let providedEmailAddress = emailTextField.text
-        let isEmailValid = validation?.isValidEmailAddress(emailAddressString: providedEmailAddress!)
-        if isEmailValid == true {
-            UserDataBase.sharedInstance.fetchUserData(email: emailTextField.text, callback: { isavailable,object   in
-                if isavailable == false{
-                    user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
-                    UserDataBase.sharedInstance.insertUserData(object: user)
-                }else{
-                    viewutil = viewUtil()
-                    viewutil?.alertMessageDisplay(target: self, title: "ALERT!", message:"Emailid with this name already exists" )
-                }
-                }
-            )
-   }
-        else {
-            viewutil = viewUtil()
-            viewutil?.alertMessageDisplay(target: self, title: "ALERT!", message:"Enter the email with proper format" )
-        }
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeDashBoard") as!  HomeDashBoard
-        self.present(newViewController, animated: true, completion: nil)
+    func startLoading() {
         
     }
     
+    func finishLoading() {
+        
+    }
     
-    @IBAction func loginButton(_ sender: Any) {
+    func showMessage(message: String) {
+        ViewUtil.shareInstance.alertMessageDisplay(target: self, title: "Alert!", message: message)
+    }
+    
+    func messageAfterRegistration(message:String) {
+        let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as!  ViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as!  LoginViewController
         self.present(newViewController, animated: true, completion: nil)
+        
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    
+    //Mark: Action on SignUpButton Press
+    @IBAction func loginButtonPress(_ sender: UIButton) {
+    user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
+    signUpPresenter?.signUp(object:user )
+    }
+    
+    //Mark: Action on LoginButtonPress
+    @IBAction func alreadySignedIn(_ sender: Any) {
+         self.dismiss(animated: true, completion: nil)
         
     }
 }

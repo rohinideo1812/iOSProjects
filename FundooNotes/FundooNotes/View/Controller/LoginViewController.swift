@@ -1,15 +1,7 @@
-//
-//  ViewController.swift
-//  LoginAndRegistration
-//
-//  Created by BridgeLabz on 19/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
-    var viewutil = viewUtil()
+class LoginViewController: UIViewController,LoginView {
+    
     
     //Mark : IBOutlet
     @IBOutlet weak var signUpButton: UIButton!
@@ -20,16 +12,49 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     
+    //Mark: Properties
+    var loginPresenter:LoginPresenter?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginPresenter = LoginPresenter(loginService:LoginService())
+        loginPresenter?.attachView(view: self)
         signUpButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
         facebookButton.alpha = 0
         googleButton.alpha = 0
         loginLabel.alpha = 0
     }
+   
+    
+    func openDashBoard() {
+        self.present(AppUtil.shareInstance.getMainVC(), animated: true, completion: nil)
+    }
+    
+    func startLoading() {
+        
+    }
+    
+    func finishLoading() {
+        
+    }
+    
+    func showMessage(message: String) {
+        ViewUtil.shareInstance.alertMessageDisplay(target: self, title: "Alert!", message: message)
+    }
+    
+    func messageAfterRegistration(message: String) {
+        let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+            let myNavVC = AppUtil.shareInstance.getMainVC()
+            self.present(myNavVC, animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
+    }
     
     
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField{
         userNameTextField.resignFirstResponder()
@@ -40,26 +65,16 @@ class ViewController: UIViewController {
         return true
     }
 
+    
     //Mark : Action on loginButonPress
     @IBAction func loginButonAction(_ sender: UIButton) {
-    UserDataBase.sharedInstance.fetchUserData(email: userNameTextField.text,callback: {isavailable,object in
-            if isavailable{
-            
-         ApUtil.shareInstance.setDefaultValue(email: userNameTextField.text)
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeDashBoard") as! HomeDashBoard
-                newViewController.text = object?.firstName
-                self.present(newViewController, animated: true, completion: nil)
-            }else{
-            viewutil.alertMessageDisplay(target: self, title: "Title ", message: "You have not registred\nPlease signup to register")
-            }
-        })
+        
+        loginPresenter?.login(email: userNameTextField.text!, password: passwordTextField.text!)
     }
     
     
     //Mark : Action on signUpButonPress
     @IBAction func signUpButton(_ sender: UIButton) {
-        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.present(newViewController, animated: true, completion: nil)

@@ -1,18 +1,6 @@
-//
-//  ReminderViewController.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 20/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 import XLActionController
 
-//Mark: Protocol used for sending data back
-protocol ReminderSetDelegate: class {
-    func pressedCheckButton(info: String)
-}
 
 class ReminderViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     

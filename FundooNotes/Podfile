@@ -9,6 +9,8 @@ target 'FundooNotes' do
   #pod 'SwipeMenuViewController'
   pod 'XLActionController/Youtube'
   pod 'DatePickerDialog'
+  pod 'UITextView+Placeholder'
+
   target 'FundooNotesTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,22 +1,26 @@
 PODS:
   - DatePickerDialog (2.0)
+  - "UITextView+Placeholder (1.2.0)"
   - XLActionController/Core (4.0.1)
   - XLActionController/Youtube (4.0.1):
     - XLActionController/Core
 
 DEPENDENCIES:
   - DatePickerDialog
+  - "UITextView+Placeholder"
   - XLActionController/Youtube
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DatePickerDialog
+    - "UITextView+Placeholder"
     - XLActionController
 
 SPEC CHECKSUMS:
   DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
+  "UITextView+Placeholder": 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   XLActionController: 007868251c0eed70d649d06c1625259b73b3a600
 
-PODFILE CHECKSUM: 1e128f46751eca615b438ce1476e1a3fb940cede
+PODFILE CHECKSUM: effe298058072b6ce47706cf94af98cce866dae7
 
 COCOAPODS: 1.5.2

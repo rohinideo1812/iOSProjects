@@ -1,16 +1,9 @@
-//
-//  NoteAdditionViewController.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 21/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 import XLActionController
 
-class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate {
-   
+class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate,AddNoteView {
+ 
+    
     //Mark: IBOutlet
     @IBOutlet weak var heightConstraintOfView: NSLayoutConstraint!
     @IBOutlet weak var addNoteBottomView: AddNoteBottomView!
@@ -20,27 +13,45 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     //Mark: Properties
     let imagePicker = UIImagePickerController()
     var isBottonMenuVisible = true
-    var note : NoteItem?
-    var isPin = false
-    var isArchive = false
+    var isPin:Bool!
+    var isArchive:Bool!
     var remindDate : String?
     var dictionary = [String : Any]()
     var noteObject : NoteItem!
     var isUpdate = false
     var archiveBarButton : UIBarButtonItem!
     var pinBarButton : UIBarButtonItem!
+    let font = UIFont.systemFont(ofSize: 14)
+    var addNotePresenter:AddNotePresenter?
+    
     
     //Mark: Protocol Stub
     func pressedCheckButton(info: String) {
         remindDate = info
     }
     
+    func startLoading() {
+        
+    }
+    
+    func finishLoading() {
+        
+    }
+    
+    func showMessage(message: String) {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotePresenter = AddNotePresenter(addnoteService:AddNoteService())
+        addNotePresenter?.attachView(view: self)
         imagePicker.delegate = self
         configureNavigationBar()
+        setData()
         updateView()
+        initializeView()
         setTextFieldDelegates()
         addNoteBottomView.leftBottomMenuButton.addTarget(self, action: #selector(leftBottomButtonPress), for: .touchUpInside)
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -71,23 +82,19 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     
     @objc func backBarButtonPress(){
-
-        
-        print("-----------------------------------------------",isUpdate)
+        addNotePresenter?.attachView(view: self)
         if isUpdate == false{
         let id = NSUUID().uuidString
         let date = Helper.shared.getFormatedDate()
-        note = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: id)
-        NoteDataBase.sharedInstance.insertNoteData(object: note)
-        Helper.shared.updateUserDefaultVCData(forKey: Constants.CacheKeys.ADD_NOTE_VC, value: [:])
+        noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
+            addNotePresenter?.addNote(object: self.noteObject)
 
         }else {
             let date = Helper.shared.getFormatedDate()
-            isPin = noteObject.isPin!
-            isArchive = noteObject.isArchive!
-            note = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject.id)
-            NoteDataBase.sharedInstance.updateNoteData(id: noteObject.id!, object: note)
-            Helper.shared.updateUserDefaultVCData(forKey: Constants.CacheKeys.ADD_NOTE_VC, value: [:])
+            archiveBarButtonPress()
+            pinBarButtonPress()
+            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject?.id,isDelete : false)
+            addNotePresenter?.updateNote(object:self.noteObject)
 
         }
         
@@ -120,14 +127,17 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     //Mark: Action on pinBarButtonPress
     @objc func pinBarButtonPress(){
-        isPin = isPin ? false : true
-        pinBarButton.tintColor = isPin ? UIColor.black : UIColor.blue
+        self.isPin = self.isPin ? false : true
+        pinBarButton.tintColor = self.isPin ? UIColor.blue : UIColor.black
+        
    }
     
     
     //Mark: Action on archiveBarButtonPress
     @objc func archiveBarButtonPress(){
-        checkIsArchive()
+        isArchive =  isArchive ? false : true
+        archiveBarButton.tintColor = isArchive ?  UIColor.blue : UIColor.black
+        
     }
     
     
@@ -143,9 +153,9 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         }
         if let image = noteAddUIView.imageView.image{
     dictionary.updateValue(UIImagePNGRepresentation(image), forKey: "Image")
+            
         }
-        
-        Helper.shared.updateUserDefaultVCData(forKey:Constants.CacheKeys.ADD_NOTE_VC , value: dictionary)
+    Helper.shared.updateUserDefaultVCData(forKey:Constants.CacheKeys.ADD_NOTE_VC , value: dictionary)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ReminderViewController") as! ReminderViewController
         newViewController.delegate = self
@@ -159,6 +169,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             let newImage = Helper.shared.getScaledImage(image: pickedImage, width: view.frame.size.width)
             self.noteAddUIView.imageView.contentMode = .scaleAspectFit
             self.noteAddUIView.imageView.image = newImage
+            
             updateView()
         }
         dismiss(animated: true, completion: nil)
@@ -173,24 +184,10 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         return true
     }
     
-        
-    func textViewDidBeginEditing(_ textView : UITextView){
-        setPlaceholderText(textview: textView)
-        
-    }
-    
-        
-    func textViewDidEndEditing(_ textView : UITextView){
-        setPlaceholderText(textview: textView)
-        
-
-    }
-    
-        
+ 
     func textViewDidChange(_ textView: UITextView) {
         var text = ""
         var width : CGFloat = 0
-        let font = UIFont.systemFont(ofSize: 14)
         if textView.tag == 1{
             text = self.noteAddUIView.titleTextView.text
             width = self.noteAddUIView.titleTextView.frame.size.width
@@ -204,7 +201,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             self.updateView()
         self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
         }
-        
+    
         if textView.tag == 1{
             setTextViewSize(textview: textView)
         }else if textView.tag == 2{
@@ -268,26 +265,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             
         }
 
-        
-    //Mark: Set PlaceHolder to TextView
-    func setPlaceholderText(textview : UITextView){
-            if textview.tag == 2 {
-                if textview.text == "" {
-                    textview.text = "Note"
-                }else if textview.text == "Note"{
-                    textview.text = ""
-                    
-                }
-            } else if textview.tag == 1{
-                if textview.text == ""{
-                    textview.text = "Title"
-                }else if textview.text == "Title"{
-                    textview.text = ""
-                }
-            }
-}
-        
-        
+
         //Mark: Set TextView Size
         func setTextViewSize(textview : UITextView){
             if textview.contentSize.height > textview.frame.size.height {
@@ -314,51 +292,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         }
         
         private func setData(){
-            if <#condition#> {
-                <#code#>
-            }
-        }
-
-        
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            setData()
-           navigationController?.navigationBar.barTintColor = UIColor.white
-            var cacheData = Helper.shared.getUserDefaultInstance();
-            let font = UIFont.systemFont(ofSize: 14)
-
-            if isUpdate == false {
-            guard let addNoteCache = cacheData[Constants.CacheKeys.ADD_NOTE_VC] as? [String:Any] else {
-                return
-            }
-
-            guard let title = addNoteCache["Title"] as? String else{
-                return
-            }
-            self.noteAddUIView.titleTextView.text = title
-            var text = title
-            var width = self.noteAddUIView.titleTextView.frame.size.width
-            var height = heightForView(text: text, font: font, width: width)
-            self.updateView()
-            self.noteAddUIView.heightConstraintOftitleTextView.constant = height + 50
-            guard let note = addNoteCache["Note"] as? String else{
-                return
-            }
-            self.noteAddUIView.noteTextView.text = note
-            text = note
-            width = self.noteAddUIView.noteTextView.frame.size.width
-            height = heightForView(text: text, font: font, width: width)
-            self.updateView()
-        self.noteAddUIView.heightConstraintOfNoteTextView.constant = height + 50
-            guard let data = addNoteCache["Image"] as? Data else{
-                return
-            }
-                guard let image = UIImage(data: data) else{
-                    return
-            }
-            self.noteAddUIView.imageView.image = image
-            updateView()
-            } else if isUpdate == true{
+            if isUpdate == true{
                 guard let title = noteObject.title else{
                     return
                 }
@@ -372,28 +306,39 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                     return
                 }
                 self.noteAddUIView.noteTextView.text = subtitle
-                 text = subtitle
-                 width = self.noteAddUIView.noteTextView.frame.size.width
-                 height = heightForView(text: text, font: font, width: width)
+                text = subtitle
+                width = self.noteAddUIView.noteTextView.frame.size.width
+                height = heightForView(text: text, font: font, width: width)
                 self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
                 self.updateView()
                 guard let image = noteObject.image else{
                     return
                 }
                 self.noteAddUIView.imageView.image = image
-            self.noteAddUIView.heightConstraintOfImageView.constant = image.size.height
+                self.noteAddUIView.heightConstraintOfImageView.constant = image.size.height
                 updateView()
             }
-        
         }
-        
-        func checkIsPin(){
-            
-        }
-        
-        func checkIsArchive(){
-        isArchive =  isArchive ? false : true
-        archiveBarButton.tintColor = isArchive ?  UIColor.black : UIColor.blue
 
+
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+           navigationController?.navigationBar.barTintColor = UIColor.white
+        }
+        
+        
+        func initializeView(){
+            if isUpdate{
+                self.isPin = noteObject.isPin!
+                self.isArchive = noteObject.isArchive!
+                self.isPin = self.isPin ? false : true
+                pinBarButton.tintColor = self.isPin ? UIColor.black : UIColor.blue
+                self.isArchive =  self.isArchive ? false : true
+                archiveBarButton.tintColor = isArchive ?  UIColor.black : UIColor.blue
+                
+            }else{
+                self.isPin = false
+                self.isArchive = false
+            }
         }
 }

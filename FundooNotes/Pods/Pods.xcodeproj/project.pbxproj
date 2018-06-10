@@ -7,33 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222CEF4DDD7257EC85F3214795B72993 /* DatePickerDialog.swift */; };
+		03A95EB83E0A8E10F7E0B4DB551D5200 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5BCFCBD409207BE88BD4A5CA88A76 /* DatePickerDialog.swift */; };
 		0543642E587DBDEAA010E6AF40C48E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
-		0BA351CA56DEEF6CDFE3DC09CA5D7542 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
-		17998C26393DD2529FA0FCBA2583805F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3DC3A06A276EE2F37018167146440B /* Action.swift */; };
-		1CDFAB3FB94412D5F30850C6D1633BDB /* DynamicCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D29EBD96143B4D9650FC959C6F6F9 /* DynamicCollectionViewFlowLayout.swift */; };
-		31F7B9918D33484FF8C963C1F1909234 /* Pods-FundooNotes-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A37277F06EAEBE4F6E4978E74F45A42 /* Pods-FundooNotes-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A731DFB5BE16EAA09FD1E633C600738 /* Pods-FundooNotes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260C1CB8070AD21545C0299343723E8 /* Pods-FundooNotes-dummy.m */; };
-		3A82E8FBA027AA7FD725A8DC6290BFA2 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00A8BC416E0EE4203DA40EF1ED28FD /* Youtube.swift */; };
-		4F4A4DAEAC41C80C661168D92C1D8698 /* XLActionController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D180EB7AA41D808FCB6B582DF3D8A4A /* XLActionController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BB1FD8BBEF3C311E7830B1F3DBAD2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */; };
+		07C8C010057C9041D2B839CFC6D24961 /* UITextView+Placeholder.h in Headers */ = {isa = PBXBuildFile; fileRef = FC7FE66DB01911E97C836D5A2C7A9E2B /* UITextView+Placeholder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		236E84EFEA581B8C73960A867CC30D27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
+		2771DDD31A3CAC3C37E986EBF5FD4AF6 /* Pods-FundooNotes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5260C1CB8070AD21545C0299343723E8 /* Pods-FundooNotes-dummy.m */; };
+		2B1B894725108A3E987D5C6AA43DC130 /* XLActionController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C82B6D1913446DF2F0F9A320C06D0534 /* XLActionController-dummy.m */; };
+		2C46A27B26030536CDE81C151B787EBA /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC157A3F211BAE88DAE3D2F9E9D30D4 /* Youtube.swift */; };
+		2E9F95100629FF26A85AA0ECCFA77BC6 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C0FCDADAA1CB000AF6EA75C5B844 /* Action.swift */; };
+		63A0E03564446F8FC83D8C3986EEDF83 /* Pods-FundooNotes-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A37277F06EAEBE4F6E4978E74F45A42 /* Pods-FundooNotes-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65B9D0B174141FAE59CB96343BD34318 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
 		695F142B95622BFFBA65598D5765D536 /* Pods-FundooNotesUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272480A105D2AF5E3012EC838E42063 /* Pods-FundooNotesUITests-dummy.m */; };
 		71017F3644E411AAF7C4E473BEAC7E4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
-		770087B0EFEA90009145CB2BEFFB6718 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9252A64F7577472A2F7A2EE68321CE5F /* ActionCell.xib */; };
-		7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 21569EE2367D6779412525F98B3F7402 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D6CC28EC64BC541E2F7D8C9CD9F982A /* ActionControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE73CF220E85A5AAA9CECA001AF1B4C /* ActionControllerSettings.swift */; };
+		7BB056BB4AD65CB66380CBDD52CB0FD3 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBC508AA19EBABA991937EB7B3F3669 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DE0BD490EB6CDF10F69707CB0F40219 /* YoutubeCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = DC3BA3BD4B1FE0DED228838BAC54BD24 /* YoutubeCell.xib */; };
+		82869F59ACA8FCC65FAF16BA244EE5B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */; };
 		84BAF5A9844FFCDEBB762BD53548D7A6 /* Pods-FundooNotesTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DEC79E9778C52A56C2F3E7A8A6BDD5 /* Pods-FundooNotesTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85946D17AAED44D862BF70C6B9E00B1C /* ActionControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753B6901A41DC0E824826733D7B8BD4 /* ActionControllerSettings.swift */; };
+		86DE56EC0D95914B5E9530F26C48918F /* DynamicCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10994EC1396F55BCCCA69B20C1BA933D /* DynamicCollectionViewFlowLayout.swift */; };
+		898E3FA184734027A5BB366DF480B84F /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 27258AF0F9842EE4E2A001C8DBDF9FF7 /* UITextView+Placeholder.m */; };
 		945DE0A750C76A58BD6C2BE0CEEBFB9C /* Pods-FundooNotesTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE88F642F0652FF789B18EBEAA25842F /* Pods-FundooNotesTests-dummy.m */; };
-		A012400AB54E4D41C065C10DB57178C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */; };
-		A57BFC66FBFC0B64A3E0AEDFC34003AB /* XLActionController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7F5F815FF50EB63208BA9998340D41 /* XLActionController-dummy.m */; };
-		BD4AA4455DDD40FE9AF7612C8C5E6DD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
+		A24B171FE7D34C98177B84E5440D09A0 /* UITextView+Placeholder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 426EF7F87329AF45EEBF69C35A5CF3C0 /* UITextView+Placeholder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A6308C9C43B47E6E8CE7DB53095C3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
 		C392C8C7AC34D8500786C37DBB0814BC /* Pods-FundooNotesUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F074DA3E0C3D28A44DB643B72F58065 /* Pods-FundooNotesUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7D9AFFDEEAE246120B2420F5644EA97 /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121CC434BE2445DFD4D4C9888E668CA2 /* ActionData.swift */; };
-		DC695DDED7867B179354B01FAD1C16D5 /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D309A5801CA505705DFC90A0B7ABD /* ActionController.swift */; };
-		DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C35636D3C43BEF0094859A2477A7287A /* DatePickerDialog-dummy.m */; };
-		F0530590ACBE8819D535FF7E2A2DD405 /* YoutubeCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7D662F9E8D8B69F0FA1CB9C4656FD9EC /* YoutubeCell.xib */; };
+		D29F1A6389613AE77BA5548485DCBC73 /* UITextView+Placeholder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7542656932C8D54BC6062DF75FCD72A /* UITextView+Placeholder-dummy.m */; };
+		D71F925737664E5A0B24537CA432CF91 /* ActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672ADEFF8AF8631064D15421AEA9F2DA /* ActionController.swift */; };
+		D96926F49C21393081D2280B9533727E /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41B85DAE7D167865480D710F99BD345 /* ActionCell.xib */; };
+		DE45DAEE660ADE5C146EE7CF7259F35A /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0693563C9A268575615390D3E8AFA12 /* DatePickerDialog-dummy.m */; };
+		E18FE67BD58BCF5D762D57F78E3DD477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */; };
+		E594C4D87EA89668F9D317F0DF9BB1C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */; };
+		E5BE1B13B256D0B57E54BEF37F5FA0DA /* ActionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDBB2ED9F396EFF9F5FC2CD5697AE80 /* ActionData.swift */; };
+		E8214252F8E008666E580FA42E1ADFB0 /* XLActionController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FB48D8263665CD3E6AA546CC828E0D0 /* XLActionController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAADB4AEF5496282B5960BF1F50C1630 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F09FDA197F2CE6C2B493B7A5614D7 /* ActionCell.swift */; };
 		FC60A8D31C3971F9137E0BE93769AB3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */; };
-		FFD958B4E7636AF0215C475FDA9B83D3 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8252BF319553D4EBFF497EE979036B02 /* ActionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,94 +47,110 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BBFFE961D926DF3EE6203295AD2A4D94;
+			remoteGlobalIDString = AB98C07CEAE4B321E4AF9C52D422392C;
 			remoteInfo = "Pods-FundooNotes";
 		};
-		2CD1B765486C15B487185C7AA5BA0953 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0BDE50703FC653E1D0812421D037F9E4;
-			remoteInfo = XLActionController;
-		};
-		D5458597C522D7FC40CA800A2BB3A7E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BBFFE961D926DF3EE6203295AD2A4D94;
-			remoteInfo = "Pods-FundooNotes";
-		};
-		DCDC18B60A4CCA954A71D13F81CD369B /* PBXContainerItemProxy */ = {
+		12E2CD682D9CF6C9F571D7809DBA7B0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 184A1650DC0B648BD756068E60BF2C59;
 			remoteInfo = DatePickerDialog;
 		};
+		79AB508EF4D6E23976DA9044772EA8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91D7635857A37524FEF1AAB537E51515;
+			remoteInfo = XLActionController;
+		};
+		D5458597C522D7FC40CA800A2BB3A7E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB98C07CEAE4B321E4AF9C52D422392C;
+			remoteInfo = "Pods-FundooNotes";
+		};
+		F4F8BA02A0F4B3EB5D8AE711783B0369 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 932EBB409E4571EBC8B8DB83E8AA3B45;
+			remoteInfo = "UITextView+Placeholder";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01217FA5B0C8B298FA011350C35795F7 /* Pods-FundooNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotes.release.xcconfig"; sourceTree = "<group>"; };
-		0158D9BE14B065DE39319C89FAAD1EEB /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B6D826E9465F554415D49450730D45 /* Pods-FundooNotes-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FundooNotes-acknowledgements.plist"; sourceTree = "<group>"; };
-		0D180EB7AA41D808FCB6B582DF3D8A4A /* XLActionController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLActionController-umbrella.h"; sourceTree = "<group>"; };
-		121CC434BE2445DFD4D4C9888E668CA2 /* ActionData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionData.swift; path = Example/CustomActionControllers/ActionData.swift; sourceTree = "<group>"; };
+		0B8ECFC568413F6B8A6891020B26DB90 /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
+		10994EC1396F55BCCCA69B20C1BA933D /* DynamicCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicCollectionViewFlowLayout.swift; path = Source/DynamicCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		132D256982AC4DAF0F530ECD65C3AF63 /* UITextView_Placeholder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UITextView_Placeholder.framework; path = "UITextView+Placeholder.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1753B6901A41DC0E824826733D7B8BD4 /* ActionControllerSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionControllerSettings.swift; path = Source/ActionControllerSettings.swift; sourceTree = "<group>"; };
+		17D5BCFCBD409207BE88BD4A5CA88A76 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
+		1A985264791992348F6A465A5A3BE458 /* Pods_FundooNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotes.framework; path = "Pods-FundooNotes.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACF330A72DC40E450388407F7DFB2F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		1FE73CF220E85A5AAA9CECA001AF1B4C /* ActionControllerSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionControllerSettings.swift; path = Source/ActionControllerSettings.swift; sourceTree = "<group>"; };
-		21569EE2367D6779412525F98B3F7402 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
-		222CEF4DDD7257EC85F3214795B72993 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
-		26A4C1345FF30EB4C2171AFB1A887E57 /* XLActionController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLActionController.xcconfig; sourceTree = "<group>"; };
+		1FB48D8263665CD3E6AA546CC828E0D0 /* XLActionController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLActionController-umbrella.h"; sourceTree = "<group>"; };
+		27258AF0F9842EE4E2A001C8DBDF9FF7 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Placeholder.m"; path = "Sources/UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		2CC1C0FCDADAA1CB000AF6EA75C5B844 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Source/Action.swift; sourceTree = "<group>"; };
+		2EDBB2ED9F396EFF9F5FC2CD5697AE80 /* ActionData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionData.swift; path = Example/CustomActionControllers/ActionData.swift; sourceTree = "<group>"; };
 		33F13D77E6738181908D8947384BAC70 /* Pods-FundooNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotes.debug.xcconfig"; sourceTree = "<group>"; };
-		344F4BEA6AFFFCB3DB1052703F4E59FE /* DatePickerDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.xcconfig; sourceTree = "<group>"; };
-		3472AA3E1B90474D32D66A74D3A85793 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		426EF7F87329AF45EEBF69C35A5CF3C0 /* UITextView+Placeholder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder-umbrella.h"; sourceTree = "<group>"; };
 		4687F6E7DCDE962BF8DB61A26477E4E7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0E3F51432444ED045F0F740380526F /* Pods-FundooNotesTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FundooNotesTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4F3DC3A06A276EE2F37018167146440B /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Source/Action.swift; sourceTree = "<group>"; };
 		4F85BDB490FEB093FD5ACBE5120C3B4A /* Pods-FundooNotes-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FundooNotes-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4FC157A3F211BAE88DAE3D2F9E9D30D4 /* Youtube.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Youtube.swift; path = Example/CustomActionControllers/Youtube.swift; sourceTree = "<group>"; };
 		5052E4014DB74939864D9E59AB3785BB /* Pods-FundooNotesUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotesUITests-resources.sh"; sourceTree = "<group>"; };
 		50DEC79E9778C52A56C2F3E7A8A6BDD5 /* Pods-FundooNotesTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FundooNotesTests-umbrella.h"; sourceTree = "<group>"; };
 		5260C1CB8070AD21545C0299343723E8 /* Pods-FundooNotes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FundooNotes-dummy.m"; sourceTree = "<group>"; };
+		59109F70327B95A350E47A709BC4AEDC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DA793B24C7073D6D52AB4F1F9632C98 /* Pods-FundooNotesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotesUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6134E71E8740A49327250937635ED2C9 /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
+		60577049F82A0736BB5C64BE92527615 /* UITextView+Placeholder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "UITextView+Placeholder.modulemap"; sourceTree = "<group>"; };
 		6276036E7A80F9FF61696B0AF89B2991 /* Pods-FundooNotesUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FundooNotesUITests.modulemap"; sourceTree = "<group>"; };
-		663263CCE3E2AA4CCC626DBB26625091 /* XLActionController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLActionController-prefix.pch"; sourceTree = "<group>"; };
+		6413D77E5DBB88DD86E44856A0445CB5 /* UITextView+Placeholder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder-prefix.pch"; sourceTree = "<group>"; };
+		672ADEFF8AF8631064D15421AEA9F2DA /* ActionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionController.swift; path = Source/ActionController.swift; sourceTree = "<group>"; };
 		6A37277F06EAEBE4F6E4978E74F45A42 /* Pods-FundooNotes-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FundooNotes-umbrella.h"; sourceTree = "<group>"; };
-		6B437C35CC18D0C501ECC4536151571B /* Pods_FundooNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotes.framework; path = "Pods-FundooNotes.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		721D29EBD96143B4D9650FC959C6F6F9 /* DynamicCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicCollectionViewFlowLayout.swift; path = Source/DynamicCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		6C9CD40B96B02754FB443DD4F797E85F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EF37F0143F39D2CF7AB100532E70E4 /* Pods-FundooNotesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		79389E212F51AACFC5352F42A4BBA105 /* XLActionController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XLActionController-prefix.pch"; sourceTree = "<group>"; };
 		7A90F567572DD49F5CC9C508714994A3 /* Pods-FundooNotesTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotesTests-resources.sh"; sourceTree = "<group>"; };
-		7D662F9E8D8B69F0FA1CB9C4656FD9EC /* YoutubeCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = YoutubeCell.xib; path = Example/CustomActionControllers/YoutubeCell.xib; sourceTree = "<group>"; };
+		803F09FDA197F2CE6C2B493B7A5614D7 /* ActionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionCell.swift; path = Source/ActionCell.swift; sourceTree = "<group>"; };
 		810367DDFA47C55C5953CCB1B05B0237 /* Pods-FundooNotesUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FundooNotesUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8252BF319553D4EBFF497EE979036B02 /* ActionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionCell.swift; path = Source/ActionCell.swift; sourceTree = "<group>"; };
 		8272480A105D2AF5E3012EC838E42063 /* Pods-FundooNotesUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FundooNotesUITests-dummy.m"; sourceTree = "<group>"; };
-		83A9AAE95868DF2580E6CE7761F17CF8 /* Pods_FundooNotesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotesTests.framework; path = "Pods-FundooNotesTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		861F209AF8F4D2C25415BA03BECE2617 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		888156FA7EF8DE87950E8D5F409FB575 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8D9E2AAC22C1ABC745E4510D30612B26 /* DatePickerDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.xcconfig; sourceTree = "<group>"; };
 		8F074DA3E0C3D28A44DB643B72F58065 /* Pods-FundooNotesUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FundooNotesUITests-umbrella.h"; sourceTree = "<group>"; };
-		9252A64F7577472A2F7A2EE68321CE5F /* ActionCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ActionCell.xib; path = Resource/ActionCell.xib; sourceTree = "<group>"; };
-		92B0CFD9939D4AB10937A1BE725D20B2 /* XLActionController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XLActionController.framework; path = XLActionController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91BF236F2A1CC4EF6B3C3A9B44AF6053 /* Pods_FundooNotesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotesUITests.framework; path = "Pods-FundooNotesUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		939ACC20F76FED67740436D8A6B72B82 /* XLActionController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XLActionController.framework; path = XLActionController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98F3797A3037912B32C9909DE5FE758D /* Pods-FundooNotesUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FundooNotesUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9B4CB2A09517E0E98163A21E9C0F4330 /* Pods-FundooNotes-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotes-resources.sh"; sourceTree = "<group>"; };
+		9BFED6DD0854AC067E2AB64C7CE6198A /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFFF7F8879AAB0EE4CBDF0915C146F7 /* Pods-FundooNotesTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotesTests-frameworks.sh"; sourceTree = "<group>"; };
 		A27939B3F44C70D7F14BC0FBC83DB966 /* Pods-FundooNotesTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FundooNotesTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A66287B0B8E0079EA61EA88709049C73 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7542656932C8D54BC6062DF75FCD72A /* UITextView+Placeholder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder-dummy.m"; sourceTree = "<group>"; };
+		A7B235F41FF0CC56264BA85B8A2DB239 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7E422AB70360D4351798A82C6A8A803 /* Pods-FundooNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC045A220983F240545D2272603716ED /* Pods-FundooNotes-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotes-frameworks.sh"; sourceTree = "<group>"; };
+		AD7CA752DFFF1905FDDFBB92A284471F /* UITextView+Placeholder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UITextView+Placeholder.xcconfig"; sourceTree = "<group>"; };
 		AE88F642F0652FF789B18EBEAA25842F /* Pods-FundooNotesTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FundooNotesTests-dummy.m"; sourceTree = "<group>"; };
 		AFCE9B4D882CF8337713F7220C67F1C3 /* Pods-FundooNotes.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FundooNotes.modulemap"; sourceTree = "<group>"; };
 		B41BFAED574C3F51883ADE7BD616208E /* Pods-FundooNotesTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FundooNotesTests.modulemap"; sourceTree = "<group>"; };
-		BD00A8BC416E0EE4203DA40EF1ED28FD /* Youtube.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Youtube.swift; path = Example/CustomActionControllers/Youtube.swift; sourceTree = "<group>"; };
 		BD88DCD5873E78C5D6177D17DD10EFFE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		C35636D3C43BEF0094859A2477A7287A /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
-		C36E564C41B2C0D00D9D47188FB24CDA /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
+		C41B85DAE7D167865480D710F99BD345 /* ActionCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ActionCell.xib; path = Resource/ActionCell.xib; sourceTree = "<group>"; };
 		C5AD1060FD8248EFB6F3C5DBE5FC3CBC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF79ADD78104F9AC09C8CFB8DFA2EBA9 /* XLActionController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XLActionController.modulemap; sourceTree = "<group>"; };
-		E65D309A5801CA505705DFC90A0B7ABD /* ActionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionController.swift; path = Source/ActionController.swift; sourceTree = "<group>"; };
+		C82B6D1913446DF2F0F9A320C06D0534 /* XLActionController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLActionController-dummy.m"; sourceTree = "<group>"; };
+		CD8640101A35EDD631CC53D20EB8EDC5 /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
+		D0693563C9A268575615390D3E8AFA12 /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
+		DC3BA3BD4B1FE0DED228838BAC54BD24 /* YoutubeCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = YoutubeCell.xib; path = Example/CustomActionControllers/YoutubeCell.xib; sourceTree = "<group>"; };
+		DD8FD6FC23B08DE47520D5057D3CF31F /* XLActionController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XLActionController.modulemap; sourceTree = "<group>"; };
+		ECA7CB7A1F2A17FECDC3227D0E74DD61 /* Pods_FundooNotesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotesTests.framework; path = "Pods-FundooNotesTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBC508AA19EBABA991937EB7B3F3669 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
+		F3CA4E43D626EB84AF12EFA4F3D4156C /* XLActionController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XLActionController.xcconfig; sourceTree = "<group>"; };
 		F4D6AFD67792FF9E7DD61656BFFC3FD9 /* Pods-FundooNotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FundooNotesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A7AB6B6008561D7B30B4954AF6C084 /* Pods-FundooNotesUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FundooNotesUITests-frameworks.sh"; sourceTree = "<group>"; };
-		FB0BD58543252F60B0FDB302859C2BEC /* Pods_FundooNotesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FundooNotesUITests.framework; path = "Pods-FundooNotesUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC7F5F815FF50EB63208BA9998340D41 /* XLActionController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XLActionController-dummy.m"; sourceTree = "<group>"; };
+		FC7FE66DB01911E97C836D5A2C7A9E2B /* UITextView+Placeholder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+Placeholder.h"; path = "Sources/UITextView+Placeholder.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,21 +178,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C76FB35A6F3140FDDBA8CD2FB1A1912 /* Frameworks */ = {
+		7C4EF99638BC7CE3D63ABED19634ECFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB1FD8BBEF3C311E7830B1F3DBAD2B5 /* CoreGraphics.framework in Frameworks */,
-				BD4AA4455DDD40FE9AF7612C8C5E6DD2 /* Foundation.framework in Frameworks */,
-				A012400AB54E4D41C065C10DB57178C8 /* UIKit.framework in Frameworks */,
+				236E84EFEA581B8C73960A867CC30D27 /* Foundation.framework in Frameworks */,
+				82869F59ACA8FCC65FAF16BA244EE5B1 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		744148E44B6ADFE1A8D7321C15FC98EF /* Frameworks */ = {
+		A7A573B2E726958799263847256F81B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BA351CA56DEEF6CDFE3DC09CA5D7542 /* Foundation.framework in Frameworks */,
+				E594C4D87EA89668F9D317F0DF9BB1C7 /* CoreGraphics.framework in Frameworks */,
+				65B9D0B174141FAE59CB96343BD34318 /* Foundation.framework in Frameworks */,
+				E18FE67BD58BCF5D762D57F78E3DD477 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF40517FEF25C145222E51145984D216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A6308C9C43B47E6E8CE7DB53095C3C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +214,20 @@
 				C0FEB5BC00BD5AFA53416A3538FFE0E3 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E38F00C28902E6364A6F7D1FC6D0AA1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C9CD40B96B02754FB443DD4F797E85F /* Info.plist */,
+				DD8FD6FC23B08DE47520D5057D3CF31F /* XLActionController.modulemap */,
+				F3CA4E43D626EB84AF12EFA4F3D4156C /* XLActionController.xcconfig */,
+				C82B6D1913446DF2F0F9A320C06D0534 /* XLActionController-dummy.m */,
+				79389E212F51AACFC5352F42A4BBA105 /* XLActionController-prefix.pch */,
+				1FB48D8263665CD3E6AA546CC828E0D0 /* XLActionController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XLActionController";
 			sourceTree = "<group>";
 		};
 		24C6801E7E859EC9E028A28EAB49E651 /* Pods-FundooNotes */ = {
@@ -203,26 +248,81 @@
 			path = "Target Support Files/Pods-FundooNotes";
 			sourceTree = "<group>";
 		};
+		3E8F9303CACD025121474AE6069AB6A5 /* DatePickerDialog */ = {
+			isa = PBXGroup;
+			children = (
+				17D5BCFCBD409207BE88BD4A5CA88A76 /* DatePickerDialog.swift */,
+				93A85926D591BC7F6021A9D7D1CBEE13 /* Support Files */,
+			);
+			name = DatePickerDialog;
+			path = DatePickerDialog;
+			sourceTree = "<group>";
+		};
+		3F35E9C7F313086A7EFAE307320D3839 /* UITextView+Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				FC7FE66DB01911E97C836D5A2C7A9E2B /* UITextView+Placeholder.h */,
+				27258AF0F9842EE4E2A001C8DBDF9FF7 /* UITextView+Placeholder.m */,
+				E1F2886AC61DB35CE82A20EDB91DFAC5 /* Support Files */,
+			);
+			name = "UITextView+Placeholder";
+			path = "UITextView+Placeholder";
+			sourceTree = "<group>";
+		};
+		40ACAC42BB13A22E23289C0D194AFD10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F9303CACD025121474AE6069AB6A5 /* DatePickerDialog */,
+				3F35E9C7F313086A7EFAE307320D3839 /* UITextView+Placeholder */,
+				79EB75E9A3D6D7BB6EE6D1CE4D68131C /* XLActionController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		630C76CDA107D9C992174449E5068F98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BFED6DD0854AC067E2AB64C7CE6198A /* DatePickerDialog.framework */,
+				1A985264791992348F6A465A5A3BE458 /* Pods_FundooNotes.framework */,
+				ECA7CB7A1F2A17FECDC3227D0E74DD61 /* Pods_FundooNotesTests.framework */,
+				91BF236F2A1CC4EF6B3C3A9B44AF6053 /* Pods_FundooNotesUITests.framework */,
+				132D256982AC4DAF0F530ECD65C3AF63 /* UITextView_Placeholder.framework */,
+				939ACC20F76FED67740436D8A6B72B82 /* XLActionController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79EB75E9A3D6D7BB6EE6D1CE4D68131C /* XLActionController */ = {
+			isa = PBXGroup;
+			children = (
+				903F70D9BE328A19726F27D25EEE4F4A /* Core */,
+				1E38F00C28902E6364A6F7D1FC6D0AA1 /* Support Files */,
+				AB416D483F2183BAC50358161AB46F05 /* Youtube */,
+			);
+			name = XLActionController;
+			path = XLActionController;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				E3B355FBA6D2CC2C6439D005C6FB6E8E /* Pods */,
-				EA9341FC2D9806B37C7CDA3FC80798DD /* Products */,
+				40ACAC42BB13A22E23289C0D194AFD10 /* Pods */,
+				630C76CDA107D9C992174449E5068F98 /* Products */,
 				C7089648A4D7A0DB4B7E0620E7CAF5A6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8FBD63436B1170BDB794BD20E05DB19D /* Core */ = {
+		903F70D9BE328A19726F27D25EEE4F4A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4F3DC3A06A276EE2F37018167146440B /* Action.swift */,
-				8252BF319553D4EBFF497EE979036B02 /* ActionCell.swift */,
-				E65D309A5801CA505705DFC90A0B7ABD /* ActionController.swift */,
-				1FE73CF220E85A5AAA9CECA001AF1B4C /* ActionControllerSettings.swift */,
-				721D29EBD96143B4D9650FC959C6F6F9 /* DynamicCollectionViewFlowLayout.swift */,
-				EA2A781D15C30A0AA0BB0554722EB23D /* Resources */,
+				2CC1C0FCDADAA1CB000AF6EA75C5B844 /* Action.swift */,
+				803F09FDA197F2CE6C2B493B7A5614D7 /* ActionCell.swift */,
+				672ADEFF8AF8631064D15421AEA9F2DA /* ActionController.swift */,
+				1753B6901A41DC0E824826733D7B8BD4 /* ActionControllerSettings.swift */,
+				10994EC1396F55BCCCA69B20C1BA933D /* DynamicCollectionViewFlowLayout.swift */,
+				EA5D33CCA78D34FEE679BE20CFB1C77A /* Resources */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -245,42 +345,28 @@
 			path = "Target Support Files/Pods-FundooNotesTests";
 			sourceTree = "<group>";
 		};
-		9633C2AB53037E5D7B37FAC309C7D87B /* Support Files */ = {
+		93A85926D591BC7F6021A9D7D1CBEE13 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C36E564C41B2C0D00D9D47188FB24CDA /* DatePickerDialog.modulemap */,
-				344F4BEA6AFFFCB3DB1052703F4E59FE /* DatePickerDialog.xcconfig */,
-				C35636D3C43BEF0094859A2477A7287A /* DatePickerDialog-dummy.m */,
-				6134E71E8740A49327250937635ED2C9 /* DatePickerDialog-prefix.pch */,
-				21569EE2367D6779412525F98B3F7402 /* DatePickerDialog-umbrella.h */,
-				3472AA3E1B90474D32D66A74D3A85793 /* Info.plist */,
+				CD8640101A35EDD631CC53D20EB8EDC5 /* DatePickerDialog.modulemap */,
+				8D9E2AAC22C1ABC745E4510D30612B26 /* DatePickerDialog.xcconfig */,
+				D0693563C9A268575615390D3E8AFA12 /* DatePickerDialog-dummy.m */,
+				0B8ECFC568413F6B8A6891020B26DB90 /* DatePickerDialog-prefix.pch */,
+				ECBC508AA19EBABA991937EB7B3F3669 /* DatePickerDialog-umbrella.h */,
+				59109F70327B95A350E47A709BC4AEDC /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/DatePickerDialog";
 			sourceTree = "<group>";
 		};
-		986F67B2DC5A4479C00C3D99657D55A4 /* DatePickerDialog */ = {
+		AB416D483F2183BAC50358161AB46F05 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
-				222CEF4DDD7257EC85F3214795B72993 /* DatePickerDialog.swift */,
-				9633C2AB53037E5D7B37FAC309C7D87B /* Support Files */,
+				2EDBB2ED9F396EFF9F5FC2CD5697AE80 /* ActionData.swift */,
+				4FC157A3F211BAE88DAE3D2F9E9D30D4 /* Youtube.swift */,
+				DC3BA3BD4B1FE0DED228838BAC54BD24 /* YoutubeCell.xib */,
 			);
-			name = DatePickerDialog;
-			path = DatePickerDialog;
-			sourceTree = "<group>";
-		};
-		B7540129F026DDEC9D9FC955CF02FD51 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				861F209AF8F4D2C25415BA03BECE2617 /* Info.plist */,
-				CF79ADD78104F9AC09C8CFB8DFA2EBA9 /* XLActionController.modulemap */,
-				26A4C1345FF30EB4C2171AFB1A887E57 /* XLActionController.xcconfig */,
-				FC7F5F815FF50EB63208BA9998340D41 /* XLActionController-dummy.m */,
-				663263CCE3E2AA4CCC626DBB26625091 /* XLActionController-prefix.pch */,
-				0D180EB7AA41D808FCB6B582DF3D8A4A /* XLActionController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/XLActionController";
+			name = Youtube;
 			sourceTree = "<group>";
 		};
 		C0FEB5BC00BD5AFA53416A3538FFE0E3 /* iOS */ = {
@@ -303,54 +389,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E334488299D15236F896B49BF6228439 /* XLActionController */ = {
+		E1F2886AC61DB35CE82A20EDB91DFAC5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8FBD63436B1170BDB794BD20E05DB19D /* Core */,
-				B7540129F026DDEC9D9FC955CF02FD51 /* Support Files */,
-				EC41305140E3B00DE422CB6EE0B5D5D6 /* Youtube */,
+				A7B235F41FF0CC56264BA85B8A2DB239 /* Info.plist */,
+				60577049F82A0736BB5C64BE92527615 /* UITextView+Placeholder.modulemap */,
+				AD7CA752DFFF1905FDDFBB92A284471F /* UITextView+Placeholder.xcconfig */,
+				A7542656932C8D54BC6062DF75FCD72A /* UITextView+Placeholder-dummy.m */,
+				6413D77E5DBB88DD86E44856A0445CB5 /* UITextView+Placeholder-prefix.pch */,
+				426EF7F87329AF45EEBF69C35A5CF3C0 /* UITextView+Placeholder-umbrella.h */,
 			);
-			name = XLActionController;
-			path = XLActionController;
+			name = "Support Files";
+			path = "../Target Support Files/UITextView+Placeholder";
 			sourceTree = "<group>";
 		};
-		E3B355FBA6D2CC2C6439D005C6FB6E8E /* Pods */ = {
+		EA5D33CCA78D34FEE679BE20CFB1C77A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				986F67B2DC5A4479C00C3D99657D55A4 /* DatePickerDialog */,
-				E334488299D15236F896B49BF6228439 /* XLActionController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		EA2A781D15C30A0AA0BB0554722EB23D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9252A64F7577472A2F7A2EE68321CE5F /* ActionCell.xib */,
+				C41B85DAE7D167865480D710F99BD345 /* ActionCell.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		EA9341FC2D9806B37C7CDA3FC80798DD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0158D9BE14B065DE39319C89FAAD1EEB /* DatePickerDialog.framework */,
-				6B437C35CC18D0C501ECC4536151571B /* Pods_FundooNotes.framework */,
-				83A9AAE95868DF2580E6CE7761F17CF8 /* Pods_FundooNotesTests.framework */,
-				FB0BD58543252F60B0FDB302859C2BEC /* Pods_FundooNotesUITests.framework */,
-				92B0CFD9939D4AB10937A1BE725D20B2 /* XLActionController.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		EC41305140E3B00DE422CB6EE0B5D5D6 /* Youtube */ = {
-			isa = PBXGroup;
-			children = (
-				121CC434BE2445DFD4D4C9888E668CA2 /* ActionData.swift */,
-				BD00A8BC416E0EE4203DA40EF1ED28FD /* Youtube.swift */,
-				7D662F9E8D8B69F0FA1CB9C4656FD9EC /* YoutubeCell.xib */,
-			);
-			name = Youtube;
 			sourceTree = "<group>";
 		};
 		F5549E34CCE64F5AC555B08649EDE276 /* Pods-FundooNotesUITests */ = {
@@ -374,11 +432,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0C86ABCA1BE89AA3E8C39A0E617E2ED3 /* Headers */ = {
+		1F071E49AFF54E65F7E30D2F59C9E447 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F4A4DAEAC41C80C661168D92C1D8698 /* XLActionController-umbrella.h in Headers */,
+				A24B171FE7D34C98177B84E5440D09A0 /* UITextView+Placeholder-umbrella.h in Headers */,
+				07C8C010057C9041D2B839CFC6D24961 /* UITextView+Placeholder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,19 +449,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CB22BD1BB58708DF6DB1140351A351F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8214252F8E008666E580FA42E1ADFB0 /* XLActionController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D39C24FD43667BEE70AA2EB47D1D8B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				84BAF5A9844FFCDEBB762BD53548D7A6 /* Pods-FundooNotesTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C743C9EE87C31D60B56985F962DEFC57 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				31F7B9918D33484FF8C963C1F1909234 /* Pods-FundooNotes-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,27 +473,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D19B0248D2C8A69DCF7E83ABBA969A03 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A0E03564446F8FC83D8C3986EEDF83 /* Pods-FundooNotes-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0BDE50703FC653E1D0812421D037F9E4 /* XLActionController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EBD3449996CEE1D956486A81481E4756 /* Build configuration list for PBXNativeTarget "XLActionController" */;
-			buildPhases = (
-				7DDF6B918073B796582B6F435C61BB4D /* Sources */,
-				6C76FB35A6F3140FDDBA8CD2FB1A1912 /* Frameworks */,
-				A19E37B6E89A13BE7B995163F642F109 /* Resources */,
-				0C86ABCA1BE89AA3E8C39A0E617E2ED3 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = XLActionController;
-			productName = XLActionController;
-			productReference = 92B0CFD9939D4AB10937A1BE725D20B2 /* XLActionController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD5CF02785F10F0CDA34F90832C66CFA /* Build configuration list for PBXNativeTarget "DatePickerDialog" */;
@@ -449,7 +498,7 @@
 			);
 			name = DatePickerDialog;
 			productName = DatePickerDialog;
-			productReference = 0158D9BE14B065DE39319C89FAAD1EEB /* DatePickerDialog.framework */;
+			productReference = 9BFED6DD0854AC067E2AB64C7CE6198A /* DatePickerDialog.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		203715574F9D2ACFF141F2A764EA6C15 /* Pods-FundooNotesUITests */ = {
@@ -467,26 +516,62 @@
 			);
 			name = "Pods-FundooNotesUITests";
 			productName = "Pods-FundooNotesUITests";
-			productReference = FB0BD58543252F60B0FDB302859C2BEC /* Pods_FundooNotesUITests.framework */;
+			productReference = 91BF236F2A1CC4EF6B3C3A9B44AF6053 /* Pods_FundooNotesUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BBFFE961D926DF3EE6203295AD2A4D94 /* Pods-FundooNotes */ = {
+		91D7635857A37524FEF1AAB537E51515 /* XLActionController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6FA3C8AE65A15FF1EB9B257D9160DA8 /* Build configuration list for PBXNativeTarget "Pods-FundooNotes" */;
+			buildConfigurationList = 930D1BF98EBB6560AEAF837209A94138 /* Build configuration list for PBXNativeTarget "XLActionController" */;
 			buildPhases = (
-				FF77386506194C69DF7E3DB2DC5E3446 /* Sources */,
-				744148E44B6ADFE1A8D7321C15FC98EF /* Frameworks */,
-				C743C9EE87C31D60B56985F962DEFC57 /* Headers */,
+				B7743CA7788D9C7256B7CB5C02F6C0EA /* Sources */,
+				A7A573B2E726958799263847256F81B2 /* Frameworks */,
+				A60491BA0309E453D20482DF937739CF /* Resources */,
+				2CB22BD1BB58708DF6DB1140351A351F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FB61881DA2CBC189069036AA4014330D /* PBXTargetDependency */,
-				49FF6496FB07EEFDDB21F4AEE505D60C /* PBXTargetDependency */,
+			);
+			name = XLActionController;
+			productName = XLActionController;
+			productReference = 939ACC20F76FED67740436D8A6B72B82 /* XLActionController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		932EBB409E4571EBC8B8DB83E8AA3B45 /* UITextView+Placeholder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56C05B00AA8008CE383D9B26285B6D1C /* Build configuration list for PBXNativeTarget "UITextView+Placeholder" */;
+			buildPhases = (
+				FFB739D13FCA3B148A21980B2E4AF50B /* Sources */,
+				7C4EF99638BC7CE3D63ABED19634ECFB /* Frameworks */,
+				1F071E49AFF54E65F7E30D2F59C9E447 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UITextView+Placeholder";
+			productName = "UITextView+Placeholder";
+			productReference = 132D256982AC4DAF0F530ECD65C3AF63 /* UITextView_Placeholder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AB98C07CEAE4B321E4AF9C52D422392C /* Pods-FundooNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86154F6CCD769DF18DC18F33CF1EB3BF /* Build configuration list for PBXNativeTarget "Pods-FundooNotes" */;
+			buildPhases = (
+				903BD49D3D140E59BCF06ED5F10C5D07 /* Sources */,
+				CF40517FEF25C145222E51145984D216 /* Frameworks */,
+				D19B0248D2C8A69DCF7E83ABBA969A03 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A79BE216AEE816992954040033DCE491 /* PBXTargetDependency */,
+				883A318A15BE012B10E10E73E9327C71 /* PBXTargetDependency */,
+				7F125460698F89CAAC1E7504E535AC14 /* PBXTargetDependency */,
 			);
 			name = "Pods-FundooNotes";
 			productName = "Pods-FundooNotes";
-			productReference = 6B437C35CC18D0C501ECC4536151571B /* Pods_FundooNotes.framework */;
+			productReference = 1A985264791992348F6A465A5A3BE458 /* Pods_FundooNotes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EFB934A7D15624266A93968A16892EF9 /* Pods-FundooNotesTests */ = {
@@ -504,7 +589,7 @@
 			);
 			name = "Pods-FundooNotesTests";
 			productName = "Pods-FundooNotesTests";
-			productReference = 83A9AAE95868DF2580E6CE7761F17CF8 /* Pods_FundooNotesTests.framework */;
+			productReference = ECA7CB7A1F2A17FECDC3227D0E74DD61 /* Pods_FundooNotesTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -524,25 +609,26 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = EA9341FC2D9806B37C7CDA3FC80798DD /* Products */;
+			productRefGroup = 630C76CDA107D9C992174449E5068F98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */,
-				BBFFE961D926DF3EE6203295AD2A4D94 /* Pods-FundooNotes */,
+				AB98C07CEAE4B321E4AF9C52D422392C /* Pods-FundooNotes */,
 				EFB934A7D15624266A93968A16892EF9 /* Pods-FundooNotesTests */,
 				203715574F9D2ACFF141F2A764EA6C15 /* Pods-FundooNotesUITests */,
-				0BDE50703FC653E1D0812421D037F9E4 /* XLActionController */,
+				932EBB409E4571EBC8B8DB83E8AA3B45 /* UITextView+Placeholder */,
+				91D7635857A37524FEF1AAB537E51515 /* XLActionController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A19E37B6E89A13BE7B995163F642F109 /* Resources */ = {
+		A60491BA0309E453D20482DF937739CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770087B0EFEA90009145CB2BEFFB6718 /* ActionCell.xib in Resources */,
+				D96926F49C21393081D2280B9533727E /* ActionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,19 +644,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DDF6B918073B796582B6F435C61BB4D /* Sources */ = {
+		903BD49D3D140E59BCF06ED5F10C5D07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17998C26393DD2529FA0FCBA2583805F /* Action.swift in Sources */,
-				FFD958B4E7636AF0215C475FDA9B83D3 /* ActionCell.swift in Sources */,
-				DC695DDED7867B179354B01FAD1C16D5 /* ActionController.swift in Sources */,
-				7D6CC28EC64BC541E2F7D8C9CD9F982A /* ActionControllerSettings.swift in Sources */,
-				D7D9AFFDEEAE246120B2420F5644EA97 /* ActionData.swift in Sources */,
-				1CDFAB3FB94412D5F30850C6D1633BDB /* DynamicCollectionViewFlowLayout.swift in Sources */,
-				A57BFC66FBFC0B64A3E0AEDFC34003AB /* XLActionController-dummy.m in Sources */,
-				3A82E8FBA027AA7FD725A8DC6290BFA2 /* Youtube.swift in Sources */,
-				F0530590ACBE8819D535FF7E2A2DD405 /* YoutubeCell.xib in Sources */,
+				2771DDD31A3CAC3C37E986EBF5FD4AF6 /* Pods-FundooNotes-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +660,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7743CA7788D9C7256B7CB5C02F6C0EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9F95100629FF26A85AA0ECCFA77BC6 /* Action.swift in Sources */,
+				EAADB4AEF5496282B5960BF1F50C1630 /* ActionCell.swift in Sources */,
+				D71F925737664E5A0B24537CA432CF91 /* ActionController.swift in Sources */,
+				85946D17AAED44D862BF70C6B9E00B1C /* ActionControllerSettings.swift in Sources */,
+				E5BE1B13B256D0B57E54BEF37F5FA0DA /* ActionData.swift in Sources */,
+				86DE56EC0D95914B5E9530F26C48918F /* DynamicCollectionViewFlowLayout.swift in Sources */,
+				2B1B894725108A3E987D5C6AA43DC130 /* XLActionController-dummy.m in Sources */,
+				2C46A27B26030536CDE81C151B787EBA /* Youtube.swift in Sources */,
+				7DE0BD490EB6CDF10F69707CB0F40219 /* YoutubeCell.xib in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC094E96497339E3E63560A4D8037850 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,47 +684,54 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF77386506194C69DF7E3DB2DC5E3446 /* Sources */ = {
+		FFB739D13FCA3B148A21980B2E4AF50B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A731DFB5BE16EAA09FD1E633C600738 /* Pods-FundooNotes-dummy.m in Sources */,
+				D29F1A6389613AE77BA5548485DCBC73 /* UITextView+Placeholder-dummy.m in Sources */,
+				898E3FA184734027A5BB366DF480B84F /* UITextView+Placeholder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		49FF6496FB07EEFDDB21F4AEE505D60C /* PBXTargetDependency */ = {
+		7F125460698F89CAAC1E7504E535AC14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = XLActionController;
-			target = 0BDE50703FC653E1D0812421D037F9E4 /* XLActionController */;
-			targetProxy = 2CD1B765486C15B487185C7AA5BA0953 /* PBXContainerItemProxy */;
+			target = 91D7635857A37524FEF1AAB537E51515 /* XLActionController */;
+			targetProxy = 79AB508EF4D6E23976DA9044772EA8D3 /* PBXContainerItemProxy */;
+		};
+		883A318A15BE012B10E10E73E9327C71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UITextView+Placeholder";
+			target = 932EBB409E4571EBC8B8DB83E8AA3B45 /* UITextView+Placeholder */;
+			targetProxy = F4F8BA02A0F4B3EB5D8AE711783B0369 /* PBXContainerItemProxy */;
 		};
 		8EA23F9D11C271EFC088A529824044A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FundooNotes";
-			target = BBFFE961D926DF3EE6203295AD2A4D94 /* Pods-FundooNotes */;
+			target = AB98C07CEAE4B321E4AF9C52D422392C /* Pods-FundooNotes */;
 			targetProxy = 071B44437717392621557E1FD70B440D /* PBXContainerItemProxy */;
+		};
+		A79BE216AEE816992954040033DCE491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DatePickerDialog;
+			target = 184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */;
+			targetProxy = 12E2CD682D9CF6C9F571D7809DBA7B0E /* PBXContainerItemProxy */;
 		};
 		E94407BB33E58DC8D3D9E44AB21671C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FundooNotes";
-			target = BBFFE961D926DF3EE6203295AD2A4D94 /* Pods-FundooNotes */;
+			target = AB98C07CEAE4B321E4AF9C52D422392C /* Pods-FundooNotes */;
 			targetProxy = D5458597C522D7FC40CA800A2BB3A7E0 /* PBXContainerItemProxy */;
-		};
-		FB61881DA2CBC189069036AA4014330D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DatePickerDialog;
-			target = 184A1650DC0B648BD756068E60BF2C59 /* DatePickerDialog */;
-			targetProxy = DCDC18B60A4CCA954A71D13F81CD369B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		000DBBA48BDB2FCC91118596EE2C3103 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 344F4BEA6AFFFCB3DB1052703F4E59FE /* DatePickerDialog.xcconfig */;
+			baseConfigurationReference = 8D9E2AAC22C1ABC745E4510D30612B26 /* DatePickerDialog.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -660,9 +761,74 @@
 			};
 			name = Debug;
 		};
+		0E3E02C7450DD5F0FC13215194BA62AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD7CA752DFFF1905FDDFBB92A284471F /* UITextView+Placeholder.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UITextView+Placeholder/UITextView+Placeholder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITextView+Placeholder/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UITextView+Placeholder/UITextView+Placeholder.modulemap";
+				PRODUCT_MODULE_NAME = UITextView_Placeholder;
+				PRODUCT_NAME = UITextView_Placeholder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1ECF9E1D31A53BA1E001E3701C505031 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3CA4E43D626EB84AF12EFA4F3D4156C /* XLActionController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XLActionController/XLActionController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XLActionController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XLActionController/XLActionController.modulemap";
+				PRODUCT_MODULE_NAME = XLActionController;
+				PRODUCT_NAME = XLActionController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		26070C4C7EBE523EEF0BD12B467E7C3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 344F4BEA6AFFFCB3DB1052703F4E59FE /* DatePickerDialog.xcconfig */;
+			baseConfigurationReference = 8D9E2AAC22C1ABC745E4510D30612B26 /* DatePickerDialog.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -686,6 +852,42 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2750AD75C2E80A65FD5E2D0006840189 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01217FA5B0C8B298FA011350C35795F7 /* Pods-FundooNotes.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FundooNotes/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FundooNotes/Pods-FundooNotes.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -786,9 +988,9 @@
 			};
 			name = Release;
 		};
-		36465DAB6ACA6C9FFD8910A7650480E2 /* Release */ = {
+		577B2BE931969478FC17CB9D348FB2D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A4C1345FF30EB4C2171AFB1A887E57 /* XLActionController.xcconfig */;
+			baseConfigurationReference = F3CA4E43D626EB84AF12EFA4F3D4156C /* XLActionController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -810,81 +1012,8 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		451AF9F16CAA57DF2FA6CF4CA1388307 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01217FA5B0C8B298FA011350C35795F7 /* Pods-FundooNotes.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FundooNotes/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FundooNotes/Pods-FundooNotes.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		53355A02D7C4C9425997FD681BD35AD4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33F13D77E6738181908D8947384BAC70 /* Pods-FundooNotes.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FundooNotes/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FundooNotes/Pods-FundooNotes.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -988,9 +1117,45 @@
 			};
 			name = Debug;
 		};
-		CD122028603DD60FA53DC8A9E3024C0D /* Debug */ = {
+		C4BC55B071C0C10972F409C05B6A036F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A4C1345FF30EB4C2171AFB1A887E57 /* XLActionController.xcconfig */;
+			baseConfigurationReference = 33F13D77E6738181908D8947384BAC70 /* Pods-FundooNotes.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FundooNotes/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FundooNotes/Pods-FundooNotes.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DA7B9FAE4316A3837C0165E19D7EDCD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD7CA752DFFF1905FDDFBB92A284471F /* UITextView+Placeholder.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1001,18 +1166,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/XLActionController/XLActionController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/XLActionController/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UITextView+Placeholder/UITextView+Placeholder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITextView+Placeholder/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/XLActionController/XLActionController.modulemap";
-				PRODUCT_MODULE_NAME = XLActionController;
-				PRODUCT_NAME = XLActionController;
+				MODULEMAP_FILE = "Target Support Files/UITextView+Placeholder/UITextView+Placeholder.modulemap";
+				PRODUCT_MODULE_NAME = UITextView_Placeholder;
+				PRODUCT_NAME = UITextView_Placeholder;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1110,29 +1274,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		56C05B00AA8008CE383D9B26285B6D1C /* Build configuration list for PBXNativeTarget "UITextView+Placeholder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7B9FAE4316A3837C0165E19D7EDCD5 /* Debug */,
+				0E3E02C7450DD5F0FC13215194BA62AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86154F6CCD769DF18DC18F33CF1EB3BF /* Build configuration list for PBXNativeTarget "Pods-FundooNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4BC55B071C0C10972F409C05B6A036F /* Debug */,
+				2750AD75C2E80A65FD5E2D0006840189 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		930D1BF98EBB6560AEAF837209A94138 /* Build configuration list for PBXNativeTarget "XLActionController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577B2BE931969478FC17CB9D348FB2D7 /* Debug */,
+				1ECF9E1D31A53BA1E001E3701C505031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E3FACC73F7E22BDAD1F3C57FC560A0CD /* Build configuration list for PBXNativeTarget "Pods-FundooNotesUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FDDF45BC7069593A22B5D64D6630AF8 /* Debug */,
 				F0E3A6D9570589DA2C3B64A00B75CD75 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E6FA3C8AE65A15FF1EB9B257D9160DA8 /* Build configuration list for PBXNativeTarget "Pods-FundooNotes" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				53355A02D7C4C9425997FD681BD35AD4 /* Debug */,
-				451AF9F16CAA57DF2FA6CF4CA1388307 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EBD3449996CEE1D956486A81481E4756 /* Build configuration list for PBXNativeTarget "XLActionController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD122028603DD60FA53DC8A9E3024C0D /* Debug */,
-				36465DAB6ACA6C9FFD8910A7650480E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

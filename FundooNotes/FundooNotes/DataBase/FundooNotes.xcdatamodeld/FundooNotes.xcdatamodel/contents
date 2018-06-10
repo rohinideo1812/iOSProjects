@@ -6,6 +6,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isArchive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isDelete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isPin" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="modifyDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remindDate" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,7 +23,7 @@
         <relationship name="note" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="user" inverseEntity="Note" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-36" positionY="36" width="128" height="225"/>
+        <element name="Note" positionX="-36" positionY="36" width="128" height="240"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="120"/>
     </elements>
 </model>
