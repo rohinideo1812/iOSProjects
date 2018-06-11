@@ -1,5 +1,7 @@
 import UIKit
 import XLActionController
+import FirebaseDatabase
+
 
 class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate,AddNoteView {
  
@@ -23,6 +25,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     var pinBarButton : UIBarButtonItem!
     let font = UIFont.systemFont(ofSize: 14)
     var addNotePresenter:AddNotePresenter?
+    var notesCell:NotesCell!
     
     
     //Mark: Protocol Stub
@@ -83,12 +86,32 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func backBarButtonPress(){
         addNotePresenter?.attachView(view: self)
+        let ref = Database.database().reference(withPath: "Notes")
+
         if isUpdate == false{
+            if self.isPin == true{
+                notesCell.pinBtn.alpha = 1
+                notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
+            }
+            
         let id = NSUUID().uuidString
         let date = Helper.shared.getFormatedDate()
         noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
             addNotePresenter?.addNote(object: self.noteObject)
-
+            guard let reminderDate = remindDate else{
+                return
+            }
+            let note:[String:String] = [
+                "title" : noteAddUIView.titleTextView.text,
+                "note"  : noteAddUIView.noteTextView.text,
+                "remindDate" : reminderDate,
+                "date" : date,
+                "id" : id
+            ]
+            
+            let noteItemRef = ref.child(noteAddUIView.titleTextView.text)
+            noteItemRef.setValue(note)
+            
         }else {
             let date = Helper.shared.getFormatedDate()
             archiveBarButtonPress()
@@ -97,7 +120,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             addNotePresenter?.updateNote(object:self.noteObject)
 
         }
-        
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
         self.navigationController?.pushViewController(newViewController, animated: true)
@@ -336,6 +359,10 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 self.isArchive =  self.isArchive ? false : true
                 archiveBarButton.tintColor = isArchive ?  UIColor.black : UIColor.blue
                 
+                if self.isPin == true{
+                    notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
+                    notesCell.pinBtn.alpha = 1
+                }
             }else{
                 self.isPin = false
                 self.isArchive = false

@@ -10,6 +10,8 @@ target 'FundooNotes' do
   pod 'XLActionController/Youtube'
   pod 'DatePickerDialog'
   pod 'UITextView+Placeholder'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'FundooNotesTests' do
     inherit! :search_paths

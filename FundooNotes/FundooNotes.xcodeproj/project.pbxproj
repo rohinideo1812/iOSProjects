@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1AB7AB20CE3538002171C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */; };
 		0A734C0920AD79AE00663263 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A734C0720AD79AE00663263 /* ColorViewController.swift */; };
 		0A734C0A20AD79AE00663263 /* ColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A734C0820AD79AE00663263 /* ColorViewController.xib */; };
 		0A85110220AEE14A001B5137 /* NoteAddUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A85110120AEE14A001B5137 /* NoteAddUIView.xib */; };
@@ -24,9 +25,6 @@
 		0A94C440209D7F850044ABCF /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A94C43A209D7F850044ABCF /* TableViewCell1.xib */; };
 		0A94C442209D936F0044ABCF /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C441209D936F0044ABCF /* LoginService.swift */; };
 		0A94C485209DBF640044ABCF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A94C484209DBF640044ABCF /* NavigationController.swift */; };
-		0A96ADF720CB99990001F7FB /* SearchNoteUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A96ADF620CB99990001F7FB /* SearchNoteUpperView.swift */; };
-		0A96ADF920CB99E00001F7FB /* SearchNoteUpperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A96ADF820CB99E00001F7FB /* SearchNoteUpperView.xib */; };
-		0A96ADFB20CBA9B60001F7FB /* SearchNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A96ADFA20CBA9B60001F7FB /* SearchNoteViewController.swift */; };
 		0A98CC0E20B571BD00CC3E89 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98CC0C20B571BD00CC3E89 /* NotesCell.swift */; };
 		0A98CC0F20B571BD00CC3E89 /* NotesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A98CC0D20B571BD00CC3E89 /* NotesCell.xib */; };
 		0A98CC1120B598E300CC3E89 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98CC1020B598E300CC3E89 /* Helper.swift */; };
@@ -98,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		0682AF1FD4521DB23E766735 /* Pods-FundooNotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundooNotesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FundooNotesTests/Pods-FundooNotesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A734C0720AD79AE00663263 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		0A734C0820AD79AE00663263 /* ColorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorViewController.xib; sourceTree = "<group>"; };
 		0A85110120AEE14A001B5137 /* NoteAddUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteAddUIView.xib; sourceTree = "<group>"; };
@@ -115,9 +114,6 @@
 		0A94C43A209D7F850044ABCF /* TableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		0A94C441209D936F0044ABCF /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0A94C484209DBF640044ABCF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		0A96ADF620CB99990001F7FB /* SearchNoteUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoteUpperView.swift; sourceTree = "<group>"; };
-		0A96ADF820CB99E00001F7FB /* SearchNoteUpperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchNoteUpperView.xib; sourceTree = "<group>"; };
-		0A96ADFA20CBA9B60001F7FB /* SearchNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoteViewController.swift; sourceTree = "<group>"; };
 		0A98CC0C20B571BD00CC3E89 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCell.swift; sourceTree = "<group>"; };
 		0A98CC0D20B571BD00CC3E89 /* NotesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesCell.xib; sourceTree = "<group>"; };
 		0A98CC1020B598E300CC3E89 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -254,7 +250,6 @@
 				0A8AFCBA20B2E0D0003F11E6 /* NoteAdditionViewController.swift */,
 				0ACC6750208F6CEE007E7B4C /* LoginViewController.swift */,
 				0ACC674C208F698F007E7B4C /* RegistrationViewController.swift */,
-				0A96ADFA20CBA9B60001F7FB /* SearchNoteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,7 +303,6 @@
 				0A734C0720AD79AE00663263 /* ColorViewController.swift */,
 				0A734C0820AD79AE00663263 /* ColorViewController.xib */,
 				0A85110120AEE14A001B5137 /* NoteAddUIView.xib */,
-				0A96ADF820CB99E00001F7FB /* SearchNoteUpperView.xib */,
 				0A85110520AEE57F001B5137 /* NoteAddUIView.swift */,
 				0AE5935E20B4003E0019DED9 /* ColorCollectionViewCell.swift */,
 				0AE5935F20B4003E0019DED9 /* ColorCollectionViewCell.xib */,
@@ -318,7 +312,6 @@
 				0AA28B8D20B6CDAE00F1CD08 /* DashBoardBottomView.xib */,
 				0AA531FF20B7E56E000F129A /* AddNoteBottomView.xib */,
 				0AA5320120B7E6A6000F129A /* AddNoteBottomView.swift */,
-				0A96ADF620CB99990001F7FB /* SearchNoteUpperView.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -408,6 +401,7 @@
 				0AE5937420B4485A0019DED9 /* PinterestLayoutDelegate.swift */,
 				0A9B84E9208F5BD500EF3BCB /* LaunchScreen.storyboard */,
 				0A9B84DD208F5BD500EF3BCB /* AppDelegate.swift */,
+				0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */,
 				0A9B84EC208F5BD500EF3BCB /* Info.plist */,
 				0A7E8B8820BD92AD00F97200 /* Presenter */,
 				0A7E8B8720BD925700F97200 /* Service */,
@@ -614,11 +608,11 @@
 				0AA5320020B7E56E000F129A /* AddNoteBottomView.xib in Resources */,
 				0AC166CC20AAE2D7008C21DD /* NoteData.json in Resources */,
 				0A94C43E209D7F850044ABCF /* ProfileViewController.xib in Resources */,
-				0A96ADF920CB99E00001F7FB /* SearchNoteUpperView.xib in Resources */,
 				0AA28B8E20B6CDAE00F1CD08 /* DashBoardBottomView.xib in Resources */,
 				0AE5936120B4003E0019DED9 /* ColorCollectionViewCell.xib in Resources */,
 				0A9B84E3208F5BD500EF3BCB /* Main.storyboard in Resources */,
 				0A98CC0F20B571BD00CC3E89 /* NotesCell.xib in Resources */,
+				0A1AB7AB20CE3538002171C9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,14 +641,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FundooNotes/Pods-FundooNotes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -725,7 +725,6 @@
 				0A94C442209D936F0044ABCF /* LoginService.swift in Sources */,
 				0A8C543F20B13DD300E9C045 /* ReminderViewController.swift in Sources */,
 				0AE5937920B4485F0019DED9 /* PinterestLayoutDelegate.swift in Sources */,
-				0A96ADF720CB99990001F7FB /* SearchNoteUpperView.swift in Sources */,
 				0A9C47A020B1B2270080AF29 /* UIColor+Extension.swift in Sources */,
 				0ACC6751208F6CEE007E7B4C /* LoginViewController.swift in Sources */,
 				0A9B84E6208F5BD500EF3BCB /* FundooNotes.xcdatamodeld in Sources */,
@@ -739,7 +738,6 @@
 				0AC7479020C6A1260029ED13 /* SignUpPresenter.swift in Sources */,
 				0A9A494A2090520700E1552B /* UserModel.swift in Sources */,
 				0AC7479420C6A1B30029ED13 /* Protocols.swift in Sources */,
-				0A96ADFB20CBA9B60001F7FB /* SearchNoteViewController.swift in Sources */,
 				0A8B3670209ED6B300666C0D /* NoteModel.swift in Sources */,
 				0AE5936720B4469C0019DED9 /* DashBoardViewController.swift in Sources */,
 				0A9A4935209034CE00E1552B /* UserDBManager.swift in Sources */,

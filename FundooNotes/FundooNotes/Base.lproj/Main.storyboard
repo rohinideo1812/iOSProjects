@@ -626,36 +626,6 @@
             </objects>
             <point key="canvasLocation" x="2188" y="-1737.481259370315"/>
         </scene>
-        <!--Search Note View Controller-->
-        <scene sceneID="pBo-Uu-h2A">
-            <objects>
-                <viewController storyboardIdentifier="SearchNoteViewController" id="JIg-cg-ZnH" customClass="SearchNoteViewController" customModule="FundooNotes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2tL-ER-iGA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="SearchNoteUpperView" translatesAutoresizingMaskIntoConstraints="NO" id="xkh-jR-IQD" customClass="SearchNoteUpperView" customModule="FundooNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="EHu-Vq-Qig"/>
-                                    <constraint firstAttribute="height" constant="44" id="lNM-2w-50J"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="xkh-jR-IQD" firstAttribute="leading" secondItem="fef-tk-eqp" secondAttribute="leading" id="9hd-vm-Iut"/>
-                            <constraint firstItem="xkh-jR-IQD" firstAttribute="top" secondItem="2tL-ER-iGA" secondAttribute="top" id="hJd-5A-rZQ"/>
-                            <constraint firstItem="xkh-jR-IQD" firstAttribute="trailing" secondItem="fef-tk-eqp" secondAttribute="trailing" id="lUV-J0-tIh"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fef-tk-eqp"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ivU-6Q-9mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1919" y="-2903"/>
-        </scene>
         <!--Dash Board View Controller-->
         <scene sceneID="kWi-Vl-hN6">
             <objects>
@@ -680,7 +650,7 @@
                             </collectionView>
                             <view contentMode="scaleToFill" restorationIdentifier="DashBoardBottomView" translatesAutoresizingMaskIntoConstraints="NO" id="GYh-bM-Y8W" customClass="DashBoardBottomView" customModule="FundooNotes" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.90274784484668436" green="0.90274784484668436" blue="0.90274784484668436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="DPZ-0L-JIt"/>
                                     <constraint firstAttribute="height" constant="44" id="dae-FX-9wT"/>

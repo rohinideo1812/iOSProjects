@@ -16,6 +16,7 @@ class NotesCell: UICollectionViewCell {
         super.awakeFromNib()
         titleLabel.sizeToFit()
         self.backgroundColor = UIColor.clear
+        self.pinBtn.alpha = 0
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 2
         self.layer.masksToBounds = false

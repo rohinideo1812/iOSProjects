@@ -2,7 +2,6 @@ import UIKit
 import XLActionController
 import UITextView_Placeholder
 
-
 class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate{
     
     //Mark:IBOutlet
@@ -40,7 +39,6 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let coppyOfNotes = notes
         longPressGesture.minimumPressDuration = 0.5
         longPressGesture.delegate = self
         longPressGesture.delaysTouchesBegan = true
@@ -63,6 +61,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         }
         let nib = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier )
+
         
     }
     
@@ -210,10 +209,12 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
        self.navigationItem.leftBarButtonItem = menuButton
        self.navigationItem.rightBarButtonItem = viewTypeBtn
        self.dashBoardPresenter.getNotes(type: .notes)
+       self.textField.isHidden = true
     }
     
     //Mark: Action on Searchbtn Click
     @objc func searchButtonPress(){
+        self.textField.isHidden = false
         notes.removeAll()
         collectionView.reloadData()
         dashboardBottomView.isHidden = true
@@ -225,9 +226,6 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         textField.placeholder = "Search Notes"
         self.navigationItem.titleView = textField
        
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SearchNoteViewController") as!  SearchNoteViewController
-//    self.present(newViewController, animated: true)
-        
     }
     
     //Mark: Action on Viewbtn Click
@@ -264,12 +262,12 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         dashBoardPresenter.userEnteredString = newString
