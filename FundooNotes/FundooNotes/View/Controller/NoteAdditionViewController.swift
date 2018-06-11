@@ -98,17 +98,15 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         let date = Helper.shared.getFormatedDate()
         noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
             addNotePresenter?.addNote(object: self.noteObject)
-            guard let reminderDate = remindDate else{
-                return
-            }
-            let note:[String:String] = [
+            let note:[String:Any] = [
                 "title" : noteAddUIView.titleTextView.text,
                 "note"  : noteAddUIView.noteTextView.text,
-                "remindDate" : reminderDate,
+                "isPin" : self.isPin,
+                "isArchive" : self.isArchive,
+                "remindDate" : remindDate,
                 "date" : date,
                 "id" : id
             ]
-            
             let noteItemRef = ref.child(noteAddUIView.titleTextView.text)
             noteItemRef.setValue(note)
             

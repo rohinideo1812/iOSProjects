@@ -30,6 +30,8 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let textField = UITextField()
     
+    
+    //Mark: Protocol implementation of SideMenu Selection
     func sideMenuDidSelected(noteType: NoteType) {
         self.type = noteType
         dashBoardPresenter.attachView(view: self)
@@ -262,12 +264,6 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.navigationController?.pushViewController(newViewController, animated: true)
     }
 
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//
-
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         dashBoardPresenter.userEnteredString = newString
@@ -309,7 +305,6 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NotesCell
-        print(indexPath.row)
         cell.configureData(note: notes[indexPath.row])
         return cell
     }
