@@ -39,6 +39,27 @@ class SignUpPresenter {
                 )}else{
                 signUpView?.showMessage(message: "Enter emailId in proper format")
             }
-}
-}
+        }
+    }
+    
+    func signUpWith(userObject : UserModel,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
+        if userObject.email == "" ||  userObject.password == "" ||  userObject.firstName == "" ||  userObject.lastName == "" {
+            signUpView?.showMessage(message: "All fields are mandatory.")
+        }else{
+            let providedEmailAddress = userObject.email
+            let isEmailValid = ValidationUtil.shared.isValidEmailAddress(emailAddressString: providedEmailAddress!)
+            if isEmailValid == true {
+                self.signUpView?.startLoading()
+                signUpService.signUpWith(userObject: userObject, callback: { result,message in
+                    print(result)
+                    print(message)
+                    self.signUpView?.finishLoading()
+
+                })}else{
+                signUpView?.showMessage(message: "Enter emailId in proper format")
+
+                }
+            }
+        }
+    
 }

@@ -86,7 +86,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func backBarButtonPress(){
         addNotePresenter?.attachView(view: self)
-        let ref = Database.database().reference(withPath: "Notes")
+        let ref = Database.database().reference(withPath: "Users")
 
         if isUpdate == false{
             if self.isPin == true{
@@ -107,8 +107,8 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 "date" : date,
                 "id" : id
             ]
-            let noteItemRef = ref.child(noteAddUIView.titleTextView.text)
-            noteItemRef.setValue(note)
+            
+            
             
         }else {
             let date = Helper.shared.getFormatedDate()

@@ -8,7 +8,14 @@ struct Constants {
         public static let REMINDER_NOTE_VC = "remindernotevc"
         public static let KEY_CURRENT_USER_EMAIL = "current_user_email"
         public static let KEY_CURRENT_USER_PASSWORD = "current_user_password"
-        
+    }
+    
+    struct DatabseKeys {
+        public static let FIRST_NAME = "firstName"
+        public static let LAST_NAME = "lastName"
+        public static let EMAIL_ID = "emailId"
+        public static let PASSWORD = "password"
+
     }
     
     struct repeatTypes{
@@ -17,5 +24,9 @@ struct Constants {
         public static let WEEKLY = "Weekly"
         public static let MONTHLY = "Monthly"
         public static let YEARLY = "yearly"
+    }
+    struct Message{
+        public static let MSG_INTERNET_AVAILABLE = "Internet Available!"
+        public static let MSG_INTERNET_NOT_AVAILABLE = "Internet Not Available!"
     }
 }

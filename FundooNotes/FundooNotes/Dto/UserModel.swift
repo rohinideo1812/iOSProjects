@@ -1,5 +1,5 @@
 import Foundation
-struct UserModel {
+struct UserModel:Codable {
     
     let firstName : String?
     let lastName : String?

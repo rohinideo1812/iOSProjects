@@ -1,5 +1,8 @@
 PODS:
   - DatePickerDialog (2.0)
+  - Firebase/Auth (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.0.0)
   - Firebase/Core (5.0.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.0)
@@ -13,6 +16,9 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
+  - FirebaseAuth (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (5.0.0):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseDatabase (5.0.0):
@@ -23,6 +29,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GTMSessionFetcher/Core (1.1.15)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -36,6 +43,7 @@ PODS:
 
 DEPENDENCIES:
   - DatePickerDialog
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - "UITextView+Placeholder"
@@ -46,10 +54,12 @@ SPEC REPOS:
     - DatePickerDialog
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
     - GoogleToolboxForMac
+    - GTMSessionFetcher
     - leveldb-library
     - nanopb
     - "UITextView+Placeholder"
@@ -59,15 +69,17 @@ SPEC CHECKSUMS:
   DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
   Firebase: 4bd804448ab2596794698773d41520a0af101e65
   FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
+  FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
   FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
   FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   "UITextView+Placeholder": 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   XLActionController: 007868251c0eed70d649d06c1625259b73b3a600
 
-PODFILE CHECKSUM: 75aafde3f3e4f0653a94b994c0b43c6bfded85b6
+PODFILE CHECKSUM: 79d4412371645c2be9871408a5cbe3fda24eaf30
 
 COCOAPODS: 1.5.2

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A1AB7AB20CE3538002171C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */; };
+		0A1AB7AD20CE84A8002171C9 /* NoteDBManagaer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */; };
 		0A734C0920AD79AE00663263 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A734C0720AD79AE00663263 /* ColorViewController.swift */; };
 		0A734C0A20AD79AE00663263 /* ColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A734C0820AD79AE00663263 /* ColorViewController.xib */; };
 		0A85110220AEE14A001B5137 /* NoteAddUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A85110120AEE14A001B5137 /* NoteAddUIView.xib */; };
@@ -97,6 +98,8 @@
 /* Begin PBXFileReference section */
 		0682AF1FD4521DB23E766735 /* Pods-FundooNotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FundooNotesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FundooNotesTests/Pods-FundooNotesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDBManagaer.swift; sourceTree = "<group>"; };
+		0A1AB7AE20CE92DE002171C9 /* FundooNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FundooNotes.entitlements; sourceTree = "<group>"; };
 		0A734C0720AD79AE00663263 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		0A734C0820AD79AE00663263 /* ColorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorViewController.xib; sourceTree = "<group>"; };
 		0A85110120AEE14A001B5137 /* NoteAddUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteAddUIView.xib; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 		0A7E8B7920BD827400F97200 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -394,6 +398,7 @@
 		0A9B84DC208F5BD500EF3BCB /* FundooNotes */ = {
 			isa = PBXGroup;
 			children = (
+				0A1AB7AE20CE92DE002171C9 /* FundooNotes.entitlements */,
 				0A9C479E20B1B1DA0080AF29 /* Resources */,
 				0A9B84E1208F5BD500EF3BCB /* Main.storyboard */,
 				0AE5937320B4485A0019DED9 /* PinterestLayout.swift */,
@@ -561,6 +566,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					0A9B84F0208F5BD500EF3BCB = {
 						CreatedOnToolsVersion = 9.2;
@@ -641,6 +651,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FundooNotes/Pods-FundooNotes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
@@ -650,6 +661,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
@@ -737,6 +749,7 @@
 				0A85110620AEE57F001B5137 /* NoteAddUIView.swift in Sources */,
 				0AC7479020C6A1260029ED13 /* SignUpPresenter.swift in Sources */,
 				0A9A494A2090520700E1552B /* UserModel.swift in Sources */,
+				0A1AB7AD20CE84A8002171C9 /* NoteDBManagaer.swift in Sources */,
 				0AC7479420C6A1B30029ED13 /* Protocols.swift in Sources */,
 				0A8B3670209ED6B300666C0D /* NoteModel.swift in Sources */,
 				0AE5936720B4469C0019DED9 /* DashBoardViewController.swift in Sources */,
@@ -938,7 +951,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FundooNotes/FundooNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22J7Z5RZWC;
 				INFOPLIST_FILE = FundooNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bridgelabz.FundooNotes;
@@ -956,7 +971,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = FundooNotes/FundooNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22J7Z5RZWC;
 				INFOPLIST_FILE = FundooNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bridgelabz.FundooNotes;
