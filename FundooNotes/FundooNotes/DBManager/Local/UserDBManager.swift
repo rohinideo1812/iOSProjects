@@ -5,8 +5,8 @@ import UIKit
 class UserDataBase {
     static var sharedInstance = UserDataBase()
     public init(){
-        
     }
+    
     var userdata : UserModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user : User?
@@ -69,7 +69,7 @@ class UserDataBase {
         }catch {
             print("Failed")
         }
-}
+  }
     
     
     //Mark: Remove DB

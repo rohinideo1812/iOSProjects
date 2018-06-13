@@ -42,7 +42,8 @@ class SignUpPresenter {
         }
     }
     
-    func signUpWith(userObject : UserModel,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
+    
+    func signUpWith(userObject : UserModel){
         if userObject.email == "" ||  userObject.password == "" ||  userObject.firstName == "" ||  userObject.lastName == "" {
             signUpView?.showMessage(message: "All fields are mandatory.")
         }else{
@@ -51,15 +52,18 @@ class SignUpPresenter {
             if isEmailValid == true {
                 self.signUpView?.startLoading()
                 signUpService.signUpWith(userObject: userObject, callback: { result,message in
-                    print(result)
-                    print(message)
                     self.signUpView?.finishLoading()
+                    
+                    if result == false{
+                        self.signUpView?.showMessage(message: message)
 
+                    }else{
+                    self.signUpView?.messageAfterRegistration(message : message)
+                    }
                 })}else{
                 signUpView?.showMessage(message: "Enter emailId in proper format")
 
                 }
             }
         }
-    
-}
+  }

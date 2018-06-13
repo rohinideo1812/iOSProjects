@@ -4,10 +4,12 @@ import UITextView_Placeholder
 
 class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate{
     
+    
     //Mark:IBOutlet
     @IBOutlet var longPressGesture: UILongPressGestureRecognizer!
     @IBOutlet weak var dashboardBottomView: DashBoardBottomView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     //Mark:Properties
     let dashBoardPresenter = DashBoardPresenter(dashBoardService:DashBoardService())
@@ -86,6 +88,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     func sideMenuDidClose() {
         
     }
+
     
     //Mark: Action on Long Press
     @IBAction func longPressGesture(_ sender: UILongPressGestureRecognizer) {
@@ -142,8 +145,9 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         
     }
     
+    
     //Mark: Options on OptionBtn Click
-   @objc func options(){
+    @objc func options(){
     
     let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
     
@@ -259,6 +263,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
 
     }
     
+    //Mark: Action on TakeNoteBtn Press
     @objc func takeNoteButtonPress(){
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "NoteAdditionViewController") as!  NoteAdditionViewController
         self.navigationController?.pushViewController(newViewController, animated: true)
@@ -274,6 +279,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
 }
 
 extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICollectionViewDelegate,PinterestLayoutDelegate{
+    
     
     func showMessage(message: String) {
         

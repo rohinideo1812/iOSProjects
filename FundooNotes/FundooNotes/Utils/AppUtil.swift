@@ -35,12 +35,14 @@ class AppUtil {
         
     }
     
+    
     func getUserCredential() -> (email:String?,password:String?){
        let email = userdefault.string(forKey: Constants.CacheKeys.KEY_CURRENT_USER_EMAIL)
         let password = userdefault.string(forKey: Constants.CacheKeys.KEY_CURRENT_USER_PASSWORD)
         let credential = (email:email,password:password)
         return credential
     }
+    
     
     func getMainVC()->MyNavigationController{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,6 +52,7 @@ class AppUtil {
         let mynavVc = MyNavigationController(menuViewController: mymenuVC, contentViewController:dashboardVC)
         return mynavVc
     }
+    
     
     func scheduleNotifications(notes:[NoteItem]) {
         
@@ -68,9 +71,9 @@ class AppUtil {
                     let repeatType = "\( dateArray[2])"
            let getDateComponent =  getDateComponents(repeatType:repeatType,stringDate:stringDate)
             
-            let requestIdentifier = "\(noteObject.id)"
-            content.title = "\(noteObject.title)"
-            content.subtitle = "\(noteObject.subtitle)"
+            let requestIdentifier = "\(noteObject.id!)"
+                    content.title = "\(noteObject.title ?? "")"
+                    content.subtitle = "\(noteObject.subtitle ?? "")"
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: getDateComponent, repeats: true)
             

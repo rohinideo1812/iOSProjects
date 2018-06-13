@@ -2,18 +2,16 @@ import Foundation
 import UIKit
 
 
-struct NoteItem {
-    let title : String?
-    let subtitle : String?
-    let image : UIImage?
-    let isPin : Bool?
+struct NoteItem{
+    var title : String?
+    var subtitle : String?
+    var image : UIImage?
+    var isPin : Bool?
     var isArchive : Bool?
-    let remindDate : String?
+    var remindDate : String?
     var date : String?
-    let id : String?
+    var id : String?
     var isDelete : Bool?
     
 }
-
-
 

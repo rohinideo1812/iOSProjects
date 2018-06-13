@@ -13,6 +13,7 @@ target 'FundooNotes' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 
   target 'FundooNotesTests' do
     inherit! :search_paths

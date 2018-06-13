@@ -22,6 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //checkLogedIn()
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+
+        if Auth.auth().currentUser != nil {
+            let mainVC = AppUtil.shareInstance.getMainVC()
+            self.window?.rootViewController = mainVC
+
+        } else {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.window?.rootViewController = newViewController
+
+
+        }
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound],completionHandler: { (granted,error) in
             print(granted)
             UNUserNotificationCenter.current().delegate = self
@@ -39,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print("handling notifications with the TestIdentifier Identifier")
             completionHandler()
         }
+        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

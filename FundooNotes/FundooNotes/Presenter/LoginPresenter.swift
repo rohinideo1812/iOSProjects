@@ -38,7 +38,8 @@ class LoginPresenter {
         }
     }
     
-    func loginWith(email:String,password:String,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
+    
+    func loginWith(email:String,password:String){
         if email.isEmpty || password.isEmpty{
             self.loginView?.showMessage(message: "Email or password can't be blanked")
         }else{
@@ -46,9 +47,14 @@ class LoginPresenter {
             loginService.loginWith(email: email, password: password, callback: { [weak self]
                 isavailable,message in
                 self?.loginView?.finishLoading()
-                callback(isavailable,message)
-                    // self?.loginView?.messageAfterRegistration(message: message)
-//                    self?.loginView?.openDashBoard()
+                if isavailable {
+                    self?.loginView?.openDashBoard()
+
+                }
+                else{
+                    self?.loginView?.showMessage(message:message)
+
+                }
                 
             })
     }

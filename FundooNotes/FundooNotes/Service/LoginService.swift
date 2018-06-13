@@ -13,11 +13,13 @@ class LoginService {
         }))
     }
     
+    
     func loginWith(email:String,password:String,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
         //1 Check Network
         if (AppUtil.shareInstance.isConnectedToNetwork()){
             //2 Create Account
             Auth.auth().signIn(withEmail: email, password: password, completion: { result,error in
+        
                 if error == nil{
                     callback(true,"Successfull Logined")
                 }else{

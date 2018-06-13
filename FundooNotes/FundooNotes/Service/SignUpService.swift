@@ -23,6 +23,7 @@ class SignUpService {
         let userInfo = convertUserToJSON(userItem: userObject)
         Auth.auth().createUser(withEmail: (userObject.email)!, password: (userObject.password)!, completion: { result,error in
             if error == nil {
+            
                 print(userInfo)
                 Auth.auth().signIn(withEmail:(userObject.email)!,password:(userObject.password)! )
             }else{

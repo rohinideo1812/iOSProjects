@@ -68,16 +68,12 @@ class LoginViewController: UIViewController,LoginView {
     
     //Mark : Action on loginButonPress
     @IBAction func loginButonAction(_ sender: UIButton) {
-        loginPresenter?.loginWith(email: userNameTextField.text!, password: passwordTextField.text!, callback: {result,message in
-            print(result)
-            print(message)
-            
-        })
+        //        loginPresenter?.login(email: userNameTextField.text!, password: passwordTextField.text!)
         
+        loginPresenter?.loginWith(email: userNameTextField.text!, password: passwordTextField.text!)
         
-//        loginPresenter?.login(email: userNameTextField.text!, password: passwordTextField.text!)
-    }
-    
+        }
+        
     
     //Mark : Action on signUpButonPress
     @IBAction func signUpButton(_ sender: UIButton) {

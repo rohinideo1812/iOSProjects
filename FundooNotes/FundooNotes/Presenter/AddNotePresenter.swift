@@ -34,4 +34,23 @@ class AddNotePresenter {
         })
     }
     
+    
+    func storeNoteData(object:NoteItem?){
+        self.addNoteView?.startLoading()
+        addNoteService.storeNoteData(object: object, callback: {
+            result,message in
+            print(message)
+        })
+    }
+
+    
+    func updateNoteDataWith(object : NoteItem?){
+        self.addNoteView?.startLoading()
+        addNoteService.updateNoteDataWith(object: object, callback: {
+            result,message in
+            print(result)
+            print(message)
+            
+        })
+    }
 }

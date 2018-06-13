@@ -52,6 +52,7 @@
 		0AA5320220B7E6A6000F129A /* AddNoteBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5320120B7E6A6000F129A /* AddNoteBottomView.swift */; };
 		0AAAF2F120BBDCB20089111C /* NoteDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAAF2F020BBDCB20089111C /* NoteDBManager.swift */; };
 		0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */; };
+		0ABCFDF320CF920800BEC06A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABCFDF220CF920800BEC06A /* DataManager.swift */; };
 		0AC166C820AA9F0E008C21DD /* Photos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166C720AA9F0E008C21DD /* Photos.xcassets */; };
 		0AC166CC20AAE2D7008C21DD /* NoteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166CB20AAE2D7008C21DD /* NoteData.json */; };
 		0AC2EA4520B0579F00ADE7C0 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2EA4420B0579F00ADE7C0 /* ReminderTableViewCell.swift */; };
@@ -151,6 +152,7 @@
 		0AAFBDA42096D43C002B84C0 /* FundooNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FundooNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0AAFBDA72096D442002B84C0 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0ABCFDF220CF920800BEC06A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		0AC166C720AA9F0E008C21DD /* Photos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Photos.xcassets; sourceTree = "<group>"; };
 		0AC166CB20AAE2D7008C21DD /* NoteData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteData.json; sourceTree = "<group>"; };
 		0AC2EA4420B0579F00ADE7C0 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				0A7E8B7A20BD82C900F97200 /* Local */,
 				0A7E8B7920BD827400F97200 /* Remote */,
+				0ABCFDF220CF920800BEC06A /* DataManager.swift */,
 			);
 			path = DBManager;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				0AE5937F20B449B50019DED9 /* DashBoardPresenter.swift in Sources */,
 				0A94C43D209D7F850044ABCF /* ProfileViewController.swift in Sources */,
 				0AE5937B20B4485F0019DED9 /* PinterestLayoutAttributes.swift in Sources */,
+				0ABCFDF320CF920800BEC06A /* DataManager.swift in Sources */,
 				0A94C43F209D7F850044ABCF /* TableViewCell1.swift in Sources */,
 				0A9A493A209035AB00E1552B /* User+CoreDataClass.swift in Sources */,
 				0A98CC0E20B571BD00CC3E89 /* NotesCell.swift in Sources */,

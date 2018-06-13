@@ -53,13 +53,10 @@ class RegistrationViewController: UIViewController,SignUpView {
     //Mark: Action on SignUpButton Press
     @IBAction func loginButtonPress(_ sender: UIButton) {
     user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
-//    signUpPresenter?.signUp(object:user )
-        signUpPresenter?.signUpWith(userObject: user!, callback: {result,message in
-            print(result)
-            print(message)
-            
-        })
+//    signUpPresenter?.signUp(object:user)
+        signUpPresenter?.signUpWith(userObject: user!)
     }
+    
     
     //Mark: Action on LoginButtonPress
     @IBAction func alreadySignedIn(_ sender: Any) {

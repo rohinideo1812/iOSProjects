@@ -1,7 +1,5 @@
 import UIKit
 import XLActionController
-import FirebaseDatabase
-
 
 class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate,AddNoteView {
  
@@ -86,36 +84,24 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func backBarButtonPress(){
         addNotePresenter?.attachView(view: self)
-        let ref = Database.database().reference(withPath: "Users")
 
         if isUpdate == false{
-            if self.isPin == true{
-                notesCell.pinBtn.alpha = 1
-                notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
-            }
-            
+//            if self.isPin == true{
+//                notesCell.pinBtn.alpha = 1
+//                notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
+//            }
         let id = NSUUID().uuidString
         let date = Helper.shared.getFormatedDate()
         noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
-            addNotePresenter?.addNote(object: self.noteObject)
-            let note:[String:Any] = [
-                "title" : noteAddUIView.titleTextView.text,
-                "note"  : noteAddUIView.noteTextView.text,
-                "isPin" : self.isPin,
-                "isArchive" : self.isArchive,
-                "remindDate" : remindDate,
-                "date" : date,
-                "id" : id
-            ]
-            
-            
-            
+//            addNotePresenter?.addNote(object: self.noteObject)
+            addNotePresenter?.storeNoteData(object: self.noteObject)
         }else {
             let date = Helper.shared.getFormatedDate()
             archiveBarButtonPress()
             pinBarButtonPress()
             noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject?.id,isDelete : false)
-            addNotePresenter?.updateNote(object:self.noteObject)
+//            addNotePresenter?.updateNote(object:self.noteObject)
+          addNotePresenter?.updateNoteDataWith(object: self.noteObject)
 
         }
 
@@ -190,13 +176,12 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             let newImage = Helper.shared.getScaledImage(image: pickedImage, width: view.frame.size.width)
             self.noteAddUIView.imageView.contentMode = .scaleAspectFit
             self.noteAddUIView.imageView.image = newImage
-            
             updateView()
-        }
+                }
         dismiss(animated: true, completion: nil)
+        
+        }
     }
-}
-
 
     //Mark: TextView Delegates
     extension NoteAdditionViewController:UITextViewDelegate {
@@ -356,11 +341,10 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 pinBarButton.tintColor = self.isPin ? UIColor.black : UIColor.blue
                 self.isArchive =  self.isArchive ? false : true
                 archiveBarButton.tintColor = isArchive ?  UIColor.black : UIColor.blue
-                
-                if self.isPin == true{
-                    notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
-                    notesCell.pinBtn.alpha = 1
-                }
+//                if self.isPin == true{
+//                    notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
+//                    notesCell.pinBtn.alpha = 1
+//                }
             }else{
                 self.isPin = false
                 self.isArchive = false

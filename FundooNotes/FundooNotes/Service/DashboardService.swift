@@ -2,16 +2,15 @@ import Foundation
 import UIKit
 
 
-
-
 class DashBoardService {
     
     var userenteredString:String?
 
-    func getNotes(noteType:NoteType,callBack:([NoteItem]) -> Void){
+    func getNotes(noteType:NoteType,callBack:@escaping ([NoteItem]) -> Void){
+         DataManager.shared.fetchNoteData(callback: {notes in
+
+//        let notes = NoteDataBase.sharedInstance.fetchNoteData()
         
-        let notes = NoteDataBase.sharedInstance.fetchNoteData()
-        print("Notes-------------------------------",notes)
         let reminderNotes = notes.filter({$0.remindDate != nil && $0.isDelete == false})
         AppUtil.shareInstance.scheduleNotifications(notes:reminderNotes)
        
@@ -29,12 +28,14 @@ class DashBoardService {
         case .delete : let deletedNotes = notes.filter({$0.isDelete == true})
             callBack(deletedNotes)
             
-        case .search : if let containsString = userenteredString {
+        case .search : if let containsString = self.userenteredString {
                       let searchNotes = notes.filter({($0.title?.contains("\(containsString)"))! || ($0.subtitle?.contains("\(containsString)"))!})
                       callBack(searchNotes)
             }
         }
+              })
     }
+    
     
     func updateNoteData(object : NoteItem?,callback:(_ result:Bool,_ message:String)->Void){
         NoteDataBase.sharedInstance.updateNoteData(object: object,callback: {result,message in
@@ -45,6 +46,7 @@ class DashBoardService {
     
     }
     
+    
     func updateNotes(objects : [NoteItem],callback:(_ result:Bool,_ message:String)->Void){
         NoteDataBase.sharedInstance.updateNotes(objects: objects,callback: {result,message in
             
@@ -53,6 +55,8 @@ class DashBoardService {
         })
         
     }
+    
+    
     
 }
 

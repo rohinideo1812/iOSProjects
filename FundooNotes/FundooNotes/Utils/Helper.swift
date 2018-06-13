@@ -135,6 +135,7 @@ class Helper{
         }
     }
     
+    //Mark: Get Index Path Row
     func getIndexPathRow(selectedNotes:[IndexPath])->[Int]{
         var selectedRows = [Int]()
         for selectedPosition in selectedNotes{
@@ -145,6 +146,23 @@ class Helper{
         }
         return selectedRows
     }
+    
+    //Convert NoteObject to JSON
+    func convertNoteObjToJSON(noteItem:NoteItem?) -> [String:String]{
+        var noteInfo:[String:String] = [:]
+        do{
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(noteItem)
+            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) as? [String:String]{
+                noteInfo = jsonObject
+            }
+        }catch let error as NSError {
+            debugPrint(error.debugDescription)
+        }
+        return noteInfo
+    }
+    
+
     
     }
 
