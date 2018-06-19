@@ -19,6 +19,7 @@ class AddNotePresenter {
         addNoteView = nil
     }
     
+    //Mark:Add Note on Local DB
     func addNote(object : NoteItem?){
         self.addNoteView?.startLoading()
         addNoteService.addNote(object: object){result,message in
@@ -26,7 +27,7 @@ class AddNotePresenter {
         }
     }
     
-    
+    //Mark:Update Note on Local DB
     func updateNote(object:NoteItem?){
         self.addNoteView?.startLoading()
         addNoteService.updateNoteData(object: object,callback: {result,message in
@@ -34,7 +35,7 @@ class AddNotePresenter {
         })
     }
     
-    
+    //Mark:Store Note on Local DB
     func storeNoteData(object:NoteItem?){
         self.addNoteView?.startLoading()
         addNoteService.storeNoteData(object: object, callback: {
@@ -43,7 +44,7 @@ class AddNotePresenter {
         })
     }
 
-    
+    //Mark:Update Note on Firebase
     func updateNoteDataWith(object : NoteItem?){
         self.addNoteView?.startLoading()
         addNoteService.updateNoteDataWith(object: object, callback: {

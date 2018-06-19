@@ -215,6 +215,7 @@
 		0A7E8B7920BD827400F97200 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				0ABCFDF220CF920800BEC06A /* DataManager.swift */,
 				0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */,
 			);
 			path = Remote;
@@ -276,7 +277,6 @@
 			children = (
 				0AE5937E20B449B50019DED9 /* DashBoardPresenter.swift */,
 				0AC5D41E20A05E5600F3E92C /* LoginPresenter.swift */,
-				0AC7478F20C6A1260029ED13 /* SignUpPresenter.swift */,
 				0AC7479120C6A1560029ED13 /* AddNotePresenter.swift */,
 			);
 			path = Presenter;
@@ -351,7 +351,6 @@
 			children = (
 				0A7E8B7A20BD82C900F97200 /* Local */,
 				0A7E8B7920BD827400F97200 /* Remote */,
-				0ABCFDF220CF920800BEC06A /* DataManager.swift */,
 			);
 			path = DBManager;
 			sourceTree = "<group>";
@@ -409,6 +408,7 @@
 				0AE5937420B4485A0019DED9 /* PinterestLayoutDelegate.swift */,
 				0A9B84E9208F5BD500EF3BCB /* LaunchScreen.storyboard */,
 				0A9B84DD208F5BD500EF3BCB /* AppDelegate.swift */,
+				0AC7478F20C6A1260029ED13 /* SignUpPresenter.swift */,
 				0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */,
 				0A9B84EC208F5BD500EF3BCB /* Info.plist */,
 				0A7E8B8820BD92AD00F97200 /* Presenter */,
@@ -653,22 +653,34 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FundooNotes/Pods-FundooNotes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

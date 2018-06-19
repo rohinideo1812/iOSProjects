@@ -50,15 +50,17 @@ class RegistrationViewController: UIViewController,SignUpView {
     }
     
     
-    //Mark: Action on SignUpButton Press
+    //Mark: Action on LoginButton Press
     @IBAction func loginButtonPress(_ sender: UIButton) {
     user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
 //    signUpPresenter?.signUp(object:user)
-        signUpPresenter?.signUpWith(userObject: user!)
+       signUpPresenter?.signUpWith(userObject: user!)
+       // signUpPresenter?.createAnonymsUser(userObject: user!)
     }
     
     
-    //Mark: Action on LoginButtonPress
+    
+    //Mark: Action on AlreadyLoggedIn
     @IBAction func alreadySignedIn(_ sender: Any) {
          self.dismiss(animated: true, completion: nil)
         

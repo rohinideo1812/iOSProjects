@@ -18,7 +18,7 @@ class LoginPresenter {
         loginView = nil
     }
 
-    
+    //Mark:Local DB Login
     func login(email : String,password : String){
         if email.isEmpty || password.isEmpty{
             self.loginView?.showMessage(message: "Email or password can't be blanked")
@@ -39,6 +39,7 @@ class LoginPresenter {
     }
     
     
+    //Mark: Firebase Login
     func loginWith(email:String,password:String){
         if email.isEmpty || password.isEmpty{
             self.loginView?.showMessage(message: "Email or password can't be blanked")
@@ -49,11 +50,9 @@ class LoginPresenter {
                 self?.loginView?.finishLoading()
                 if isavailable {
                     self?.loginView?.openDashBoard()
-
                 }
                 else{
                     self?.loginView?.showMessage(message:message)
-
                 }
                 
             })

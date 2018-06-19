@@ -153,7 +153,7 @@ class ReminderViewController: UIViewController,UITableViewDataSource,UITableView
     
     
     func selectDate(){
-        Helper.shared.openDialogFor(mode: .time, title: "Select Time", format: "hh:mm a", callback: { result in
+        Helper.shared.openDialogFor(mode: .date, title: "Select Date", format: "hh:mm a", callback: { result in
             self.selectedDate = result
             self.subtitles[self.selectedIndexPath.row] = self.selectedDate
             self.tableView.reloadRows(at: [self.selectedIndexPath], with: .automatic)

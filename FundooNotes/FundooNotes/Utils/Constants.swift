@@ -29,4 +29,15 @@ struct Constants {
         public static let MSG_INTERNET_AVAILABLE = "Internet Available!"
         public static let MSG_INTERNET_NOT_AVAILABLE = "Internet Not Available!"
     }
+    
+    struct FBInfo{
+        public static let PERMISSION:[String] = ["email","public_profile"]
+        public static let GRAPH_PERMISSION:String = "first_name,last_name,picture,email"
+
+    }
+}
+
+enum VCType{
+    case login
+    case dashboard
 }

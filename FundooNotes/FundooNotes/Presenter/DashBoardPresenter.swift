@@ -19,6 +19,7 @@ import Foundation
             dashBoardView = nil
         }
         
+        //Mark:Fetch Note from Local DB
         func getNotes(type:NoteType){
             dashBoardService.userenteredString = userEnteredString
             self.dashBoardView?.startLoading()
@@ -31,7 +32,8 @@ import Foundation
                     }
                 }
             }
-        
+       
+        //Mark:Update Note on Local DB
         func updateNote(object:NoteItem?){
             self.dashBoardView?.startLoading()
             dashBoardService.updateNoteData(object: object,callback: {result,message in
@@ -39,6 +41,8 @@ import Foundation
             })
         }
         
+        
+        //Mark:Update Notes on Local DB
         func updateNotes(objects:[NoteItem]){
             self.dashBoardView?.startLoading()
             dashBoardService.updateNotes(objects: objects,callback: {result,message in
@@ -46,4 +50,14 @@ import Foundation
             })
         }
         
-}
+        //Mark: Update Notes For Firebase
+        func updateNotesWith(objects : [NoteItem]){
+            self.dashBoardView?.startLoading()
+            dashBoardService.updateNotesWith(objects: objects, callback: { result,message in
+                print(result)
+                print(message)
+                
+            })
+        }
+  }
+

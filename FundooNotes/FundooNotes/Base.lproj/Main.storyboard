@@ -96,6 +96,9 @@
                                             <constraint firstAttribute="width" constant="83" id="ljF-dm-BkO"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="facebook-login-icon-png-24final"/>
+                                        <connections>
+                                            <action selector="faceBookButtonPress:" destination="0Oh-B7-Gcr" eventType="touchUpInside" id="sCJ-Rl-LvO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-3j-ewY">
                                         <rect key="frame" x="197" y="347" width="88" height="64"/>

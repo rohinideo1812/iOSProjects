@@ -92,7 +92,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
 //            }
         let id = NSUUID().uuidString
         let date = Helper.shared.getFormatedDate()
-        noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
+            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
 //            addNotePresenter?.addNote(object: self.noteObject)
             addNotePresenter?.storeNoteData(object: self.noteObject)
         }else {
@@ -105,9 +105,9 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
 
         }
 
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
-        self.navigationController?.pushViewController(newViewController, animated: true)
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
+        self.navigationController?.popViewController(animated: true)
     }
     
     

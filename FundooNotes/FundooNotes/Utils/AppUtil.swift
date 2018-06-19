@@ -56,67 +56,68 @@ class AppUtil {
     
     func scheduleNotifications(notes:[NoteItem]) {
         
-      UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-      UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         let content = UNMutableNotificationContent()
         content.badge = 1
         content.sound = UNNotificationSound.default()
-
+        
         for noteObject in notes{
             let remindDate = noteObject.remindDate
             if let reminderDate = remindDate{
-            let dateArray = reminderDate.components(separatedBy: ",")
+                let dateArray = reminderDate.components(separatedBy: ",")
                 if dateArray[0] != "" && dateArray[1] != ""{
                     let stringDate = "\( dateArray[0]) \( dateArray[1])"
                     let repeatType = "\( dateArray[2])"
-           let getDateComponent =  getDateComponents(repeatType:repeatType,stringDate:stringDate)
-            
-            let requestIdentifier = "\(noteObject.id!)"
+                    let getDateComponent =  getDateComponents(repeatType:repeatType,stringDate:stringDate)
+                    
+                    let requestIdentifier = "\(noteObject.id!)"
                     content.title = "\(noteObject.title ?? "")"
                     content.subtitle = "\(noteObject.subtitle ?? "")"
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: getDateComponent, repeats: true)
-            
-            let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-
+                    
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: getDateComponent, repeats: true)
+                    
+                    let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+                    
                     UNUserNotificationCenter.current().add(request) { (error:Error?) in
-
-            if error != nil {
+                        
+                        if error != nil {
                         }
-        }
-    }
+                    }
+                }
             }
-    }
+        }
     }
     
     
-        func getDateComponents(repeatType:String,stringDate:String)->DateComponents{
+    func getDateComponents(repeatType:String,stringDate:String)->DateComponents{
+        
+        let date = stringDate.date(format: "yyyy-MM-dd hh:mm a")
+        var dateComponent = DateComponents()
+        
+        switch repeatType {
             
-            let date = stringDate.date(format: "yyyy-MM-dd hh:mm a")
-            var dateComponent = DateComponents()
+        case Constants.repeatTypes.DOES_NOT_REPEAT:
+            dateComponent = Calendar.current.dateComponents([], from: date!)
             
-            switch repeatType {
-
-                case Constants.repeatTypes.DOES_NOT_REPEAT:
-                   dateComponent = Calendar.current.dateComponents([], from: date!)
-                
-                case Constants.repeatTypes.DAILY :
-                      dateComponent =  Calendar.current.dateComponents([.hour,.minute], from: date!)
-                
-                case Constants.repeatTypes.WEEKLY:
-                    dateComponent =  Calendar.current.dateComponents([.day,.hour,.minute], from: date!)
-                
-                case Constants.repeatTypes.MONTHLY:
-                     dateComponent =  Calendar.current.dateComponents([.month,.day,.hour,.minute], from: date!)
-                
-                case Constants.repeatTypes.YEARLY:
-                     dateComponent =  Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date!)
-                
-                default:
-                    break
-            }
-                return dateComponent
+        case Constants.repeatTypes.DAILY :
+            dateComponent =  Calendar.current.dateComponents([.hour,.minute], from: date!)
+            
+        case Constants.repeatTypes.WEEKLY:
+            dateComponent =  Calendar.current.dateComponents([.day,.hour,.minute], from: date!)
+            
+        case Constants.repeatTypes.MONTHLY:
+            dateComponent =  Calendar.current.dateComponents([.month,.day,.hour,.minute], from: date!)
+            
+        case Constants.repeatTypes.YEARLY:
+            dateComponent =  Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date!)
+            
+        default:
+            break
         }
+        return dateComponent
+    }
+    
     
      func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))

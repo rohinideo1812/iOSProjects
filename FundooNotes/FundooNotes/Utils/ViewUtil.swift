@@ -13,4 +13,18 @@ class ViewUtil{
         target.present(alert, animated: true)
     }
     
+//    func getSelectedItem(type:NoteType,target:UIViewController){
+//        var barItems:[UIBarButtonItem] = []
+//        switch type {
+//        case .notes,.reminders,.archive:
+//            let menuItem = UIBarButtonItem(image: <#T##UIImage?#>, style: <#T##UIBarButtonItemStyle#>, target: target, action: Selector(DashBoardViewController()))
+//            break
+//        case .delete:
+//            break
+//        case .search:
+//            break
+//        }
+//
+//    }
+    
 }

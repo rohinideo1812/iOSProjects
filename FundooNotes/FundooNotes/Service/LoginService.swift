@@ -5,6 +5,7 @@ import FirebaseAuth
 
 class LoginService {
     
+    //Mark:Login on Local DB
     func checkUser(email:String,password:String,callback: (_ isavailable : Bool,_ message:String) -> Void){
         UserDataBase.sharedInstance.checkUser(email: email, password: password, callback: ({ isavailable,message  in
           
@@ -14,6 +15,7 @@ class LoginService {
     }
     
     
+    //Mark:Login in Firebase
     func loginWith(email:String,password:String,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
         //1 Check Network
         if (AppUtil.shareInstance.isConnectedToNetwork()){
@@ -23,7 +25,7 @@ class LoginService {
                 if error == nil{
                     callback(true,"Successfull Logined")
                 }else{
-                    callback(true,error.debugDescription)
+                    callback(false,"User With this email is not Available.\nPlease SignUp to Login!!!")
                 }
             })
         }else{

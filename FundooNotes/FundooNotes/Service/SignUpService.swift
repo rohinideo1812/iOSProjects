@@ -3,6 +3,7 @@ import FirebaseAuth
 
 class SignUpService {
     
+    //Mark:SignUp on Local DB
     func signUp(userObject : UserModel?,callback: @escaping (_ result :Bool,_ message : String) -> Void){
         
         UserDataBase.sharedInstance.checkUser(email:(userObject?.email)!,password: (userObject?.password)!, callback: { isavailable,displayMessage   in
@@ -18,14 +19,17 @@ class SignUpService {
     }
     
     
+    //Mark:SignUp on Firebase
     func signUpWith(userObject : UserModel,callback: @escaping (_ isavailable : Bool,_ message:String) -> Void){
-        
-        let userInfo = convertUserToJSON(userItem: userObject)
+        let userInfo =
         Auth.auth().createUser(withEmail: (userObject.email)!, password: (userObject.password)!, completion: { result,error in
             if error == nil {
-            
-                print(userInfo)
-                Auth.auth().signIn(withEmail:(userObject.email)!,password:(userObject.password)! )
+//
+                Auth.auth().signIn(withEmail: (userObject.email)!, password: (userObject.password)!, completion: { result1,error in
+                    DataManager.shared.storeUserData(object: userObject, callback: {isSuccessfull,message in
+                    })
+                })
+                callback(true,"Registration Successfull")
             }else{
                 callback(false, error.debugDescription)
             }
@@ -34,17 +38,4 @@ class SignUpService {
     }
     
     
-    private func convertUserToJSON(userItem:UserModel) -> [String:String]{
-        var userInfo:[String:String] = [:]
-        do{
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(userItem)
-            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves) as? [String:String]{
-                userInfo = jsonObject
-            }
-        }catch let error as NSError {
-            debugPrint(error.debugDescription)
-        }
-        return userInfo
-    }
 }

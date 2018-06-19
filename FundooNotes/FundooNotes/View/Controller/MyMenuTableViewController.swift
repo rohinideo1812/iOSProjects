@@ -98,16 +98,19 @@ class MyMenuTableViewController: UITableViewController {
                     alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                        AppUtil.shareInstance.setUserCredential(email: nil,password: nil)
-                        AppUtil.shareInstance.setUser(currentUser: nil)
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as!  LoginViewController
-                        self.present(newViewController, animated: true, completion: nil)
+//                        AppUtil.shareInstance.setUserCredential(email: nil,password: nil)
+//                        AppUtil.shareInstance.setUser(currentUser: nil)
+                        DataManager.shared.signOut(callback: {result,message in
+                            print(result)
+                            print(message)
+                        })
+
+                        (UIApplication.shared.delegate as! AppDelegate).setRootViewController(vcType: .login)
+
                     }))
                     
                 default:
                     break
-
             
         }            }
 

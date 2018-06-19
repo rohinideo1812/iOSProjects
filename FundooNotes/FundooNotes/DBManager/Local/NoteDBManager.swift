@@ -25,7 +25,6 @@ class NoteDataBase {
             if let image = object?.image{
                 let imageToBeStored = UIImageJPEGRepresentation(image, 1)
                 note.imageUrl = imageToBeStored
-                
             }
             if let id = object?.id{
                 note.id = id
@@ -53,10 +52,9 @@ class NoteDataBase {
             print("Data Saved")
             callback(true,"Note Added SuccessFully")
         }
-        else{
-            
-        }
+        
     }
+    
     
     //MARK: Fetch Note Data
     func fetchNoteData()->[NoteItem]{
@@ -81,6 +79,7 @@ class NoteDataBase {
             }
     }
     
+    
     //Mark: Get Note Object
     func getNoteObject(note : Note)->NoteItem{
         var title : String?
@@ -92,21 +91,21 @@ class NoteDataBase {
         var remindDate : String?
         var id : String?
         
-        if let getId = note.id{
-            id = getId
-        }
-        if let getTitle = note.title{
-            title = getTitle
-        }
-        if let getSubtitle = note.subtitle{
-            subtitle = getSubtitle
-        }
-        if let getimage = note.imageUrl{
-            image = UIImage(data: getimage)
-        }
-        if let getDate = note.createDate{
-            date = getDate
-        }
+            if let getId = note.id{
+                id = getId
+            }
+            if let getTitle = note.title{
+                title = getTitle
+            }
+            if let getSubtitle = note.subtitle{
+                subtitle = getSubtitle
+            }
+            if let getimage = note.imageUrl{
+                image = UIImage(data: getimage)
+            }
+            if let getDate = note.createDate{
+                date = getDate
+            }
         
             isPin = note.isPin
             isArchive = note.isArchive
@@ -130,7 +129,7 @@ class NoteDataBase {
             } catch {
                 print ("There was an error")
             }
-    }
+      }
     }
     
     
@@ -179,12 +178,9 @@ class NoteDataBase {
                 }
                 if let delete = object?.isDelete{
                     updateNote.setValue(delete, forKey: "isDelete")
-                    //updateNote.setValue("DELETE CHANGES SAVED", forKey: "title")
                 }
             }
             appDelegate.saveContext()
-           // let notess = fetchNoteData()
-          //  print(notess)
             callback(true,"Note Updated Successfully")
         }catch {
             
@@ -192,6 +188,8 @@ class NoteDataBase {
         }
         }
     }
+    
+    
     
 }
 

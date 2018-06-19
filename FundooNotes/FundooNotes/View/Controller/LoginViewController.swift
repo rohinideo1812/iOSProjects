@@ -1,4 +1,6 @@
 import UIKit
+import FBSDKLoginKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController,LoginView {
     
@@ -22,14 +24,15 @@ class LoginViewController: UIViewController,LoginView {
         loginPresenter?.attachView(view: self)
         signUpButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
-        facebookButton.alpha = 0
+        facebookButton.alpha = 1
         googleButton.alpha = 0
         loginLabel.alpha = 0
     }
    
     
     func openDashBoard() {
-        self.present(AppUtil.shareInstance.getMainVC(), animated: true, completion: nil)
+        (UIApplication.shared.delegate as! AppDelegate).setRootViewController(vcType: .dashboard)
+        //self.present(AppUtil.shareInstance.getMainVC(), animated: true, completion: nil)
     }
     
     func startLoading() {
@@ -53,7 +56,6 @@ class LoginViewController: UIViewController,LoginView {
         self.present(alert, animated: true)
     }
     
-    
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField{
@@ -68,7 +70,7 @@ class LoginViewController: UIViewController,LoginView {
     
     //Mark : Action on loginButonPress
     @IBAction func loginButonAction(_ sender: UIButton) {
-        //        loginPresenter?.login(email: userNameTextField.text!, password: passwordTextField.text!)
+    //        loginPresenter?.login(email: userNameTextField.text!, password: passwordTextField.text!)
         
         loginPresenter?.loginWith(email: userNameTextField.text!, password: passwordTextField.text!)
         
@@ -83,5 +85,28 @@ class LoginViewController: UIViewController,LoginView {
         
     }
     
-}
+    @IBAction func faceBookButtonPress(_ sender: UIButton) {
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+            if (error == nil){
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                if(fbloginresult.grantedPermissions.contains("email"))
+                {
+                    self.getFBUserData()
+                }
+            }
+        }
+    }
 
+    func getFBUserData () {
+    
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    //everything works print the user data
+                    print(result)
+                }
+            })
+        }
+    }
+}

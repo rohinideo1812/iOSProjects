@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import UserNotifications
 import Firebase
-
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -23,16 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //checkLogedIn()
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+      FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         if Auth.auth().currentUser != nil {
             let mainVC = AppUtil.shareInstance.getMainVC()
             self.window?.rootViewController = mainVC
-
         } else {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.window?.rootViewController = newViewController
-
 
         }
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound],completionHandler: { (granted,error) in
@@ -84,6 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app,
+                                                                            open: url,
+                                                                            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?,
+                                                                            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    
+        return handled
     }
 
     // MARK: - Core Data stack
@@ -139,18 +147,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
       if let checkEmail = getEmail, let checkPassword = getPassword{
                 UserDataBase.sharedInstance.checkUser(email: checkEmail,password: checkPassword,callback: {isavailable,object in
                     if isavailable{
-                     let mainVC = AppUtil.shareInstance.getMainVC()
-                        self.window?.rootViewController = mainVC
+                     setRootViewController(vcType: .dashboard)
                     }else {
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                        self.window?.rootViewController = newViewController
+                        setRootViewController(vcType: .login)
 
                     }
                 })
             }
         }
-    }
+    
+    func setRootViewController(vcType:VCType){
+     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        switch vcType {
+        case .login:
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                        self.window?.rootViewController = newViewController
+        case .dashboard:
+                        let mainVC = AppUtil.shareInstance.getMainVC()
+                        self.window?.rootViewController = mainVC
 
-
+                }
+        }
+}
 
