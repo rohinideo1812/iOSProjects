@@ -12,6 +12,9 @@ struct NoteItem{
     var date : String?
     var id : String?
     var isDelete : Bool?
-    
+    var imageHeight : CGFloat?
+    var imageWidth : CGFloat?
+    var imageUrl : String?
+    var color : String?
 }
 

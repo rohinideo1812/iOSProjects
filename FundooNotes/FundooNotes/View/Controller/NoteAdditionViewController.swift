@@ -1,8 +1,8 @@
 import UIKit
 import XLActionController
 
-class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate,AddNoteView {
- 
+class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ReminderSetDelegate,AddNoteView,ColorSelected {
+  
     
     //Mark: IBOutlet
     @IBOutlet weak var heightConstraintOfView: NSLayoutConstraint!
@@ -24,7 +24,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
     let font = UIFont.systemFont(ofSize: 14)
     var addNotePresenter:AddNotePresenter?
     var notesCell:NotesCell!
-    
+    var colorSelected = "#ffffff"
     
     //Mark: Protocol Stub
     func pressedCheckButton(info: String) {
@@ -55,9 +55,23 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         initializeView()
         setTextFieldDelegates()
         addNoteBottomView.leftBottomMenuButton.addTarget(self, action: #selector(leftBottomButtonPress), for: .touchUpInside)
+        addNoteBottomView.rightBottomMenuButton.addTarget(self, action: #selector(rightBottomButtonPress), for: .touchUpInside)
         navigationController?.navigationBar.barTintColor = UIColor.white
     }
 
+    //Mark: Add Color To VC
+    func colorSelected(color: String) {
+        self.colorSelected = color
+        setColorToView(hexvalue:colorSelected)
+    }
+    
+    //Mark: Set Color To View
+    func setColorToView(hexvalue : String){
+        self.view.backgroundColor = UIColor(hexString: hexvalue)
+        self.noteAddUIView.contentView.backgroundColor = UIColor(hexString: hexvalue)
+        self.noteAddUIView.titleTextView.backgroundColor =  UIColor(hexString: hexvalue)
+        self.noteAddUIView.noteTextView.backgroundColor =  UIColor(hexString: hexvalue)
+    }
     
     //MARK: NavigationBar buttons
     func configureNavigationBar(){
@@ -78,6 +92,7 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         self.navigationItem.rightBarButtonItems = [archiveBarButton,reminderBarButton,pinBarButton]
         
         //Set Nav Bar Background
+        self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
@@ -86,20 +101,20 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
         addNotePresenter?.attachView(view: self)
 
         if isUpdate == false{
-//            if self.isPin == true{
-//                notesCell.pinBtn.alpha = 1
-//                notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
-//            }
         let id = NSUUID().uuidString
         let date = Helper.shared.getFormatedDate()
-            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false)
+            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: self.isPin, isArchive: self.isArchive, remindDate: self.remindDate,date: date,id: id,isDelete : false, imageHeight: noteAddUIView.imageView.image?.size.height, imageWidth: noteAddUIView.imageView.image?.size.width,imageUrl:"",color:colorSelected)
 //            addNotePresenter?.addNote(object: self.noteObject)
             addNotePresenter?.storeNoteData(object: self.noteObject)
         }else {
             let date = Helper.shared.getFormatedDate()
             archiveBarButtonPress()
             pinBarButtonPress()
-            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject?.id,isDelete : false)
+//           var previousSelectedColor = noteObject.color
+//            if colorSelected == previousSelectedColor{
+//                colorSelected = previousSelectedColor!
+//            }
+            noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject?.id,isDelete : false, imageHeight: noteAddUIView.imageView.image?.size.height, imageWidth: noteAddUIView.imageView.image?.size.width,imageUrl:"",color:colorSelected)
 //            addNotePresenter?.updateNote(object:self.noteObject)
           addNotePresenter?.updateNoteDataWith(object: self.noteObject)
 
@@ -108,6 +123,18 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
 //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as! DashBoardViewController
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //Mark: Action on Bottom Right Button Press
+    @objc func rightBottomButtonPress(){
+        let colorVC = ColorViewController()
+        colorVC.delegate = self
+        colorVC.modalPresentationStyle = .overCurrentContext
+        colorVC.modalTransitionStyle = .crossDissolve
+        //colorVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        //colorVC.definesPresentationContext = true
+        self.present(colorVC, animated: true, completion:nil)
+
     }
     
     
@@ -315,14 +342,28 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 text = subtitle
                 width = self.noteAddUIView.noteTextView.frame.size.width
                 height = heightForView(text: text, font: font, width: width)
-                self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
+            self.noteAddUIView.heightConstraintOfNoteTextView.constant = height
                 self.updateView()
-                guard let image = noteObject.image else{
-                    return
+            if let url = noteObject.imageUrl{
+                let width = self.noteAddUIView.imageView.frame.size.width
+                let imageSize = Helper.shared.getScaledImageSize(oldSize: CGSize(width:noteObject.imageWidth!,height:noteObject.imageHeight!), width: width)
+                        self.noteAddUIView.imageView.sd_setImage(with: URL(string: url), completed: nil)
+                 self.noteAddUIView.heightConstraintOfImageView.constant = imageSize.height
+                    } else {
+                self.noteAddUIView.heightConstraintOfImageView.constant = 0
+                    }
+                   self.updateView()
+                
+//                guard let image = noteObject.image else{
+//                    return
+//                }
+//                self.noteAddUIView.imageView.image = image
+//                self.noteAddUIView.heightConstraintOfImageView.constant = image.size.height
+//                updateView()
+                if let color = noteObject.color{
+                    setColorToView(hexvalue:color)
+                    colorSelected = color
                 }
-                self.noteAddUIView.imageView.image = image
-                self.noteAddUIView.heightConstraintOfImageView.constant = image.size.height
-                updateView()
             }
         }
 
@@ -341,10 +382,6 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
                 pinBarButton.tintColor = self.isPin ? UIColor.black : UIColor.blue
                 self.isArchive =  self.isArchive ? false : true
                 archiveBarButton.tintColor = isArchive ?  UIColor.black : UIColor.blue
-//                if self.isPin == true{
-//                    notesCell.pinBtn.setImage(UIImage(named: "ic_pin"), for: UIControlState.normal)
-//                    notesCell.pinBtn.alpha = 1
-//                }
             }else{
                 self.isPin = false
                 self.isArchive = false

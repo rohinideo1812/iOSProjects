@@ -111,7 +111,7 @@ class NoteDataBase {
             isArchive = note.isArchive
             remindDate = note.remindDate
 
-        let noteItem = NoteItem(title: title, subtitle: subtitle,image: image,isPin: isPin,isArchive: isArchive,remindDate: remindDate,date: date,id: id,isDelete : false)
+        let noteItem = NoteItem(title: title, subtitle: subtitle,image: image,isPin: isPin,isArchive: isArchive,remindDate: remindDate,date: date,id: id,isDelete : false,imageHeight:0,imageWidth:0,imageUrl:"",color: "")
         return noteItem
     }
     

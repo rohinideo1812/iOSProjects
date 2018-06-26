@@ -2,8 +2,7 @@ import UIKit
 import XLActionController
 import UITextView_Placeholder
 
-class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,NoteCellDelegate{
-    
+class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,NoteCellDelegate,ColorSelected {
     
     //Mark:IBOutlet
     @IBOutlet var longPressGesture: UILongPressGestureRecognizer!
@@ -19,6 +18,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     var viewTypeBtn:UIBarButtonItem!
     var name : String?
     var email : String?
+    var selectedNavColor:String? = Constants.Color.NavBarColor.yellowDark.rawValue
     var slideMenuVC:MyMenuTableViewController?
     var type:NoteType = .notes
     var selectedIndexPath: [IndexPath] = []
@@ -27,18 +27,12 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     var menuButton:UIBarButtonItem!
     var optionButton:UIBarButtonItem!
     var searchButton:UIBarButtonItem!
+    var chooseColorButton:UIBarButtonItem!
     var backButton:UIBarButtonItem!
     var closeButton:UIBarButtonItem!
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let textField = UITextField()
-    
-    
-    //Mark: Protocol implementation of SideMenu Selection
-    func sideMenuDidSelected(noteType: NoteType) {
-        self.type = noteType
-        dashBoardPresenter.attachView(view: self)
-        dashBoardPresenter.getNotes(type:noteType)
-    }
+    var restoreButton:UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +54,58 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
             layout.delegate = self
             layout.numberOfColumns = 2
             layout.cellPadding = 8
+        
         }
         let nib = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
     }
     
+    
+    //Mark: Protocol implementation of SideMenu Selection
+    func sideMenuDidSelected(noteType: NoteType) {
+        self.type = noteType
+        switch type {
+        case .archive,.reminders:
+            self.selectedNavColor = Constants.Color.NavBarColor.brownDark.rawValue
+        case .notes:
+            self.selectedNavColor = Constants.Color.NavBarColor.yellowDark.rawValue
+        case .delete:
+            self.selectedNavColor = Constants.Color.NavBarColor.greyDark.rawValue
+        case .search:
+            self.selectedNavColor = Constants.Color.colorWhite
+        }
+        if let navColor = self.selectedNavColor{
+        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: navColor)
+        }
+        dashBoardPresenter.attachView(view: self)
+        dashBoardPresenter.getNotes(type:noteType)
+    }
+
+    
+    func colorSelected(color: String) {
+        var tempNotes:[NoteItem]? = []
+        let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
+        for index in noteIndex {
+            self.notes[index].color = color
+            self.notes[index].date = Helper.shared.getFormatedDate()
+            tempNotes?.append(self.notes[index])
+        }
+        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
+        self.dashBoardPresenter.getNotes(type: .notes)
+        self.navigationItem.leftBarButtonItem = self.menuButton
+        self.menuButton.tintColor = UIColor.blue
+        self.searchButton.tintColor = UIColor.blue
+        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+        self.deSelectAllCell()
+        
+        defer{
+            tempNotes = nil
+        }
+        
+    }
+    
+
     func sideMenuWillOpen() {
         
     }
@@ -96,17 +136,14 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.collectionView.allowsMultipleSelection = true
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItems = nil
-        self.navigationItem.rightBarButtonItem = self.optionButton
+        self.navigationItem.rightBarButtonItems = [self.optionButton,self.chooseColorButton]
         self.navigationItem.leftBarButtonItem = backButton
-
         if sender.state != .ended {
             return
         }
         
-        
             let point = sender.location(in: self.collectionView)
             if let indexPath = self.collectionView.indexPathForItem(at: point){
-                
                 
                 if selectedIndexPath.contains(indexPath){
                     self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
@@ -114,14 +151,12 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
                 } else {
                     self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
                     self.collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: indexPath)
+                
                 }
-            }
-            else {
-                print("couldn't find index path")
-            }
-        
+            }else{
+                print("Index not found")
+        }
     }
-    
     
     //Mark:Configure Navigation Bar
     func configureNavigationBar(){
@@ -132,11 +167,13 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         searchButton = UIBarButtonItem(image: UIImage(named: "ic_search"), style: .plain, target: self, action: #selector(searchButtonPress))
          optionButton = UIBarButtonItem(image: UIImage(named: "ic_more_vert_black"), style: .done, target: self, action: #selector(options))
         backButton = UIBarButtonItem(image: UIImage(named: "ic_keyboard_backspace"), style: .plain, target: self, action: #selector(backButtonPress))
-        
+        chooseColorButton = UIBarButtonItem(image: UIImage(named: "ic_color_lens_black_18dp"), style: .plain, target: self, action: #selector(chooseColorButtonPress))
+        restoreButton =  UIBarButtonItem(image: UIImage(named: "ic_restore"), style: .plain, target: self, action: #selector(restoreButtonPress))
         
         //set Bar Buttons on NavBar
         self.navigationItem.leftBarButtonItem = menuButton
         self.navigationItem.rightBarButtonItems = [viewTypeBtn,searchButton]
+       
         
         //Edit NavBar
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
@@ -144,9 +181,18 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.navigationController?.navigationBar.layer.shadowRadius = 4.0
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
         
+        //set color to Bar Buttons
+        self.viewTypeBtn.tintColor = UIColor.white
+        self.optionButton.tintColor = UIColor.white
+        self.backButton.tintColor = UIColor.white
+        self.chooseColorButton.tintColor = UIColor.white
+        self.menuButton.tintColor = UIColor.white
+        self.searchButton.tintColor = UIColor.white
+        
+        
     }
     
-    
+   
     //Mark: Options on OptionBtn Click
     @objc func options(){
     
@@ -199,7 +245,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
             self.navigationItem.leftBarButtonItem = self.menuButton
             self.viewTypeBtn.tintColor = UIColor.blue
             self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-             self.deSelectAllCell()
+            self.deSelectAllCell()
 
         })
         defer{
@@ -207,6 +253,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
             self.collectionView.allowsMultipleSelection = false
         }
     }))
+    
        present(actionController, animated: true, completion: nil)
     }
     
@@ -221,6 +268,18 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         }
     }
     
+    
+    //Mark: Action on chooseColorButtonPress
+    @objc func chooseColorButtonPress(){
+        let colorVC = ColorViewController()
+        colorVC.delegate = self
+        colorVC.modalPresentationStyle = .overCurrentContext
+        colorVC.modalTransitionStyle = .crossDissolve
+        self.present(colorVC, animated: true, completion:nil)
+        
+    }
+    
+    
     //Mark: Action on Closebtn Click
      @objc func closeButtonPress(){
        dashboardBottomView.isHidden = false
@@ -231,6 +290,40 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
        self.textField.text = ""
        self.textField.isHidden = true
     }
+    
+    
+   //Mark:Restore Button Press
+   @objc func restoreButtonPress(){
+    let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
+    
+    let actionController = YoutubeActionController()
+    
+    actionController.addAction(Action(ActionData(title: "Delete Permenantly"), style: .default, handler: { action in
+        var tempNotes:[NoteItem]? = []
+        for index in noteIndex {
+            tempNotes?.append(self.notes[index])
+            self.notes.remove(at: index)
+        }
+        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
+        //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+        self.collectionView.performBatchUpdates({ () -> Void in
+            self.collectionView.deleteItems(at: self.selectedIndexPath)
+        }, completion: { _ in
+            self.dashBoardPresenter.getNotes(type: .notes)
+            self.navigationItem.leftBarButtonItem = self.menuButton
+            self.menuButton.tintColor = UIColor.blue
+            self.searchButton.tintColor = UIColor.blue
+            self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+            self.deSelectAllCell()
+        })
+            defer{
+                tempNotes = nil
+            }
+        
+        }))
+    
+    }
+    
     
     @objc func backButtonPress(){
        deSelectAllCell()
@@ -324,12 +417,18 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cellColor = UIColor.white
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NotesCell
         cell.delegate = self
         cell.indexPath = indexPath
+        if let color = notes[indexPath.row].color{
+           cellColor = UIColor(hexString: color)
+        }
+        cell.backgroundColor = cellColor
         cell.configureData(note: notes[indexPath.row])
         return cell
     }
+   
     
     
     func collectionView(collectionView: UICollectionView,
@@ -346,10 +445,16 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         
         let note = notes[indexPath.row]
         var height:CGFloat = 24
-        if let image = note.image {
-            let scaledImage = Helper.shared.getScaledImage(image: image, width: withWidth)
-            height += scaledImage.size.height
+//        if let image = note.image {
+//            let scaledImage = Helper.shared.getScaledImage(image: image, width: withWidth)
+//            height += scaledImage.size.height
+//        }
+        //New
+        if note.imageUrl != nil {
+            let imageSize = Helper.shared.getScaledImageSize(oldSize: CGSize(width:note.imageWidth!,height:note.imageHeight!), width: withWidth)
+            height += imageSize.height
         }
+        //End
         let text = Helper.shared.getAttributedString(mTitle: note.title, mSubtitle: note.subtitle)
         let textHeight = Helper.shared.getAttributedStringHeight(text: text, width: withWidth)
         if textHeight != 0 {
@@ -400,7 +505,9 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
 //        }
 //        //---------END
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.white
+        if let color = notes[indexPath.row].color{
+        cell?.backgroundColor = UIColor(hexString: color)
+        }
         if let index = selectedIndexPath.index(of:indexPath) {
             selectedIndexPath.remove(at: index)
         }
@@ -416,9 +523,13 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar()
-        navigationController?.navigationBar.barTintColor = UIColor.white
+        if let navColor = self.selectedNavColor{
+            self.navigationController?.navigationBar.barTintColor = UIColor(hexString: navColor)
+        }
+        self.textField.isHidden = true
+        self.textField.text = ""
         dashBoardPresenter.attachView(view: self)
-        dashBoardPresenter.getNotes(type:.notes)
+        dashBoardPresenter.getNotes(type:type)
         
     }
   }

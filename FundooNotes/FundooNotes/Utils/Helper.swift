@@ -10,6 +10,7 @@ class Helper{
         
     }
     
+    
    //Mark: Get scaled image
    func getScaledImage(image : UIImage,width : CGFloat)-> UIImage{
     
@@ -23,6 +24,14 @@ class Helper{
     UIGraphicsEndImageContext()
     return newImage!
     
+    }
+    
+    func getScaledImageSize(oldSize:CGSize,width : CGFloat)-> CGSize{
+        let oldWidth = oldSize.width
+        let scaleFactor = width / oldWidth
+        let newHeight = oldSize.height * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        return CGSize(width: newWidth, height: newHeight)
     }
     
     
@@ -135,6 +144,7 @@ class Helper{
         }
     }
     
+    
     //Mark: Get Index Path Row
     func getIndexPathRow(selectedNotes:[IndexPath])->[Int]{
         var selectedRows = [Int]()
@@ -146,6 +156,7 @@ class Helper{
         }
         return selectedRows
     }
+    
     
     //Convert NoteObject to JSON
     func convertNoteObjToJSON(noteItem:NoteItem?) -> [String:String]{

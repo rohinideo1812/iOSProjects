@@ -28,6 +28,8 @@ class AppUtil {
     func getUser()-> User?{
         return self.currentUser
     }
+  
+    
     
     func setUserCredential(email:String?,password:String?){
         userdefault.set(email, forKey: Constants.CacheKeys.KEY_CURRENT_USER_EMAIL)
@@ -43,6 +45,20 @@ class AppUtil {
         return credential
     }
     
+    func setFIRUserCredential(firUser:FIRUserModel){
+        
+        userdefault.set("\(firUser.firstName ?? "") \(firUser.lastName ?? "")", forKey: Constants.CacheKeys.KEY_CURRENT_FIR_USER_NAME)
+        userdefault.set(firUser.email, forKey: Constants.CacheKeys.KEY_CURRENT_FIR_USER_EMAIL)
+        userdefault.set(firUser.imageUrl, forKey:Constants.CacheKeys.KEY_CURRENT_FIR_USER_IMG_URL)
+    }
+    
+    func getFIRUserCredential()->(email:String?,name:String?,imageUrl:String?){
+        let email = userdefault.string(forKey: Constants.CacheKeys.KEY_CURRENT_FIR_USER_EMAIL)
+        let name =  userdefault.string(forKey:Constants.CacheKeys.KEY_CURRENT_FIR_USER_NAME )
+        let imageUrl = userdefault.string(forKey: Constants.CacheKeys.KEY_CURRENT_FIR_USER_IMG_URL)
+        let credential = (email:email,name:name,imageUrl:imageUrl)
+        return credential
+    }
     
     func getMainVC()->MyNavigationController{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -57,14 +73,14 @@ class AppUtil {
     func scheduleNotifications(notes:[NoteItem]) {
         
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        let content = UNMutableNotificationContent()
-        content.badge = 1
-        content.sound = UNNotificationSound.default()
+    UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
         
         for noteObject in notes{
-            let remindDate = noteObject.remindDate
-            if let reminderDate = remindDate{
+            if let reminderDate = noteObject.remindDate{
+                let content = UNMutableNotificationContent()
+                content.badge = 1
+                content.sound = UNNotificationSound.default()
                 let dateArray = reminderDate.components(separatedBy: ",")
                 if dateArray[0] != "" && dateArray[1] != ""{
                     let stringDate = "\( dateArray[0]) \( dateArray[1])"
@@ -98,19 +114,19 @@ class AppUtil {
         switch repeatType {
             
         case Constants.repeatTypes.DOES_NOT_REPEAT:
-            dateComponent = Calendar.current.dateComponents([], from: date!)
+            dateComponent = Calendar.current.dateComponents([.hour,.minute], from: date!)
             
         case Constants.repeatTypes.DAILY :
             dateComponent =  Calendar.current.dateComponents([.hour,.minute], from: date!)
             
         case Constants.repeatTypes.WEEKLY:
-            dateComponent =  Calendar.current.dateComponents([.day,.hour,.minute], from: date!)
+            dateComponent =  Calendar.current.dateComponents([.weekday,.hour,.minute], from: date!)
             
         case Constants.repeatTypes.MONTHLY:
-            dateComponent =  Calendar.current.dateComponents([.month,.day,.hour,.minute], from: date!)
+            dateComponent =  Calendar.current.dateComponents([.month,.weekday,.hour,.minute], from: date!)
             
         case Constants.repeatTypes.YEARLY:
-            dateComponent =  Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date!)
+            dateComponent =  Calendar.current.dateComponents([.year,.month,.weekday,.hour,.minute], from: date!)
             
         default:
             break

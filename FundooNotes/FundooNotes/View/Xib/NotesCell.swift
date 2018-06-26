@@ -20,7 +20,6 @@ class NotesCell: UICollectionViewCell {
         super.awakeFromNib()
         titleLabel.sizeToFit()
         self.backgroundColor = UIColor.clear
-        self.pinBtn.alpha = 0
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.cornerRadius = 2
         self.layer.masksToBounds = false
@@ -38,15 +37,26 @@ class NotesCell: UICollectionViewCell {
     }
     
     func configureData(note : NoteItem){
-            if let image = note.image {
-                let scaledImage = Helper.shared.getScaledImage(image: image, width: self.frame.size.width)
-                imageView.image = scaledImage
-                self.imageViewHeightConstraint.constant = scaledImage.size.height
-                
-            }else {
+        var date = ""
+//            if let image = note.image {
+//                let scaledImage = Helper.shared.getScaledImage(image: image, width: self.frame.size.width)
+//                imageView.image = scaledImage
+//                self.imageViewHeightConstraint.constant = scaledImage.size.height
+//                
+//            }else {
+//                self.imageViewHeightConstraint.constant = 0
+//            }
+        
+            //New
+            if let url = note.imageUrl{
+                let imageSize = Helper.shared.getScaledImageSize(oldSize: CGSize(width:note.imageWidth!,height:note.imageHeight!), width: self.frame.size.width)
+              
+                self.imageView.sd_setImage(with: URL(string: url), completed: nil)
+                self.imageViewHeightConstraint.constant = imageSize.height
+            }else{
                 self.imageViewHeightConstraint.constant = 0
             }
-        
+            //End
             let text = Helper.shared.getAttributedString(mTitle: note.title, mSubtitle: note.subtitle)
             if text.length != 0{
                 let textHeight = Helper.shared.getAttributedStringHeight(text: text, width: self.frame.size.width)
@@ -56,7 +66,11 @@ class NotesCell: UICollectionViewCell {
                 self.titleLabelHeightConstraint.constant = 0
                 
             }
-            if let date = note.date {
+            if let reminderDate = note.remindDate {
+                let dateArray = reminderDate.components(separatedBy: ",")
+                if dateArray[0] != "" {
+                     date = "\( dateArray[0])"
+                }
                 let font = UIFont.systemFont(ofSize: 12)
                 let dateHeight = Helper.shared.getStringHeight(text: date, width: self.frame.size.width,font: font)
                 dateLabel.text = date
@@ -64,6 +78,15 @@ class NotesCell: UICollectionViewCell {
             }else{
                 self.dateLabelHeightConstraint.constant = 0
                 }
-            }
+        
+        if let pin = note.isPin {
+            if pin {
+                let image = UIImage(named: "ic_pin-1")
+                self.pinBtn.setImage(image, for: UIControlState.normal)
 
+            }else{
+                self.pinBtn.alpha = 0
+            }
+        }
+            }
     }

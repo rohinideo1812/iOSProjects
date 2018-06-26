@@ -59,7 +59,7 @@ class UserDataBase {
                 let lastName =  ((user as AnyObject).value(forKey: "lastName"))
                 let password =  ((user as AnyObject).value(forKey: "password"))
                 let email = ( (user as AnyObject).value(forKey: "email"))
-                userdata = UserModel(firstName: firstName as! String, lastName: lastName as! String, email: email as! String, password: password as! String)
+                userdata = UserModel(firstName: firstName as! String, lastName: lastName as! String, email: email as! String, password: password as! String,imageUrl:"")
                 callback(true,"Successfull Login")
                 
             }else{

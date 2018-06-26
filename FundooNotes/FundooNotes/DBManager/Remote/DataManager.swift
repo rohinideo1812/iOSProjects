@@ -49,23 +49,36 @@ class DataManager {
 //            }
 //
 //            callback(notes)
-
+//        })
+//        ref.removeAllObservers()
+//
+//    }
         ref.keepSynced(true)
- ref.child((Auth.auth().currentUser?.uid)!).child("notes").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child((Auth.auth().currentUser?.uid)!).child("notes").observeSingleEvent(of: .value, with: { (snapshot) in
             for child in snapshot.children {
                 if let snap = child as? DataSnapshot{
                 if let value = snap.value as? JSONObject{
                 self.convertJSONObjectToNoteItem(jsonObj: value, callback: { note in
-                notes.append(note)
-        })
+                            notes.append(note)
+                        })
                     }
                 }
             }
-           callback(notes)
-    })
-   
+        callback(notes)
+         })
     }
-    
+//        ref.child((Auth.auth().currentUser?.uid)!).child("notes").observeSingleEvent(of: .childAdded, with: { (snapshot) in
+//                for child in snapshot.children {
+//                    if let snap = child as? DataSnapshot{
+//                        if let value = snap.value as? JSONObject{
+//                            self.convertJSONObjectToNoteItem(jsonObj: value, callback: { note in
+//                                notes.append(note)
+//                            })
+//                        }
+//                    }
+//                }
+//           callback(notes)
+//          })
     
     
     //Mark:Convert JSONObject To NoteItem
@@ -95,15 +108,45 @@ class DataManager {
             if let isDelete = jsonObj["isDelete"] as? Bool{
             noteObj.isDelete = isDelete
             }
+            if let imageHeight = jsonObj["imageHeight"] as? CGFloat{
+            noteObj.imageHeight = imageHeight
+            }
+            if let imageWidth = jsonObj["imageWidth"] as? CGFloat{
+            noteObj.imageWidth = imageWidth
+            }
+            if let color = jsonObj["color"] as? String{
+            noteObj.color = color
+            }
             if let imageUrl = jsonObj["imageUrl"]as? String{
-                UIImageView().sd_setImage(with: URL(string:imageUrl), completed: { (image, error, type, url) in
-                    noteObj.image = image
+                noteObj.imageUrl = imageUrl
+            }
+            callback(noteObj)
 
-                })
-         callback(noteObj)
-        }
+//                UIImageView().sd_setImage(with: URL(string:imageUrl), completed: { (image, error, type, url) in
+//                    noteObj.image = image
+//
+//                })
+                
+        
     }
     
+    func convertJSONObjToUserData(jsonObj:JSONObject,callback:(_ user : FIRUserModel) -> Void){
+        var userData = FIRUserModel()
+        if let firstName = jsonObj["firstName"] as? String{
+            userData.firstName = firstName
+        }
+        if let lastName = jsonObj["lastName"] as? String{
+         userData.lastName = lastName
+        }
+        if let email = jsonObj["email"] as? String{
+            userData.email = email
+            
+        }
+        if let imageUrl = jsonObj["imageUrl"] as? String{
+            userData.imageUrl = imageUrl
+        }
+        callback(userData)
+    }
     
     //Mark:Update Note In FireBase
     func updateNoteDataWith(object : NoteItem?,callback:(_ result:Bool,_ message:String)->Void){
@@ -121,6 +164,21 @@ class DataManager {
     }
     
     
+    func fetchUserData(callback:@escaping (_ userdata:FIRUserModel)->Void){
+        var userData:[UserModel] = []
+        ref.child((Auth.auth().currentUser?.uid)!).child("userInfo").observe(.value, with: { (snapshot) in
+            for child in snapshot.children {
+                if let snap = child as? DataSnapshot{
+                    if let value = snap.value as? JSONObject{
+                        self.convertJSONObjToUserData(jsonObj:value,callback:{userData in
+                            callback(userData)
+                        })
+                        }
+                    }
+                }
+            })
+    }
+    
     
     func convertNoteItemToJSONObject(object:NoteItem?,callback:@escaping (_ noteDict:[String:Any]) -> Void){
         
@@ -132,17 +190,21 @@ class DataManager {
                 "remindDate" : object?.remindDate ?? "",
                 "date" : object?.date ?? "",
                 "id" : object?.id ?? "",
-                "isDelete" : object?.isDelete ?? ""
-            
+                "isDelete" : object?.isDelete ?? "",
+                "color" : object?.color ?? "",
             ]
         
         if let image = object?.image{
             uploadImage(image:image,id: object?.id,callback: { geturl in
                 note["imageUrl"] = geturl
+                note["imageHeight"] = object?.image?.size.height
+                note["imageWidth"] = object?.image?.size.width
                 callback(note)
             })
         } else {
-            note["imageUrl"] = ""
+            note["imageUrl"] = nil
+            note["imageHeight"] = nil
+            note["imageWidth"] = nil
             callback(note)
         }
     }
@@ -200,7 +262,8 @@ class DataManager {
             "firstName" : object?.firstName ?? "",
             "lastName" : object?.lastName ?? "",
             "email" : object?.email ?? "",
-            "password" : object?.password ?? ""
+            "password" : object?.password ?? "",
+            "imageUrl" : object?.imageUrl ?? ""
         ]
         callback(userInfo)
     }
@@ -210,6 +273,11 @@ class DataManager {
         convertUserObjectToJSONObject(object: object, callback: {userInfo in
             self.ref.child((Auth.auth().currentUser?.uid)!).child("userInfo").updateChildValues(userInfo)
         })
+    }
+    
+    func storeFIRUserData(firUser:[String:Any],callback:(_ result : Bool,_ message:String) -> Void){
+        self.ref.child((Auth.auth().currentUser?.uid)!).child("userInfo").updateChildValues(firUser)
+        callback(true,"Successfull Login")
     }
  }
 

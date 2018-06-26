@@ -10,7 +10,6 @@
 		0A1AB7AB20CE3538002171C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1AB7AA20CE3538002171C9 /* GoogleService-Info.plist */; };
 		0A1AB7AD20CE84A8002171C9 /* NoteDBManagaer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */; };
 		0A734C0920AD79AE00663263 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A734C0720AD79AE00663263 /* ColorViewController.swift */; };
-		0A734C0A20AD79AE00663263 /* ColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A734C0820AD79AE00663263 /* ColorViewController.xib */; };
 		0A85110220AEE14A001B5137 /* NoteAddUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A85110120AEE14A001B5137 /* NoteAddUIView.xib */; };
 		0A85110620AEE57F001B5137 /* NoteAddUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85110520AEE57F001B5137 /* NoteAddUIView.swift */; };
 		0A86D14920A9C3B5008F2D35 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86D14820A9C3B5008F2D35 /* NoteCollectionViewCell.swift */; };
@@ -53,7 +52,6 @@
 		0AAAF2F120BBDCB20089111C /* NoteDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAAF2F020BBDCB20089111C /* NoteDBManager.swift */; };
 		0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */; };
 		0ABCFDF320CF920800BEC06A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABCFDF220CF920800BEC06A /* DataManager.swift */; };
-		0AC166C820AA9F0E008C21DD /* Photos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166C720AA9F0E008C21DD /* Photos.xcassets */; };
 		0AC166CC20AAE2D7008C21DD /* NoteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC166CB20AAE2D7008C21DD /* NoteData.json */; };
 		0AC2EA4520B0579F00ADE7C0 /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2EA4420B0579F00ADE7C0 /* ReminderTableViewCell.swift */; };
 		0AC5D41F20A05E5600F3E92C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5D41E20A05E5600F3E92C /* LoginPresenter.swift */; };
@@ -66,8 +64,6 @@
 		0ACC6751208F6CEE007E7B4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC6750208F6CEE007E7B4C /* LoginViewController.swift */; };
 		0AD4F66A20BC128100BF6390 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4F66920BC128100BF6390 /* Constants.swift */; };
 		0AE5935B20B3D4320019DED9 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5935A20B3D4320019DED9 /* ENSideMenuNavigationController.swift */; };
-		0AE5936020B4003E0019DED9 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5935E20B4003E0019DED9 /* ColorCollectionViewCell.swift */; };
-		0AE5936120B4003E0019DED9 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE5935F20B4003E0019DED9 /* ColorCollectionViewCell.xib */; };
 		0AE5936720B4469C0019DED9 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5936620B4469C0019DED9 /* DashBoardViewController.swift */; };
 		0AE5937820B4485F0019DED9 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5937320B4485A0019DED9 /* PinterestLayout.swift */; };
 		0AE5937920B4485F0019DED9 /* PinterestLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE5937420B4485A0019DED9 /* PinterestLayoutDelegate.swift */; };
@@ -102,7 +98,6 @@
 		0A1AB7AC20CE84A8002171C9 /* NoteDBManagaer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDBManagaer.swift; sourceTree = "<group>"; };
 		0A1AB7AE20CE92DE002171C9 /* FundooNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FundooNotes.entitlements; sourceTree = "<group>"; };
 		0A734C0720AD79AE00663263 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
-		0A734C0820AD79AE00663263 /* ColorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorViewController.xib; sourceTree = "<group>"; };
 		0A85110120AEE14A001B5137 /* NoteAddUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteAddUIView.xib; sourceTree = "<group>"; };
 		0A85110520AEE57F001B5137 /* NoteAddUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAddUIView.swift; sourceTree = "<group>"; };
 		0A86D14820A9C3B5008F2D35 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -153,7 +148,6 @@
 		0AAFBDA52096D43D002B84C0 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0AAFBDA72096D442002B84C0 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0ABCFDF220CF920800BEC06A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		0AC166C720AA9F0E008C21DD /* Photos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Photos.xcassets; sourceTree = "<group>"; };
 		0AC166CB20AAE2D7008C21DD /* NoteData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteData.json; sourceTree = "<group>"; };
 		0AC2EA4420B0579F00ADE7C0 /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		0AC5D41E20A05E5600F3E92C /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -166,8 +160,6 @@
 		0ACC6750208F6CEE007E7B4C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AD4F66920BC128100BF6390 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0AE5935A20B3D4320019DED9 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
-		0AE5935E20B4003E0019DED9 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
-		0AE5935F20B4003E0019DED9 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		0AE5936620B4469C0019DED9 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		0AE5937320B4485A0019DED9 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinterestLayout.swift; path = "../../../../Downloads/PinterestLayout-master 2/PinterestLayout/PinterestLayout.swift"; sourceTree = "<group>"; };
 		0AE5937420B4485A0019DED9 /* PinterestLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PinterestLayoutDelegate.swift; path = "../../../../Downloads/PinterestLayout-master 2/PinterestLayout/PinterestLayoutDelegate.swift"; sourceTree = "<group>"; };
@@ -251,11 +243,11 @@
 			children = (
 				0AE5936620B4469C0019DED9 /* DashBoardViewController.swift */,
 				0A94C484209DBF640044ABCF /* NavigationController.swift */,
-				0A8C543E20B13DD300E9C045 /* ReminderViewController.swift */,
 				0A94C435209D7F850044ABCF /* MyMenuTableViewController.swift */,
-				0A94C436209D7F850044ABCF /* MyNavigationController.swift */,
 				0A8AFCBA20B2E0D0003F11E6 /* NoteAdditionViewController.swift */,
+				0A8C543E20B13DD300E9C045 /* ReminderViewController.swift */,
 				0ACC6750208F6CEE007E7B4C /* LoginViewController.swift */,
+				0A734C0720AD79AE00663263 /* ColorViewController.swift */,
 				0ACC674C208F698F007E7B4C /* RegistrationViewController.swift */,
 			);
 			path = Controller;
@@ -303,15 +295,12 @@
 			isa = PBXGroup;
 			children = (
 				0A94C437209D7F850044ABCF /* ProfileViewController.swift */,
+				0A94C436209D7F850044ABCF /* MyNavigationController.swift */,
 				0A94C438209D7F850044ABCF /* ProfileViewController.xib */,
 				0A94C439209D7F850044ABCF /* TableViewCell1.swift */,
 				0A94C43A209D7F850044ABCF /* TableViewCell1.xib */,
-				0A734C0720AD79AE00663263 /* ColorViewController.swift */,
-				0A734C0820AD79AE00663263 /* ColorViewController.xib */,
-				0A85110120AEE14A001B5137 /* NoteAddUIView.xib */,
 				0A85110520AEE57F001B5137 /* NoteAddUIView.swift */,
-				0AE5935E20B4003E0019DED9 /* ColorCollectionViewCell.swift */,
-				0AE5935F20B4003E0019DED9 /* ColorCollectionViewCell.xib */,
+				0A85110120AEE14A001B5137 /* NoteAddUIView.xib */,
 				0A98CC0C20B571BD00CC3E89 /* NotesCell.swift */,
 				0A98CC0D20B571BD00CC3E89 /* NotesCell.xib */,
 				0AA28B8B20B6CD0500F1CD08 /* DashBoardBottomView.swift */,
@@ -457,7 +446,6 @@
 			children = (
 				0A7E8B8120BD88AC00F97200 /* layout */,
 				0A9B84E7208F5BD500EF3BCB /* Assets.xcassets */,
-				0AC166C720AA9F0E008C21DD /* Photos.xcassets */,
 				0A9C479F20B1B2270080AF29 /* UIColor+Extension.swift */,
 			);
 			path = Resources;
@@ -616,13 +604,10 @@
 				0A9B84EB208F5BD500EF3BCB /* LaunchScreen.storyboard in Resources */,
 				0A85110220AEE14A001B5137 /* NoteAddUIView.xib in Resources */,
 				0A9B84E8208F5BD500EF3BCB /* Assets.xcassets in Resources */,
-				0AC166C820AA9F0E008C21DD /* Photos.xcassets in Resources */,
-				0A734C0A20AD79AE00663263 /* ColorViewController.xib in Resources */,
 				0AA5320020B7E56E000F129A /* AddNoteBottomView.xib in Resources */,
 				0AC166CC20AAE2D7008C21DD /* NoteData.json in Resources */,
 				0A94C43E209D7F850044ABCF /* ProfileViewController.xib in Resources */,
 				0AA28B8E20B6CDAE00F1CD08 /* DashBoardBottomView.xib in Resources */,
-				0AE5936120B4003E0019DED9 /* ColorCollectionViewCell.xib in Resources */,
 				0A9B84E3208F5BD500EF3BCB /* Main.storyboard in Resources */,
 				0A98CC0F20B571BD00CC3E89 /* NotesCell.xib in Resources */,
 				0A1AB7AB20CE3538002171C9 /* GoogleService-Info.plist in Resources */,
@@ -782,7 +767,6 @@
 				0AAFBDA62096D43D002B84C0 /* SWRevealViewController.m in Sources */,
 				0AD4F66A20BC128100BF6390 /* Constants.swift in Sources */,
 				0A94C43B209D7F850044ABCF /* MyMenuTableViewController.swift in Sources */,
-				0AE5936020B4003E0019DED9 /* ColorCollectionViewCell.swift in Sources */,
 				0A9A493C209035AB00E1552B /* Note+CoreDataClass.swift in Sources */,
 				0A8AFCBB20B2E0D0003F11E6 /* NoteAdditionViewController.swift in Sources */,
 				0A9B84DE208F5BD500EF3BCB /* AppDelegate.swift in Sources */,

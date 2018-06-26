@@ -24,6 +24,10 @@ class LoginService {
         
                 if error == nil{
                     callback(true,"Successfull Logined")
+                    DataManager.shared.fetchUserData(callback: {userData in
+                    AppUtil.shareInstance.setFIRUserCredential(firUser: userData)
+                        
+                })
                 }else{
                     callback(false,"User With this email is not Available.\nPlease SignUp to Login!!!")
                 }

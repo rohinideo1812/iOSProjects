@@ -42,4 +42,10 @@ protocol AddNoteView:BaseView{
     
 }
 
+//Mark: Add Color Protocol
+protocol ColorSelected {
+    func colorSelected(color:String)
+}
+
+
 

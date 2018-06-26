@@ -52,7 +52,7 @@ class RegistrationViewController: UIViewController,SignUpView {
     
     //Mark: Action on LoginButton Press
     @IBAction func loginButtonPress(_ sender: UIButton) {
-    user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text)
+        user = UserModel(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text, password: passwordTextField.text,imageUrl:"")
 //    signUpPresenter?.signUp(object:user)
        signUpPresenter?.signUpWith(userObject: user!)
        // signUpPresenter?.createAnonymsUser(userObject: user!)

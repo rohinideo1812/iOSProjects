@@ -92,21 +92,92 @@ class LoginViewController: UIViewController,LoginView {
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
-                    self.getFBUserData()
+                    //self.getFBUserData()
                 }
+                //new
+                guard let accessToken = FBSDKAccessToken.current() else {
+                    print("Failed to get access token")
+                    return
+                }
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+                Auth.auth().signInAndRetrieveData(with: credential, completion: { (user,error) in
+                    if error == nil {
+                        if((FBSDKAccessToken.current()) != nil){
+                            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                                if (error == nil){
+                                    //everything works print the user data
+                                    if (user?.additionalUserInfo?.isNewUser)!{
+                                        guard let userJson = result as? JSONObject else{
+                                            return
+                                        }
+                                        let firUserObj = self.getFIRUserObj(json: userJson)
+                                AppUtil.shareInstance.setFIRUserCredential(firUser: firUserObj)
+                                        
+                                        self.convertUserObjectToJSONObject(object:firUserObj, callback:{ userDict in
+                                        
+                                            DataManager.shared.storeFIRUserData(firUser: userDict, callback: {result,message in
+                                                print(result)
+                                                print(message)
+                                                self.openDashBoard()
+                                            })
+                                        })
+                                        
+                                    }else{
+                                        
+                                    }
+                                    
+                                }
+                            })
+                        }
+                    }else{
+                        debugPrint(error.debugDescription)
+                    }
+                })
+                //end
             }
         }
     }
-
-    func getFBUserData () {
     
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                if (error == nil){
-                    //everything works print the user data
-                    print(result)
-                }
-            })
-        }
+    func convertUserObjectToJSONObject(object:FIRUserModel?,callback:@escaping (_ userDict:[String:Any]) -> Void){
+        let userInfo:[String:Any] = [
+            "firstName" : object?.firstName ?? "",
+            "lastName" : object?.lastName ?? "",
+            "email" : object?.email ?? "",
+            "imageUrl" : object?.imageUrl ?? ""
+        ]
+        callback(userInfo)
     }
+    
+    
+    func getFIRUserObj(json:JSONObject) -> FIRUserModel{
+        var firUserObj = FIRUserModel()
+        if let firstName = json["first_name"] as? String{
+            firUserObj.firstName = firstName
+        }
+        if let email = json["email"] as? String{
+            firUserObj.email = email
+        }
+        if let lastName = json["last_name"] as? String{
+            firUserObj.lastName = lastName
+        }
+        if let pictureJson = json["picture"] as? JSONObject{
+            firUserObj.imageUrl = self.getImageUrl(json: pictureJson)
+        }
+        return firUserObj
+    }
+    
+    
+    func getImageUrl(json:JSONObject) -> String{
+        var urlStr = ""
+        if let data = json["data"] as? JSONObject{
+            if let url = data["url"] as? String{
+                urlStr = url
+            }
+        }
+        return urlStr
+    }
+    
+    
+    
+
 }

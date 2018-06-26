@@ -13,7 +13,7 @@ class DashBoardService {
 //        let notes = NoteDataBase.sharedInstance.fetchNoteData()
         
         let reminderNotes = notes.filter({$0.remindDate != "" && $0.isDelete == false})
-      //  AppUtil.shareInstance.scheduleNotifications(notes:reminderNotes)
+       AppUtil.shareInstance.scheduleNotifications(notes:reminderNotes)
             
         switch noteType {
             

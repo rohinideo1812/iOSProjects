@@ -4,12 +4,12 @@ class MyMenuTableViewController: UITableViewController {
     
     //Properties
     var selectedMenuItem : Int = 0
-    let logoarray = ["Notes","Reminders","Create new label","Archive","Deleted","Settings","Help & feedback"]
-    let imagearray = ["ic_lightbulb_outline","ic_touch_app","ic_add","ic_archive","ic_delete","ic_settings","ic_help"]
-    var name = ""
-    var email = ""
+    let logoarray = ["Notes","Reminders","Archive","Deleted"]
+    let imagearray = ["ic_lightbulb_outline","ic_touch_app","ic_archive","ic_delete"]
     var delegate:MenuDelegate?
-
+    lazy var profileVC:ProfileViewController = {
+        return ProfileViewController(nibName: "ProfileViewController", bundle: nil)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +17,8 @@ class MyMenuTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.white
         tableView.scrollsToTop = false
+        tableView.tableHeaderView = profileVC.view
         self.clearsSelectionOnViewWillAppear = false
-        let profileViewController = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        profileViewController.email = email
-        profileViewController.name = name
-        tableView.tableHeaderView = profileViewController.view
         tableView.selectRow(at: IndexPath(row: selectedMenuItem, section: 0), animated: false, scrollPosition: .middle)
         
     }
@@ -114,5 +111,7 @@ class MyMenuTableViewController: UITableViewController {
             
         }            }
 
-}
+    }
+    
+    
 }
