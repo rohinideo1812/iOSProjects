@@ -16,6 +16,7 @@
 		0A9269E420E0B52700CA8219 /* AlamofireDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9269E320E0B52700CA8219 /* AlamofireDemoTests.swift */; };
 		0A9269EF20E0B52700CA8219 /* AlamofireDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9269EE20E0B52700CA8219 /* AlamofireDemoUITests.swift */; };
 		0A9269FD20E0D48500CA8219 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9269FC20E0D48500CA8219 /* TableViewCell.swift */; };
+		0A9D290720E220A9009D00B4 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9D290620E220A9009D00B4 /* AddPersonViewController.swift */; };
 		61949715999B327EA5F0BA46 /* Pods_AlamofireDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0821480269B545F7549B0F5 /* Pods_AlamofireDemoTests.framework */; };
 		D1ED07266ADD761FA36219C5 /* Pods_AlamofireDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5384A5311A56C5DEB5C1BFC4 /* Pods_AlamofireDemo.framework */; };
 		F368BDE2784ECB2358312E65 /* Pods_AlamofireDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF9EC2DA5BCB4A0E2D5CCDB /* Pods_AlamofireDemoUITests.framework */; };
@@ -54,6 +55,7 @@
 		0A9269EE20E0B52700CA8219 /* AlamofireDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireDemoUITests.swift; sourceTree = "<group>"; };
 		0A9269F020E0B52700CA8219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9269FC20E0D48500CA8219 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0A9D290620E220A9009D00B4 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		0DF9EC2DA5BCB4A0E2D5CCDB /* Pods_AlamofireDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		272702879B79EEB95CD08744 /* Pods-AlamofireDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireDemoTests/Pods-AlamofireDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		303B07783ACF84602156423B /* Pods-AlamofireDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireDemoUITests/Pods-AlamofireDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				0A9269D720E0B52700CA8219 /* LaunchScreen.storyboard */,
 				0A9269DA20E0B52700CA8219 /* Info.plist */,
 				0A9269D220E0B52700CA8219 /* AlamofireDemo.xcdatamodeld */,
+				0A9D290620E220A9009D00B4 /* AddPersonViewController.swift */,
 			);
 			path = AlamofireDemo;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				0A9269FD20E0D48500CA8219 /* TableViewCell.swift in Sources */,
 				0A9269CE20E0B52700CA8219 /* ViewController.swift in Sources */,
 				0A9269CC20E0B52700CA8219 /* AppDelegate.swift in Sources */,
+				0A9D290720E220A9009D00B4 /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

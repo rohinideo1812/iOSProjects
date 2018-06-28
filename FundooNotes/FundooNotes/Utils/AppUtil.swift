@@ -1,11 +1,3 @@
-//
-//  AppUtil.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 26/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import UserNotifications
@@ -19,7 +11,8 @@ class AppUtil {
     private var currentUserEmail:String?
     private init(){}
     private let userdefault = UserDefaults.standard
-    
+    var isTappedUserNotification = false
+
     
     func setUser(currentUser:User?){
         self.currentUser = currentUser
@@ -29,7 +22,6 @@ class AppUtil {
         return self.currentUser
     }
   
-    
     
     func setUserCredential(email:String?,password:String?){
         userdefault.set(email, forKey: Constants.CacheKeys.KEY_CURRENT_USER_EMAIL)
@@ -63,6 +55,7 @@ class AppUtil {
     func getMainVC()->MyNavigationController{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let dashboardVC = storyBoard.instantiateViewController(withIdentifier: "DashBoardViewController") as!  DashBoardViewController
+        dashboardVC.isTappedUserNotification = self.isTappedUserNotification
         let mymenuVC = MyMenuTableViewController()
         mymenuVC.delegate = dashboardVC
         let mynavVc = MyNavigationController(menuViewController: mymenuVC, contentViewController:dashboardVC)
@@ -70,13 +63,15 @@ class AppUtil {
     }
     
     
-    func scheduleNotifications(notes:[NoteItem]) {
+    func scheduleNotifications(notes:[NoteItem])->[NoteItem] {
         
+        var noteObj : [NoteItem] = []
+
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
-        
-        for noteObject in notes{
+
+        for  noteObject in notes{
             if let reminderDate = noteObject.remindDate{
                 let content = UNMutableNotificationContent()
                 content.badge = 1
@@ -84,54 +79,65 @@ class AppUtil {
                 let dateArray = reminderDate.components(separatedBy: ",")
                 if dateArray[0] != "" && dateArray[1] != ""{
                     let stringDate = "\( dateArray[0]) \( dateArray[1])"
-                    let repeatType = "\( dateArray[2])"
-                    let getDateComponent =  getDateComponents(repeatType:repeatType,stringDate:stringDate)
-                    
-                    let requestIdentifier = "\(noteObject.id!)"
-                    content.title = "\(noteObject.title ?? "")"
-                    content.subtitle = "\(noteObject.subtitle ?? "")"
-                    
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: getDateComponent, repeats: true)
-                    
-                    let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
-                    
-                    UNUserNotificationCenter.current().add(request) { (error:Error?) in
+                     let repeatType = "\( dateArray[2])"
+                    let date = stringDate.date(format: "yyyy-MM-dd hh:mm a")
+                    if date!.timeIntervalSinceNow.sign == .plus {
+                        let getDateComponent = getDateComponents(repeatType:repeatType,date:date)
+                        let requestIdentifier = "\(noteObject.id!)"
+                        content.title = "\(noteObject.title ?? "")"
+                        content.subtitle = "\(noteObject.subtitle ?? "")"
+                        DataManager.shared.convertNoteItemToJSONObject(object: noteObject, callback: {jsonObj in
+                            content.userInfo = jsonObj
+                        })
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: getDateComponent, repeats: true)
                         
-                        if error != nil {
+                        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+                        
+                        UNUserNotificationCenter.current().add(request) { (error:Error?) in
+                            
+                            if error != nil {
+                                print("no error")
+                            }
                         }
+                        noteObj.append(noteObject)
                     }
                 }
-            }
+                
+                    }
+            
         }
+        return(noteObj)
+        
     }
     
     
-    func getDateComponents(repeatType:String,stringDate:String)->DateComponents{
+    func getDateComponents(repeatType:String,date:Date?)->DateComponents{
         
-        let date = stringDate.date(format: "yyyy-MM-dd hh:mm a")
         var dateComponent = DateComponents()
         
-        switch repeatType {
-            
-        case Constants.repeatTypes.DOES_NOT_REPEAT:
-            dateComponent = Calendar.current.dateComponents([.hour,.minute], from: date!)
-            
-        case Constants.repeatTypes.DAILY :
-            dateComponent =  Calendar.current.dateComponents([.hour,.minute], from: date!)
-            
-        case Constants.repeatTypes.WEEKLY:
-            dateComponent =  Calendar.current.dateComponents([.weekday,.hour,.minute], from: date!)
-            
-        case Constants.repeatTypes.MONTHLY:
-            dateComponent =  Calendar.current.dateComponents([.month,.weekday,.hour,.minute], from: date!)
-            
-        case Constants.repeatTypes.YEARLY:
-            dateComponent =  Calendar.current.dateComponents([.year,.month,.weekday,.hour,.minute], from: date!)
-            
-        default:
-            break
-        }
-        return dateComponent
+        
+            switch repeatType {
+                
+            case Constants.repeatTypes.DOES_NOT_REPEAT:
+                dateComponent = Calendar.current.dateComponents([.hour,.minute], from: date!)
+                
+            case Constants.repeatTypes.DAILY :
+                dateComponent =  Calendar.current.dateComponents([.hour,.minute], from: date!)
+                
+            case Constants.repeatTypes.WEEKLY:
+                dateComponent =  Calendar.current.dateComponents([.weekday,.hour,.minute], from: date!)
+                
+            case Constants.repeatTypes.MONTHLY:
+                dateComponent =  Calendar.current.dateComponents([.month,.weekday,.hour,.minute], from: date!)
+                
+            case Constants.repeatTypes.YEARLY:
+                dateComponent =  Calendar.current.dateComponents([.year,.month,.weekday,.hour,.minute], from: date!)
+                
+            default:
+                break
+            }
+            return dateComponent
+        
     }
     
     

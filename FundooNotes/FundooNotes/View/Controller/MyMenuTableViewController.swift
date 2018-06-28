@@ -78,10 +78,10 @@ class MyMenuTableViewController: UITableViewController {
                 case 1:
                     delegate?.sideMenuDidSelected(noteType: .reminders)
                     break
-                case 3:
+                case 2:
                     delegate?.sideMenuDidSelected(noteType: .archive)
                     break
-                case 4:
+                case 3:
                     delegate?.sideMenuDidSelected(noteType: .delete)
                     break
                 default:

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  FundooNotes
-//
-//  Created by BridgeLabz on 24/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 import CoreData
 import UserNotifications
@@ -21,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     var window: UIWindow?
     var user:User?
-    
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //checkLogedIn()
         FirebaseApp.configure()
@@ -36,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.window?.rootViewController = newViewController
-
         }
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound],completionHandler: { (granted,error) in
             print(granted)
             UNUserNotificationCenter.current().delegate = self
@@ -50,15 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.notification.request.identifier == "TestIdentifier" {
-            print("handling notifications with the TestIdentifier Identifier")
-            completionHandler()
-        }
+      let data = response.notification.request.content.userInfo
+        AppUtil.shareInstance.isTappedUserNotification = true
+        let mainVC = AppUtil.shareInstance.getMainVC()
+        self.window?.rootViewController = mainVC
+        completionHandler()
         
     }
-    
+        
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         completionHandler([.alert,.badge,.sound])
     }
     

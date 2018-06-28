@@ -33,6 +33,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let textField = UITextField()
     var restoreButton:UIBarButtonItem!
+    var isTappedUserNotification = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
     //Mark: Protocol implementation of SideMenu Selection
     func sideMenuDidSelected(noteType: NoteType) {
+        print(noteType)
         self.type = noteType
         switch type {
         case .archive,.reminders:
@@ -79,7 +81,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.navigationController?.navigationBar.barTintColor = UIColor(hexString: navColor)
         }
         dashBoardPresenter.attachView(view: self)
-        dashBoardPresenter.getNotes(type:noteType)
+        dashBoardPresenter.getNotes(type:self.type)
     }
 
     
@@ -136,7 +138,14 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.collectionView.allowsMultipleSelection = true
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItems = nil
+        if self.type == .delete{
+            self.navigationItem.rightBarButtonItems = [self.optionButton,self.restoreButton]
+        }else if self.type == .archive{
+            self.navigationItem.rightBarButtonItem = self.optionButton
+        }
+        else{
         self.navigationItem.rightBarButtonItems = [self.optionButton,self.chooseColorButton]
+        }
         self.navigationItem.leftBarButtonItem = backButton
         if sender.state != .ended {
             return
@@ -170,11 +179,11 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         chooseColorButton = UIBarButtonItem(image: UIImage(named: "ic_color_lens_black_18dp"), style: .plain, target: self, action: #selector(chooseColorButtonPress))
         restoreButton =  UIBarButtonItem(image: UIImage(named: "ic_restore"), style: .plain, target: self, action: #selector(restoreButtonPress))
         
+        
         //set Bar Buttons on NavBar
         self.navigationItem.leftBarButtonItem = menuButton
         self.navigationItem.rightBarButtonItems = [viewTypeBtn,searchButton]
        
-        
         //Edit NavBar
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width:2.0,height: 2.0)
@@ -188,6 +197,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.chooseColorButton.tintColor = UIColor.white
         self.menuButton.tintColor = UIColor.white
         self.searchButton.tintColor = UIColor.white
+        self.restoreButton.tintColor = UIColor.white
         
         
     }
@@ -200,6 +210,58 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         
     let actionController = YoutubeActionController()
     
+        if self.type == .delete {
+            
+            actionController.addAction(Action(ActionData(title: "Delete foreever"), style: .default, handler: { action in
+                
+                var tempNotes:[NoteItem]? = []
+                for index in noteIndex {
+                    tempNotes?.append(self.notes[index])
+                    self.notes.remove(at: index)
+                }
+                DataManager.shared.deleteNoteDataWith(objects: tempNotes!, callback: {result,message in
+                    
+                })
+                //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+                self.collectionView.performBatchUpdates({ () -> Void in
+                    self.collectionView.deleteItems(at: self.selectedIndexPath)
+                }, completion: { _ in
+                    self.dashBoardPresenter.getNotes(type: self.type)
+                    self.navigationItem.leftBarButtonItem = self.menuButton
+                    self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+                    self.deSelectAllCell()
+                })
+               
+            }))
+
+        }else if self.type == .archive {
+            
+            actionController.addAction(Action(ActionData(title: "Unarchive"), style: .default, handler: { action in
+                
+                var tempNotes:[NoteItem]? = []
+                for index in noteIndex {
+                    self.notes[index].isArchive = false
+                    self.notes[index].date = Helper.shared.getFormatedDate()
+                    tempNotes?.append(self.notes[index])
+                    self.notes.remove(at: index)
+                }
+                self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
+                //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+                self.collectionView.performBatchUpdates({ () -> Void in
+                    self.collectionView.deleteItems(at: self.selectedIndexPath)
+                }, completion: { _ in
+                    self.dashBoardPresenter.getNotes(type: self.type)
+                    self.navigationItem.leftBarButtonItem = self.menuButton
+                    self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+                    self.deSelectAllCell()
+                })
+                defer{
+                    tempNotes = nil
+                }
+                
+                
+            }))
+        }else{
     actionController.addAction(Action(ActionData(title: "Archive"), style: .default, handler: { action in
         var tempNotes:[NoteItem]? = []
         for index in noteIndex {
@@ -215,8 +277,6 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         }, completion: { _ in
             self.dashBoardPresenter.getNotes(type: .notes)
             self.navigationItem.leftBarButtonItem = self.menuButton
-            self.menuButton.tintColor = UIColor.blue
-            self.searchButton.tintColor = UIColor.blue
             self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
             self.deSelectAllCell()
         })
@@ -243,7 +303,6 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         }, completion: { _ in
             self.dashBoardPresenter.getNotes(type: .notes)
             self.navigationItem.leftBarButtonItem = self.menuButton
-            self.viewTypeBtn.tintColor = UIColor.blue
             self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
             self.deSelectAllCell()
 
@@ -253,7 +312,8 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
             self.collectionView.allowsMultipleSelection = false
         }
     }))
-    
+        }
+        
        present(actionController, animated: true, completion: nil)
     }
     
@@ -294,33 +354,29 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
    //Mark:Restore Button Press
    @objc func restoreButtonPress(){
+    
     let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
-    
-    let actionController = YoutubeActionController()
-    
-    actionController.addAction(Action(ActionData(title: "Delete Permenantly"), style: .default, handler: { action in
-        var tempNotes:[NoteItem]? = []
-        for index in noteIndex {
-            tempNotes?.append(self.notes[index])
-            self.notes.remove(at: index)
-        }
-        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-        //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
-        self.collectionView.performBatchUpdates({ () -> Void in
-            self.collectionView.deleteItems(at: self.selectedIndexPath)
-        }, completion: { _ in
-            self.dashBoardPresenter.getNotes(type: .notes)
-            self.navigationItem.leftBarButtonItem = self.menuButton
-            self.menuButton.tintColor = UIColor.blue
-            self.searchButton.tintColor = UIColor.blue
-            self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-            self.deSelectAllCell()
-        })
-            defer{
-                tempNotes = nil
-            }
-        
-        }))
+
+    var tempNotes:[NoteItem]? = []
+    for index in noteIndex {
+        self.notes[index].isDelete = false
+        self.notes[index].date = Helper.shared.getFormatedDate()
+        tempNotes?.append(self.notes[index])
+        self.notes.remove(at: index)
+    }
+    self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
+    //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+    self.collectionView.performBatchUpdates({ () -> Void in
+        self.collectionView.deleteItems(at: self.selectedIndexPath)
+    }, completion: { _ in
+        self.dashBoardPresenter.getNotes(type: self.type)
+        self.navigationItem.leftBarButtonItem = self.menuButton
+        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+        self.deSelectAllCell()
+    })
+    defer{
+        tempNotes = nil
+    }
     
     }
     

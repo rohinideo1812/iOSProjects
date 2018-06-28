@@ -8,12 +8,12 @@ class DashBoardService {
 
     //Mark:Fetch Note from Local DB
     func getNotes(noteType:NoteType,callBack:@escaping ([NoteItem]) -> Void){
+        
          DataManager.shared.fetchNoteData(callback: {notes in
-
 //        let notes = NoteDataBase.sharedInstance.fetchNoteData()
         
-        let reminderNotes = notes.filter({$0.remindDate != "" && $0.isDelete == false})
-       AppUtil.shareInstance.scheduleNotifications(notes:reminderNotes)
+            let reminderNotes = notes.filter({$0.remindDate != "" && $0.isDelete == false})
+       let upcomingReminderNotes = AppUtil.shareInstance.scheduleNotifications(notes:reminderNotes)
             
         switch noteType {
             
@@ -21,7 +21,7 @@ class DashBoardService {
                       callBack(note)
             
         case .reminders :
-            callBack(reminderNotes)
+            callBack(upcomingReminderNotes)
             
         case .archive : let archivedNotes = notes.filter({$0.isArchive == true && $0.isDelete == false })
             callBack(archivedNotes)

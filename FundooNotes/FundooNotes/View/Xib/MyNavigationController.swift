@@ -2,13 +2,12 @@ import UIKit
 
 class MyNavigationController: ENSideMenuNavigationController {
     
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let myMenuTableViewController = MyMenuTableViewController()
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController:myMenuTableViewController, menuPosition:.left)
-        
         sideMenu?.menuWidth = 150
         sideMenu?.bouncingEnabled = false
         view.bringSubview(toFront: navigationBar)

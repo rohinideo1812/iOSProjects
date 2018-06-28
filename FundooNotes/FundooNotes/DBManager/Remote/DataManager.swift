@@ -152,7 +152,6 @@ class DataManager {
     func updateNoteDataWith(object : NoteItem?,callback:(_ result:Bool,_ message:String)->Void){
         
         convertNoteItemToJSONObject(object:object, callback: {note in
-        
         self.ref.child((Auth.auth().currentUser?.uid)!).child("notes").child((object?.id!)!).updateChildValues(note)
 
         })
@@ -164,6 +163,17 @@ class DataManager {
     }
     
     
+    func deleteNoteDataWith(objects : [NoteItem],callback:(_ result:Bool,_ message:String)->Void){
+       
+        for note in objects{
+            self.ref.child((Auth.auth().currentUser?.uid)!).child("notes").child((note.id!)).removeValue()
+        }
+        
+        callback(true,"Deleted SuccessFully")
+
+    }
+        
+            
     func fetchUserData(callback:@escaping (_ userdata:FIRUserModel)->Void){
         var userData:[UserModel] = []
         ref.child((Auth.auth().currentUser?.uid)!).child("userInfo").observe(.value, with: { (snapshot) in

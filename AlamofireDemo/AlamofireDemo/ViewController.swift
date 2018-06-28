@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import Foundation
 
 typealias JSONObject = [String:Any]
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -12,10 +13,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        print("Enter the name")
-        print("Enter the last name")
-        print("Enter the city")
-        print("Enter the mobile number")
+        
     let url = URL(string: "http://192.168.0.23:8181/fundooNotes/v1/getPersons")
         Alamofire.request(url!).responseJSON(completionHandler: {response in
             
@@ -36,7 +34,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
-        print(self.persons)
         
         if self.persons.count > 0{
             let eachPerson = self.persons[indexPath.row]

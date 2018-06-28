@@ -64,8 +64,8 @@ class NotesCell: UICollectionViewCell {
                 self.titleLabelHeightConstraint.constant = textHeight
             }else{
                 self.titleLabelHeightConstraint.constant = 0
-                
             }
+        
             if let reminderDate = note.remindDate {
                 let dateArray = reminderDate.components(separatedBy: ",")
                 if dateArray[0] != "" {
@@ -79,14 +79,14 @@ class NotesCell: UICollectionViewCell {
                 self.dateLabelHeightConstraint.constant = 0
                 }
         
-        if let pin = note.isPin {
-            if pin {
-                let image = UIImage(named: "ic_pin-1")
-                self.pinBtn.setImage(image, for: UIControlState.normal)
-
-            }else{
-                self.pinBtn.alpha = 0
+            if let pin = note.isPin {
+                if pin {
+                    let image = UIImage(named: "ic_pin-1")
+                    self.pinBtn.setImage(image, for: UIControlState.normal)
+                    self.pinBtn.tintColor = UIColor.black
+                }else{
+                    self.pinBtn.alpha = 0
+                }
             }
         }
-            }
     }

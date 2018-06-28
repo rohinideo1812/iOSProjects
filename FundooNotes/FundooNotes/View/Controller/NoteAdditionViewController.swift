@@ -110,10 +110,6 @@ class NoteAdditionViewController: UIViewController,UIImagePickerControllerDelega
             let date = Helper.shared.getFormatedDate()
             archiveBarButtonPress()
             pinBarButtonPress()
-//           var previousSelectedColor = noteObject.color
-//            if colorSelected == previousSelectedColor{
-//                colorSelected = previousSelectedColor!
-//            }
             noteObject = NoteItem(title: noteAddUIView.titleTextView.text, subtitle: noteAddUIView.noteTextView.text,image: noteAddUIView.imageView.image, isPin: isPin, isArchive: isArchive, remindDate: remindDate,date: date,id: noteObject?.id,isDelete : false, imageHeight: noteAddUIView.imageView.image?.size.height, imageWidth: noteAddUIView.imageView.image?.size.width,imageUrl:"",color:colorSelected)
 //            addNotePresenter?.updateNote(object:self.noteObject)
           addNotePresenter?.updateNoteDataWith(object: self.noteObject)
