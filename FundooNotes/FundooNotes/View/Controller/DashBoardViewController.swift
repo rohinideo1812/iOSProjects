@@ -539,6 +539,8 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         if collectionView.allowsMultipleSelection {
         let cell = self.collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.lightGray
+        cell?.isSelected = true
+
         //New
         cell?.isSelected = true
         selectedIndexPath.append(indexPath as IndexPath)
@@ -555,12 +557,13 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
 //        //NEW
 //        if collectionView.allowsMultipleSelection{
 //            let cell = collectionView.cellForItem(at: indexPath)
-//                cell?.isSelected = false
 //                cell?.backgroundColor = UIColor.white
 //
 //        }
 //        //---------END
         let cell = collectionView.cellForItem(at: indexPath)
+        cell?.isSelected = false
+
         if let color = notes[indexPath.row].color{
         cell?.backgroundColor = UIColor(hexString: color)
         }

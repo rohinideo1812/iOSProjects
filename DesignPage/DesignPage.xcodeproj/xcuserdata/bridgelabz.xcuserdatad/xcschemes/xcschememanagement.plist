@@ -7,7 +7,25 @@
 		<key>DesignPage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0AB9A7F420E4E07E007FD0CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AB9A80B20E4E07E007FD0CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AB9A81620E4E07E007FD0CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
