@@ -18,7 +18,8 @@ target 'FundooNotes' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  
+  pod 'Firebase/Crash'
+
   target 'FundooNotesTests' do
     inherit! :search_paths
     # Pods for testing

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var normalText = "dggdghtfhfhfhfhtfhtfhtfhtfhtfhtfhtfhtfjfhtcthrc"
+        var normalText = "dggdghtfhfhfhfhtfhtfhtfhtfhtfhtfhtfhtfjfhhfgkjnfgjhnfgkjhnkfgjhnkgjfnhkgjfnkgjfnjkfgnhfkjghnkfgjnhjkfgnhjfkghfkjgnhkfjgnhfjgknhkfjgnhjfgknhfghfghgfhfghgftcthrc"
         if normalText.isEmpty{
             
         }else{

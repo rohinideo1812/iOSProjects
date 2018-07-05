@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DesignPage2' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+pod 'SwipeMenuViewController'
+
+  # Pods for DesignPage2
+
+  target 'DesignPage2Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'DesignPage2UITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
