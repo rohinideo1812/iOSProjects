@@ -1,11 +1,3 @@
-//
-//  TableViewCell3.swift
-//  CollectionViewInTableVoiew
-//
-//  Created by BridgeLabz on 09/05/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 
 protocol TableViewCell3Delegate: class
@@ -42,13 +34,13 @@ class TableViewCell3: UITableViewCell,UICollectionViewDataSource,UICollectionVie
   
         return customcell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 //        print(indexPath.row)
 
         if let _ = delegate{
             print(indexPath.row)
             delegate?.tapped(indexPath.row)
-            
         }
     }
     
