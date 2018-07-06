@@ -13,30 +13,33 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="FoodApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="201" height="148"/>
+            <rect key="frame" x="0.0" y="0.0" width="190" height="115"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="201" height="148"/>
+                <rect key="frame" x="0.0" y="0.0" width="190" height="115"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXN-mL-Ttb">
-                        <rect key="frame" x="0.0" y="0.0" width="201" height="148"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lEe-AK-V6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="115"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="148" id="if0-Ck-m59"/>
-                            <constraint firstAttribute="width" constant="201" id="mmf-aA-es8"/>
+                            <constraint firstAttribute="width" constant="190" id="Lov-SE-oT7"/>
+                            <constraint firstAttribute="height" constant="115" id="lX8-c8-myQ"/>
                         </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="NXN-mL-Ttb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EGq-iE-KsZ"/>
-                <constraint firstAttribute="bottom" secondItem="NXN-mL-Ttb" secondAttribute="bottom" id="LLY-Bn-nyA"/>
-                <constraint firstAttribute="trailing" secondItem="NXN-mL-Ttb" secondAttribute="trailing" id="hGo-CH-za1"/>
-                <constraint firstItem="NXN-mL-Ttb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nvm-gl-Sxn"/>
+                <constraint firstAttribute="trailing" secondItem="lEe-AK-V6Q" secondAttribute="trailing" id="BYr-yh-A5B"/>
+                <constraint firstAttribute="bottom" secondItem="lEe-AK-V6Q" secondAttribute="bottom" id="H9U-vf-ekc"/>
+                <constraint firstItem="lEe-AK-V6Q" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iOJ-BZ-tHq"/>
+                <constraint firstItem="lEe-AK-V6Q" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wnV-2J-0MK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="201" height="148"/>
-            <point key="canvasLocation" x="112.5" y="145"/>
+            <size key="customSize" width="196" height="115"/>
+            <connections>
+                <outlet property="imageView" destination="lEe-AK-V6Q" id="eiH-uy-JqZ"/>
+            </connections>
+            <point key="canvasLocation" x="110" y="128.5"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -1,11 +1,11 @@
-/******************************************************************************
+/*********************************************************************
  *  Purpose: Login VC.
  *
  *  @author Rohini
  *  @version 4.0
  *  @since   06-07-2018
  *
- ******************************************************************************/
+ *********************************************************************/
 import UIKit
 
 class LogInViewController: UIViewController {
@@ -13,15 +13,10 @@ class LogInViewController: UIViewController {
       //Mark:Properties
       @IBOutlet weak var logInBtn: UIButton!
     
-    var flag :Int?
         override func viewDidLoad() {
             super.viewDidLoad()
             configureBtns()
-            flag = 10
-            if let m = flag{
-                print(m)
-            }
-           
+            
     }
 
     
