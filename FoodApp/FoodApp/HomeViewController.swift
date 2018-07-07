@@ -32,26 +32,32 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-            }
+        return itemType.count
+        }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 1{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.orders.text = peoples[indexPath.row]
-        cell.time.text = time[indexPath.row]
-        cell.level.text = level[indexPath.row]
-        cell.imageview.image = itemImg[indexPath.row]
-        cell.itemName.text = itemName[indexPath.row]
-        cell.itemType.text = itemType[indexPath.row]
-        cell.layoutIfNeeded()
-        return cell
-        }else {
+        if indexPath.row == 0{
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell1", for: indexPath) as! TableViewCell1
             cell.layoutIfNeeded()
             return cell
+        
+        }else {
+           
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+            cell.orders.text = peoples[indexPath.row]
+            cell.time.text = time[indexPath.row]
+            cell.level.text = level[indexPath.row]
+            cell.imageview.image = itemImg[indexPath.row]
+            cell.itemName.text = itemName[indexPath.row]
+            cell.itemType.text = itemType[indexPath.row]
+            cell.layoutIfNeeded()
+            self.tableView.estimatedRowHeight = 400
+            self.tableView.rowHeight = UITableViewAutomaticDimension
+            return cell
+            
         }
     }
  

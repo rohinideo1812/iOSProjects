@@ -4,7 +4,8 @@ class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionVie
 
     //Mark:Properties
     @IBOutlet weak var collectionView: UICollectionView!
-    var imgArray = [UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake")]
+    
+    var imgArray = [UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake"),UIImage(named: "img_shake2"),UIImage(named: "img_shake")]
     
     
     override func awakeFromNib() {

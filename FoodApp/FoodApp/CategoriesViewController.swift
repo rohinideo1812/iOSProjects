@@ -1,35 +1,46 @@
-//
-//  CategoriesViewController.swift
-//  FoodApp
-//
-//  Created by BridgeLabz on 06/07/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    var itemName = ["Pasta Salad","Pan Cakes","MineStrone Soup","Choclate Pudding","Alffredo Sauce","Sour Cream Meat Tacos"]
+    var itemType = ["HEALTHY","BREAKFAST AND BRUNCH","SOUP","DESERT","PASTA","MAIN DISH"]
+    var itemImg = [UIImage(named: "img_pastasalad"),UIImage(named: ""),UIImage(named: "img_pancake"),UIImage(named: "img_soup"),UIImage(named: "img_shake2"),UIImage(named: "img_sauce"),UIImage(named: "img_meat")]
+    var time = ["25 minutes","14 minutes","2 minutes","10 minutes","15 minutes","5 minutes"]
+    var level = ["Easy","Medium","Medium","Easy","Easy","Medium"]
+    var peoples = ["5 people","15 people","51 people","6 people","5 people","45 people"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName:"TableViewCell",bundle:nil), forCellReuseIdentifier: "TableViewCell")
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.tableView.estimatedRowHeight = 400
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemType.count
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        cell.orders.text = peoples[indexPath.row]
+        cell.time.text = time[indexPath.row]
+        cell.level.text = level[indexPath.row]
+        cell.imageview.image = itemImg[indexPath.row]
+        cell.itemName.text = itemName[indexPath.row]
+        cell.itemType.text = itemType[indexPath.row]
+        cell.layoutIfNeeded()
+       
+        return cell
+    }
+   
 }
