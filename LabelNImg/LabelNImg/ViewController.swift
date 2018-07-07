@@ -1,25 +1,20 @@
-//
-//  ViewController.swift
-//  LabelNImg
-//
-//  Created by BridgeLabz on 06/07/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: SMIconLabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        label.icon = #imageLiteral(resourceName: "baseline_dns_black_18dp")
+        label.iconPosition = (.left,.center)
+        label.iconPadding = 5
+        label.text = "Rohini is very nice"
+        label.sizeToFit()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

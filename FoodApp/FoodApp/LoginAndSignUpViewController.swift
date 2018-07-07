@@ -33,7 +33,6 @@ class LoginAndSignUpViewController: UIViewController {
         self.signUpBtn.setTitleColor(UIColor.orange, for: UIControlState.normal)
         self.signUpBtn.layer.borderWidth = 1
         self.dontHaveAccountBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
-
         
     }
     

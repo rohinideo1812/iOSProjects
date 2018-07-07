@@ -15,6 +15,8 @@
 		0AD4694E20EF925900CE5CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD4694C20EF925900CE5CE6 /* LaunchScreen.storyboard */; };
 		0AD4695920EF925A00CE5CE6 /* LabelNImgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4695820EF925A00CE5CE6 /* LabelNImgTests.swift */; };
 		0AD4696420EF925A00CE5CE6 /* LabelNImgUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4696320EF925A00CE5CE6 /* LabelNImgUITests.swift */; };
+		0AD4697220EF934300CE5CE6 /* Extension+Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4697120EF934300CE5CE6 /* Extension+Label.swift */; };
+		0AD4697420EF96DA00CE5CE6 /* SMIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4697320EF96DA00CE5CE6 /* SMIconLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		0AD4695F20EF925A00CE5CE6 /* LabelNImgUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LabelNImgUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD4696320EF925A00CE5CE6 /* LabelNImgUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNImgUITests.swift; sourceTree = "<group>"; };
 		0AD4696520EF925A00CE5CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AD4697120EF934300CE5CE6 /* Extension+Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Label.swift"; sourceTree = "<group>"; };
+		0AD4697320EF96DA00CE5CE6 /* SMIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMIconLabel.swift; path = ../../FoodApp/FoodApp/SMIconLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		0AD4693F20EF925900CE5CE6 /* LabelNImg */ = {
 			isa = PBXGroup;
 			children = (
+				0AD4697320EF96DA00CE5CE6 /* SMIconLabel.swift */,
 				0AD4694020EF925900CE5CE6 /* AppDelegate.swift */,
 				0AD4694220EF925900CE5CE6 /* ViewController.swift */,
 				0AD4694420EF925900CE5CE6 /* Main.storyboard */,
@@ -106,6 +111,7 @@
 				0AD4694C20EF925900CE5CE6 /* LaunchScreen.storyboard */,
 				0AD4694F20EF925900CE5CE6 /* Info.plist */,
 				0AD4694720EF925900CE5CE6 /* LabelNImg.xcdatamodeld */,
+				0AD4697120EF934300CE5CE6 /* Extension+Label.swift */,
 			);
 			path = LabelNImg;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD4697220EF934300CE5CE6 /* Extension+Label.swift in Sources */,
+				0AD4697420EF96DA00CE5CE6 /* SMIconLabel.swift in Sources */,
 				0AD4694320EF925900CE5CE6 /* ViewController.swift in Sources */,
 				0AD4694120EF925900CE5CE6 /* AppDelegate.swift in Sources */,
 				0AD4694920EF925900CE5CE6 /* LabelNImg.xcdatamodeld in Sources */,

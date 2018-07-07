@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController {
     
     //Mark:Configure Btns
     func configureBtns(){
+        
         self.createAccountBtn.layer.cornerRadius = 15
         self.createAccountBtn.layer.borderColor = UIColor.orange.cgColor
         self.createAccountBtn.setTitleColor(UIColor.white, for: UIControlState.normal)

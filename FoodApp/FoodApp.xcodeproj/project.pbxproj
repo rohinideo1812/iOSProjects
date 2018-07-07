@@ -29,6 +29,7 @@
 		0AD4692F20EF8A9500CE5CE6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4692E20EF8A9500CE5CE6 /* CategoriesViewController.swift */; };
 		0AD4693120EF8AC400CE5CE6 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4693020EF8AC400CE5CE6 /* FavouritesViewController.swift */; };
 		0AD4693320EF8B3E00CE5CE6 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4693220EF8B3E00CE5CE6 /* AccountInfoViewController.swift */; };
+		0AD4697620EF993600CE5CE6 /* SMIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4697520EF993500CE5CE6 /* SMIconLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		0AD4692E20EF8A9500CE5CE6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		0AD4693020EF8AC400CE5CE6 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		0AD4693220EF8B3E00CE5CE6 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		0AD4697520EF993500CE5CE6 /* SMIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMIconLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				0AC94FFA20EE3E9F00FE8A34 /* LogInViewController.swift */,
 				0AC94FD320EE27D800FE8A34 /* Assets.xcassets */,
 				0AC94FD520EE27D800FE8A34 /* LaunchScreen.storyboard */,
+				0AD4697520EF993500CE5CE6 /* SMIconLabel.swift */,
 				0AD4692220EF3B0C00CE5CE6 /* ConstantStr.strings */,
 				0AC94FD820EE27D900FE8A34 /* Info.plist */,
 				0AC94FD020EE27D800FE8A34 /* FoodApp.xcdatamodeld */,
@@ -317,6 +320,7 @@
 				0AC94FCA20EE27D800FE8A34 /* AppDelegate.swift in Sources */,
 				0AC94FFD20EE43E400FE8A34 /* LoginAndSignUpViewController.swift in Sources */,
 				0AD4692D20EF8A5200CE5CE6 /* HomeViewController.swift in Sources */,
+				0AD4697620EF993600CE5CE6 /* SMIconLabel.swift in Sources */,
 				0AD4691E20EF355D00CE5CE6 /* CollectionViewCell.swift in Sources */,
 				0AD4691A20EF354200CE5CE6 /* TableViewCell.swift in Sources */,
 				0AC94FD220EE27D800FE8A34 /* FoodApp.xcdatamodeld in Sources */,

@@ -13,7 +13,12 @@ class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionVie
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-    
+        self.layer.backgroundColor = UIColor.red.cgColor
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 7
+        self.layer.shadowOffset = CGSize.zero
+        
     }
     
     
@@ -26,6 +31,7 @@ class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionVie
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         cell.imageView.image = imgArray[indexPath.row]
+        cell.layoutIfNeeded()
         return cell
         
     }

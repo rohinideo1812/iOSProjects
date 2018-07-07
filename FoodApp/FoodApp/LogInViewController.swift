@@ -22,6 +22,7 @@ class LogInViewController: UIViewController {
     
         //Mark:Configure Btns
         func configureBtns(){
+            
             self.logInBtn.layer.cornerRadius = 15
             self.logInBtn.layer.backgroundColor = UIColor.orange.cgColor
             self.logInBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
