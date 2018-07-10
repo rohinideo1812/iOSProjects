@@ -15,6 +15,8 @@
 		0AFD9BAE20F0D4EE0006D066 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9BAC20F0D4EE0006D066 /* LaunchScreen.storyboard */; };
 		0AFD9BB920F0D4EE0006D066 /* iOSAutolayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9BB820F0D4EE0006D066 /* iOSAutolayoutTests.swift */; };
 		0AFD9BC420F0D4EE0006D066 /* iOSAutolayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9BC320F0D4EE0006D066 /* iOSAutolayoutUITests.swift */; };
+		0AFD9BD520F0DB110006D066 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD9BD320F0DB110006D066 /* TableViewCell.swift */; };
+		0AFD9BD620F0DB110006D066 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFD9BD420F0DB110006D066 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		0AFD9BBF20F0D4EE0006D066 /* iOSAutolayoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSAutolayoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AFD9BC320F0D4EE0006D066 /* iOSAutolayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAutolayoutUITests.swift; sourceTree = "<group>"; };
 		0AFD9BC520F0D4EE0006D066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AFD9BD320F0DB110006D066 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0AFD9BD420F0DB110006D066 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				0AFD9BA020F0D4EE0006D066 /* AppDelegate.swift */,
+				0AFD9BD320F0DB110006D066 /* TableViewCell.swift */,
+				0AFD9BD420F0DB110006D066 /* TableViewCell.xib */,
 				0AFD9BA220F0D4EE0006D066 /* ViewController.swift */,
 				0AFD9BA420F0D4EE0006D066 /* Main.storyboard */,
 				0AFD9BAA20F0D4EE0006D066 /* Assets.xcassets */,
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFD9BAE20F0D4EE0006D066 /* LaunchScreen.storyboard in Resources */,
+				0AFD9BD620F0DB110006D066 /* TableViewCell.xib in Resources */,
 				0AFD9BAB20F0D4EE0006D066 /* Assets.xcassets in Resources */,
 				0AFD9BA620F0D4EE0006D066 /* Main.storyboard in Resources */,
 			);
@@ -263,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFD9BA320F0D4EE0006D066 /* ViewController.swift in Sources */,
+				0AFD9BD520F0DB110006D066 /* TableViewCell.swift in Sources */,
 				0AFD9BA120F0D4EE0006D066 /* AppDelegate.swift in Sources */,
 				0AFD9BA920F0D4EE0006D066 /* iOSAutolayout.xcdatamodeld in Sources */,
 			);

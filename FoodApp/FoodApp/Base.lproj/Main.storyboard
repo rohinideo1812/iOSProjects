@@ -239,24 +239,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SRW-K0-DL1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell1" rowHeight="115" id="w13-9G-kai" customClass="TableViewCell1" customModule="FoodApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="115"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w13-9G-kai" id="Fr4-FJ-6w8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" rowHeight="376" id="uJ7-e7-R21" customClass="TableViewCell" customModule="FoodApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="143" width="375" height="376"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uJ7-e7-R21" id="CZZ-Ge-79i">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="376"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -284,14 +266,29 @@
                     <view key="view" contentMode="scaleToFill" id="cLv-Ix-R5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fx9-QE-vyQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fx9-QE-vyQ" firstAttribute="bottom" secondItem="Tu8-9f-0Ax" secondAttribute="bottom" id="4OW-pf-pHu"/>
+                            <constraint firstItem="fx9-QE-vyQ" firstAttribute="trailing" secondItem="Tu8-9f-0Ax" secondAttribute="trailing" id="6Zn-Ca-yiq"/>
+                            <constraint firstItem="fx9-QE-vyQ" firstAttribute="leading" secondItem="Tu8-9f-0Ax" secondAttribute="leading" id="ILa-v5-efu"/>
+                            <constraint firstItem="fx9-QE-vyQ" firstAttribute="top" secondItem="cLv-Ix-R5h" secondAttribute="top" id="KBG-Dj-GAi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Tu8-9f-0Ax"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="baseline_favorite_black_18dp" id="jQT-xO-HLr"/>
+                    <connections>
+                        <outlet property="tableView" destination="fx9-QE-vyQ" id="1El-10-2mz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQi-39-aLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1400" y="1550"/>
+            <point key="canvasLocation" x="-1400.8" y="1549.4752623688157"/>
         </scene>
         <!--Account Info View Controller-->
         <scene sceneID="A8l-4Q-HI5">
@@ -300,14 +297,30 @@
                     <view key="view" contentMode="scaleToFill" id="U23-Yl-V8y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eul-HS-S6k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Eul-HS-S6k" firstAttribute="leading" secondItem="m0h-Wj-PO5" secondAttribute="leading" id="7rH-TO-kdd"/>
+                            <constraint firstItem="Eul-HS-S6k" firstAttribute="bottom" secondItem="m0h-Wj-PO5" secondAttribute="bottom" id="D3p-1H-RdM"/>
+                            <constraint firstItem="Eul-HS-S6k" firstAttribute="trailing" secondItem="m0h-Wj-PO5" secondAttribute="trailing" id="SMV-AX-16D"/>
+                            <constraint firstItem="Eul-HS-S6k" firstAttribute="top" secondItem="U23-Yl-V8y" secondAttribute="top" id="gYD-Ng-ElR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m0h-Wj-PO5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="baseline_person_black_18dp" id="bzm-lV-qzl"/>
+                    <connections>
+                        <outlet property="tableView" destination="Eul-HS-S6k" id="1Oc-Y4-xh6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MV1-ST-hKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-744" y="1563"/>
+            <point key="canvasLocation" x="-744.79999999999995" y="1562.9685157421291"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="szW-Ds-z5i">
@@ -320,19 +333,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-6C-XPw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="562" id="6SP-E7-beC">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="562"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6SP-E7-beC" id="gSw-ec-e7b">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="561.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0pt-6C-XPw" firstAttribute="bottom" secondItem="uwd-EF-sDM" secondAttribute="bottom" id="4b5-3Z-VqM"/>
                             <constraint firstItem="0pt-6C-XPw" firstAttribute="trailing" secondItem="uwd-EF-sDM" secondAttribute="trailing" id="AW1-bW-zft"/>

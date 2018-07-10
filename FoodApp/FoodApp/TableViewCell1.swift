@@ -1,6 +1,14 @@
+/**********************************************************************
+ *  Purpose: Custom Table Cell.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   10-07-2018
+ *
+ *********************************************************************/
 import UIKit
 
-class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionViewDelegate {
+class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
 
     //Mark:Properties
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,8 +40,14 @@ class TableViewCell1: UITableViewCell,UICollectionViewDataSource,UICollectionVie
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         cell.imageView.image = imgArray[indexPath.row]
-        cell.layoutIfNeeded()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let height = self.collectionView.frame.size.height
+        return CGSize(width: height, height: height)
+        
         
     }
    

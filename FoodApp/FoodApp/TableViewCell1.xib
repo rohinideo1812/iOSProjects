@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="TableViewCell1" customModule="FoodApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="TableViewCell1" customModule="FoodApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="378" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,12 +20,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fGC-gi-LWN">
-                        <rect key="frame" x="0.0" y="0.0" width="378" height="115.5"/>
+                        <rect key="frame" x="8" y="4" width="362" height="107.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="115.5" id="ZG0-rU-S7I"/>
+                            <constraint firstAttribute="height" constant="107.5" id="si8-QG-ncS"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ryo-wT-U50">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ryo-wT-U50">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -34,10 +34,10 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="fGC-gi-LWN" secondAttribute="trailing" id="BwC-8W-YmW"/>
-                    <constraint firstItem="fGC-gi-LWN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g7n-77-sUR"/>
-                    <constraint firstAttribute="bottom" secondItem="fGC-gi-LWN" secondAttribute="bottom" id="iu8-i0-Hcs"/>
-                    <constraint firstItem="fGC-gi-LWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t5e-mV-cua"/>
+                    <constraint firstAttribute="bottom" secondItem="fGC-gi-LWN" secondAttribute="bottom" constant="4" id="7B6-Fc-Wk1"/>
+                    <constraint firstAttribute="trailing" secondItem="fGC-gi-LWN" secondAttribute="trailing" constant="8" id="fmy-yw-dft"/>
+                    <constraint firstItem="fGC-gi-LWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="tRq-bj-eJ7"/>
+                    <constraint firstItem="fGC-gi-LWN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="weK-Y6-FRu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

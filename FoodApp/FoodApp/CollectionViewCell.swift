@@ -1,3 +1,11 @@
+/**********************************************************************
+ *  Purpose: Custom Collection Cell.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   10-07-2018
+ *
+ *********************************************************************/
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
