@@ -8,10 +8,6 @@ class DemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.gray
-//        let image = #imageLiteral(resourceName: "cover")
-//        let imageView = UIImageView(image: image)
-//        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-//        addSubview(imageView)
     }
     
     
@@ -34,12 +30,17 @@ class DemoView: UIView {
         shapeLayer.path = path.cgPath
         self.layer.mask = shapeLayer
         
-        
-        //new
-        let image = #imageLiteral(resourceName: "cover")
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-        addSubview(imageView)
+//        let image = #imageLiteral(resourceName: "cover")
+//        let imageView = UIImageView(image: image)
+//        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+//        addSubview(imageView)
+        let button   = UIButton(type: UIButtonType.system) as UIButton
+        // set the frame
+        button.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        button.setTitle("Test Button", for: .normal)
+        button.addTarget(self, action: #selector(btnPress), for: UIControlEvents.touchUpInside)
+
+        addSubview(button)
     }
     
     
@@ -63,4 +64,11 @@ class DemoView: UIView {
         path.close()
 
     }
+    
+    @objc func btnPress(){
+        print("Btn pressed")
+    }
+    
 }
+
+
