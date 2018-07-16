@@ -1,5 +1,6 @@
 import UIKit
 import Foundation
+import SKActivityIndicatorView
 
 class RegistrationViewController: UIViewController,SignUpView {
   
@@ -16,6 +17,7 @@ class RegistrationViewController: UIViewController,SignUpView {
     var user : UserModel?
     var signUpPresenter:SignUpPresenter?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpPresenter = SignUpPresenter(signUpService:SignUpService())
@@ -27,11 +29,16 @@ class RegistrationViewController: UIViewController,SignUpView {
     
     
     func startLoading() {
-        
+        SKActivityIndicator.show()
+        SKActivityIndicator.show("Loading...")
+        SKActivityIndicator.spinnerStyle(.defaultSpinner)
+        SKActivityIndicator.show("Loading...", userInteractionStatus: true)
+
     }
     
     func finishLoading() {
-        
+        SKActivityIndicator.dismiss()
+
     }
     
     func showMessage(message: String) {

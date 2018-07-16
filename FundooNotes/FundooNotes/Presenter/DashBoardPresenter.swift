@@ -50,13 +50,21 @@ import Foundation
             })
         }
         
+//        //Mark: Update Notes For Firebase
+//        func updateNotesWith(objects : [NoteItem]){
+//            self.dashBoardView?.startLoading()
+//            dashBoardService.updateNotesWith(objects: objects, callback: { result,message in
+//                print(result)
+//                print(message)
+//
+//            })
+//        }
+        
         //Mark: Update Notes For Firebase
-        func updateNotesWith(objects : [NoteItem]){
+        func updateNotesWith(objects : [NoteItem],callback:(_ result:Bool,_ message:String)->Void){
             self.dashBoardView?.startLoading()
             dashBoardService.updateNotesWith(objects: objects, callback: { result,message in
-                print(result)
-                print(message)
-                
+                callback(result,message)
             })
         }
   }

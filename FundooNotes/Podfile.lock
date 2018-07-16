@@ -5,7 +5,10 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
   - DatePickerDialog (2.0)
+  - Fabric (1.7.6)
   - FBSDKCoreKit (4.33.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.33.0):
@@ -20,6 +23,9 @@ PODS:
     - FirebaseAnalytics (= 5.0.0)
   - Firebase/CoreOnly (5.0.0):
     - FirebaseCore (= 5.0.0)
+  - Firebase/Crash (5.0.0):
+    - Firebase/Core
+    - FirebaseCrash (= 3.0.0)
   - Firebase/Database (5.0.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.0.0)
@@ -36,6 +42,12 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (5.0.0):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseCrash (3.0.0):
+    - FirebaseAnalytics (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - Protobuf (~> 3.5)
   - FirebaseDatabase (5.0.0):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
@@ -45,6 +57,8 @@ PODS:
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
@@ -78,32 +92,40 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
   - SDWebImage/Core (4.3.3)
   - SDWebImage/WebP (4.3.3):
     - libwebp (~> 0.5)
     - SDWebImage/Core
+  - SKActivityIndicatorView (0.1.0)
   - "UITextView+Placeholder (1.2.0)"
   - XLActionController/Core (4.0.1)
   - XLActionController/Youtube (4.0.1):
     - XLActionController/Core
 
 DEPENDENCIES:
+  - Crashlytics
   - DatePickerDialog
+  - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Crash
   - Firebase/Database
   - Firebase/Storage
   - SDWebImage/WebP
+  - SKActivityIndicatorView
   - "UITextView+Placeholder"
   - XLActionController/Youtube
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - Crashlytics
     - DatePickerDialog
+    - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
@@ -111,6 +133,7 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
+    - FirebaseCrash
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseStorage
@@ -119,13 +142,17 @@ SPEC REPOS:
     - leveldb-library
     - libwebp
     - nanopb
+    - Protobuf
     - SDWebImage
+    - SKActivityIndicatorView
     - "UITextView+Placeholder"
     - XLActionController
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
   FBSDKLoginKit: 88cb456349cfb3b554427ce4f8b43729d85dfb40
   FBSDKShareKit: b7b5002833a4104fbecad75e8e4e082e91c7a08a
@@ -133,6 +160,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
   FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
   FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  FirebaseCrash: 8900571fd763fd5bdda04522ec53da979456e3ce
   FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
@@ -141,10 +169,12 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SKActivityIndicatorView: f46936f760d33eb8235333242269bf01cc9248ae
   "UITextView+Placeholder": 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   XLActionController: 007868251c0eed70d649d06c1625259b73b3a600
 
-PODFILE CHECKSUM: 0aa27f7e14ae1cd4a35ff5785872bf1851d0ace3
+PODFILE CHECKSUM: 03e4a4127565ef4e952ea5181a6624c770980c1c
 
 COCOAPODS: 1.5.2

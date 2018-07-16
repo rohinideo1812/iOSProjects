@@ -1,6 +1,7 @@
 import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
+import SKActivityIndicatorView
 
 class LoginViewController: UIViewController,LoginView {
     
@@ -36,11 +37,16 @@ class LoginViewController: UIViewController,LoginView {
     }
     
     func startLoading() {
-        
+        SKActivityIndicator.show()
+        SKActivityIndicator.show("Loading...")
+        SKActivityIndicator.spinnerStyle(.defaultSpinner)
+        SKActivityIndicator.show("Loading...", userInteractionStatus: true)
+
     }
     
     func finishLoading() {
-        
+        SKActivityIndicator.dismiss()
+
     }
     
     func showMessage(message: String) {

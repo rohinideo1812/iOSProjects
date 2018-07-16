@@ -6,6 +6,7 @@ import FirebaseAuth
 import FBSDKCoreKit
 import FirebaseDatabase
 import FirebaseCore
+import Crashlytics
 
 
 @UIApplicationMain
@@ -17,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //checkLogedIn()
         FirebaseApp.configure()
+        Fabric.sharedSDK().debug = true
         Database.database().isPersistenceEnabled = true
-      FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         if Auth.auth().currentUser != nil {
             let mainVC = AppUtil.shareInstance.getMainVC()
@@ -41,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-      let data = response.notification.request.content.userInfo
+        _ = response.notification.request.content.userInfo
         AppUtil.shareInstance.isTappedUserNotification = true
         let mainVC = AppUtil.shareInstance.getMainVC()
         self.window?.rootViewController = mainVC

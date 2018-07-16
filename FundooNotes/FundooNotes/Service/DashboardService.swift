@@ -61,9 +61,7 @@ class DashBoardService {
     //Mark:Update Notes On Firebase
      func updateNotesWith(objects : [NoteItem],callback:(_ result:Bool,_ message:String)->Void){
         DataManager.shared.updateNotes(objects: objects, callback: { result,message in
-            print(result)
-            print(message)
-            
+            callback(result, message)
         })
     
     }

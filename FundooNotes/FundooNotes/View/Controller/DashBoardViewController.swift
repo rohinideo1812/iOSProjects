@@ -1,6 +1,9 @@
 import UIKit
 import XLActionController
 import UITextView_Placeholder
+import Crashlytics
+import SKActivityIndicatorView
+
 
 class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate,NoteCellDelegate,ColorSelected {
     
@@ -59,7 +62,8 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         }
         let nib = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
-        
+//        Crashlytics.sharedInstance().crash()
+
     }
     
     
@@ -87,20 +91,24 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
     func colorSelected(color: String) {
         var tempNotes:[NoteItem]? = []
-        let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
+        var noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
         for index in noteIndex {
             self.notes[index].color = color
             self.notes[index].date = Helper.shared.getFormatedDate()
             tempNotes?.append(self.notes[index])
         }
-        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-        self.dashBoardPresenter.getNotes(type: .notes)
-        self.navigationItem.leftBarButtonItem = self.menuButton
-        self.menuButton.tintColor = UIColor.blue
-        self.searchButton.tintColor = UIColor.blue
-        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-        self.deSelectAllCell()
-        
+        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!, callback: {result,message in
+            self.dashBoardPresenter.getNotes(type: self.type)
+            self.navigationItem.leftBarButtonItem = self.menuButton
+            self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+
+        })
+//        self.dashBoardPresenter.getNotes(type: .notes)
+//        self.navigationItem.leftBarButtonItem = self.menuButton
+//        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+//        self.deSelectAllCell()
+//        selectedIndexPath.removeAll()
+//        noteIndex.removeAll()
         defer{
             tempNotes = nil
         }
@@ -109,9 +117,9 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
 
     func sideMenuWillOpen() {
-        
+
     }
-    
+
     func sideMenuWillClose() {
 
     }
@@ -121,11 +129,11 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     }
     
     func sideMenuDidOpen() {
-        
+
     }
-    
+
     func sideMenuDidClose() {
-        
+
     }
     
     func onImageLoaded(indexPath:IndexPath) {
@@ -135,22 +143,30 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     
     //Mark: Action on Long Press
     @IBAction func longPressGesture(_ sender: UILongPressGestureRecognizer) {
-        self.collectionView.allowsMultipleSelection = true
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItems = nil
-        if self.type == .delete{
-            self.navigationItem.rightBarButtonItems = [self.optionButton,self.restoreButton]
-        }else if self.type == .archive{
-            self.navigationItem.rightBarButtonItem = self.optionButton
-        }
-        else{
-        self.navigationItem.rightBarButtonItems = [self.optionButton,self.chooseColorButton]
-        }
-        self.navigationItem.leftBarButtonItem = backButton
-        if sender.state != .ended {
-            return
-        }
         
+//        switch sender.state {
+        
+//        case .began:
+//            guard let selectedIndexpath = self.collectionView.indexPathForItem(at: sender.location(in: self.collectionView)) else{
+//                break
+//            }
+//            self.collectionView.beginInteractiveMovementForItem(at: selectedIndexpath)
+            self.collectionView.allowsMultipleSelection = true
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.rightBarButtonItems = nil
+            if self.type == .delete{
+                self.navigationItem.rightBarButtonItems = [self.optionButton,self.restoreButton]
+            }else if self.type == .archive{
+                self.navigationItem.rightBarButtonItem = self.optionButton
+            }
+            else{
+                self.navigationItem.rightBarButtonItems = [self.optionButton,self.chooseColorButton]
+            }
+            self.navigationItem.leftBarButtonItem = backButton
+            if sender.state != .ended {
+                return
+            }
+            
             let point = sender.location(in: self.collectionView)
             if let indexPath = self.collectionView.indexPathForItem(at: point){
                 
@@ -160,11 +176,22 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
                 } else {
                     self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
                     self.collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: indexPath)
-                
+                    
                 }
             }else{
                 print("Index not found")
-        }
+            }
+            
+
+//        case .changed:
+//            self.collectionView.updateInteractiveMovementTargetPosition(sender.location(in: sender.view!))
+//        case .ended:
+//            self.collectionView.endInteractiveMovement()
+//            self.collectionView.reloadData()
+//        default:
+//            self.collectionView.cancelInteractiveMovement()
+       //}
+        
     }
     
     //Mark:Configure Navigation Bar
@@ -206,9 +233,9 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     //Mark: Options on OptionBtn Click
     @objc func options(){
     
-    let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
+        var noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
         
-    let actionController = YoutubeActionController()
+         let actionController = YoutubeActionController()
     
         if self.type == .delete {
             
@@ -217,7 +244,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
                 var tempNotes:[NoteItem]? = []
                 for index in noteIndex {
                     tempNotes?.append(self.notes[index])
-                    self.notes.remove(at: index)
+//                    self.notes.remove(at: index)
                 }
                 DataManager.shared.deleteNoteDataWith(objects: tempNotes!, callback: {result,message in
                     
@@ -226,10 +253,8 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
                 self.collectionView.performBatchUpdates({ () -> Void in
                     self.collectionView.deleteItems(at: self.selectedIndexPath)
                 }, completion: { _ in
-                    self.dashBoardPresenter.getNotes(type: self.type)
-                    self.navigationItem.leftBarButtonItem = self.menuButton
-                    self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-                    self.deSelectAllCell()
+                    self.completion()
+
                 })
                
             }))
@@ -243,45 +268,48 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
                     self.notes[index].isArchive = false
                     self.notes[index].date = Helper.shared.getFormatedDate()
                     tempNotes?.append(self.notes[index])
-                    self.notes.remove(at: index)
+                    //self.notes.remove(at: index)
                 }
-                self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-                //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
-                self.collectionView.performBatchUpdates({ () -> Void in
-                    self.collectionView.deleteItems(at: self.selectedIndexPath)
-                }, completion: { _ in
+                self.dashBoardPresenter.updateNotesWith(objects: tempNotes!, callback: {result,message in
                     self.dashBoardPresenter.getNotes(type: self.type)
                     self.navigationItem.leftBarButtonItem = self.menuButton
                     self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-                    self.deSelectAllCell()
-                })
+
+                })                //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+//                self.collectionView.performBatchUpdates({ () -> Void in
+//                    self.collectionView.deleteItems(at: self.selectedIndexPath)
+//                }, completion: { _ in
+//                    self.completion()
+//
+//                })
                 defer{
                     tempNotes = nil
                 }
                 
-                
             }))
-        }else{
+        }else {
     actionController.addAction(Action(ActionData(title: "Archive"), style: .default, handler: { action in
+        
         var tempNotes:[NoteItem]? = []
         for index in noteIndex {
             self.notes[index].isArchive = true
             self.notes[index].date = Helper.shared.getFormatedDate()
             tempNotes?.append(self.notes[index])
-            self.notes.remove(at: index)
+          //self.notes.remove(at: index)
         }
-        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-        //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
-        self.collectionView.performBatchUpdates({ () -> Void in
-        self.collectionView.deleteItems(at: self.selectedIndexPath)
-        }, completion: { _ in
-            self.dashBoardPresenter.getNotes(type: .notes)
+        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!, callback: {result,message in
+            self.dashBoardPresenter.getNotes(type: self.type)
             self.navigationItem.leftBarButtonItem = self.menuButton
             self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-            self.deSelectAllCell()
-        })
+        })        //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+//        self.collectionView.performBatchUpdates({ () -> Void in
+//        self.collectionView.deleteItems(at: self.selectedIndexPath)
+//        }, completion: { _ in
+//            self.completion()
+//
+//        })
         defer{
-            tempNotes = nil
+          //  tempNotes = nil
         }
         
     }))
@@ -294,19 +322,19 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
             self.notes[index].isDelete = true
             self.notes[index].date = Helper.shared.getFormatedDate()
             tempNotes?.append(self.notes[index])
-            self.notes.remove(at: index)
+            //self.notes.remove(at: index)
         }
-        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-        // self.dashBoardPresenter.updateNotes(objects: tempNotes!)
-        self.collectionView.performBatchUpdates({ () -> Void in
-            self.collectionView.deleteItems(at: self.selectedIndexPath)
-        }, completion: { _ in
-            self.dashBoardPresenter.getNotes(type: .notes)
+        self.dashBoardPresenter.updateNotesWith(objects: tempNotes!, callback: {result,message in
+            self.dashBoardPresenter.getNotes(type: self.type)
             self.navigationItem.leftBarButtonItem = self.menuButton
             self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-            self.deSelectAllCell()
-
         })
+        // self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+//        self.collectionView.performBatchUpdates({ () -> Void in
+//            self.collectionView.deleteItems(at: self.selectedIndexPath)
+//        }, completion: { _ in
+//            self.completion()
+//        })
         defer{
             tempNotes = nil
             self.collectionView.allowsMultipleSelection = false
@@ -320,14 +348,25 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     func deSelectAllCell(){
         if let indexPaths = collectionView.indexPathsForSelectedItems{
             if indexPaths.count > 0{
+                indexPaths.sorted{ $1.compare($0) == .orderedAscending }
                 for indexPath in indexPaths{
+                    let cell = collectionView.cellForItem(at: indexPath) as! NotesCell
+                    cell.isSelected = false
                     self.collectionView.delegate?.collectionView!(self.collectionView, didDeselectItemAt: indexPath)
                 }
-                self.collectionView.allowsMultipleSelection = false
+                self.collectionView.reloadData()
             }
         }
+        self.collectionView.allowsMultipleSelection = false
     }
     
+    func completion(){
+        self.dashBoardPresenter.getNotes(type: .notes)
+        self.navigationItem.leftBarButtonItem = self.menuButton
+        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+        self.deSelectAllCell()
+        
+    }
     
     //Mark: Action on chooseColorButtonPress
     @objc func chooseColorButtonPress(){
@@ -343,37 +382,43 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
     //Mark: Action on Closebtn Click
      @objc func closeButtonPress(){
        dashboardBottomView.isHidden = false
-       self.searchButton.tintColor = UIColor.blue
        self.navigationItem.leftBarButtonItem = menuButton
        self.navigationItem.rightBarButtonItem = viewTypeBtn
        self.dashBoardPresenter.getNotes(type: .notes)
        self.textField.text = ""
        self.textField.isHidden = true
+       self.searchButton.tintColor = UIColor.white
+
     }
     
     
    //Mark:Restore Button Press
    @objc func restoreButtonPress(){
     
-    let noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
+    var noteIndex =  Helper.shared.getIndexPathRow(selectedNotes:selectedIndexPath)
 
     var tempNotes:[NoteItem]? = []
     for index in noteIndex {
         self.notes[index].isDelete = false
         self.notes[index].date = Helper.shared.getFormatedDate()
         tempNotes?.append(self.notes[index])
-        self.notes.remove(at: index)
+//        self.notes.remove(at: index)
     }
-    self.dashBoardPresenter.updateNotesWith(objects: tempNotes!)
-    //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
-    self.collectionView.performBatchUpdates({ () -> Void in
-        self.collectionView.deleteItems(at: self.selectedIndexPath)
-    }, completion: { _ in
+    self.dashBoardPresenter.updateNotesWith(objects: tempNotes!, callback: {result,message in
         self.dashBoardPresenter.getNotes(type: self.type)
         self.navigationItem.leftBarButtonItem = self.menuButton
         self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
-        self.deSelectAllCell()
     })
+    //self.dashBoardPresenter.updateNotes(objects: tempNotes!)
+//    self.collectionView.performBatchUpdates({ () -> Void in
+//        self.collectionView.deleteItems(at: self.selectedIndexPath)
+//    }, completion: { _ in
+//        self.dashBoardPresenter.getNotes(type: self.type)
+//        self.navigationItem.leftBarButtonItem = self.menuButton
+//        self.navigationItem.rightBarButtonItems = [self.viewTypeBtn,self.searchButton]
+//        self.deSelectAllCell()
+//
+//    })
     defer{
         tempNotes = nil
     }
@@ -438,6 +483,7 @@ class DashBoardViewController: UIViewController, ENSideMenuDelegate,MenuDelegate
         self.dashBoardPresenter.getNotes(type: .search)
         return true
     }
+
     
 }
 
@@ -449,16 +495,20 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
     }
     
     func startLoading() {
-        
+//        SKActivityIndicator.show()
+//        SKActivityIndicator.show("Loading...")
+//        SKActivityIndicator.spinnerStyle(.defaultSpinner)
+//        SKActivityIndicator.show("Loading...", userInteractionStatus: true)
+
     }
     
     func finishLoading() {
-        
+//        SKActivityIndicator.dismiss()
     }
     
     func setNoteItems(notes: [NoteItem]) {
         print("After update latest count",notes.count)
-        self.notes.removeAll()
+         self.notes.removeAll()
         self.notes = notes
         self.collectionView.reloadData()
     }
@@ -539,7 +589,6 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         if collectionView.allowsMultipleSelection {
         let cell = self.collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.lightGray
-        cell?.isSelected = true
 
         //New
         cell?.isSelected = true
@@ -578,6 +627,18 @@ extension DashBoardViewController:DashBoardView,UICollectionViewDataSource,UICol
         }
     }
 
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let temp = self.notes[sourceIndexPath.row]
+        self.notes[sourceIndexPath.row] = self.notes[destinationIndexPath.row]
+        self.notes[destinationIndexPath.row] = temp
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

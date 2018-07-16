@@ -30,19 +30,19 @@ class DemoView: UIView {
         shapeLayer.path = path.cgPath
         self.layer.mask = shapeLayer
         
-//        let image = #imageLiteral(resourceName: "cover")
-//        let imageView = UIImageView(image: image)
-//        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-//        addSubview(imageView)
-        let button   = UIButton(type: UIButtonType.system) as UIButton
-        // set the frame
-        button.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-        button.setTitle("Test Button", for: .normal)
-        button.addTarget(self, action: #selector(btnPress), for: UIControlEvents.touchUpInside)
-
-        addSubview(button)
-    }
-    
+        let image = #imageLiteral(resourceName: "cover")
+        let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        addSubview(imageView)
+//        let button   = UIButton(type: UIButtonType.system) as UIButton
+//        // set the frame
+//        button.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+//        button.setTitle("Test Button", for: .normal)
+//        button.addTarget(self, action: #selector(btnPress), for: UIControlEvents.touchUpInside)
+//
+//        addSubview(button)
+  }
+//
     
     func createRectangle() {
         // Initialize the path.

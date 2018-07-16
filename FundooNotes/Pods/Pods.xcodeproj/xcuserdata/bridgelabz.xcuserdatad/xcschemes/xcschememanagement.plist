@@ -102,26 +102,40 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
-		<key>UITextView+Placeholder.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>XLActionController.xcscheme</key>
+		<key>SKActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>19</integer>
+		</dict>
+		<key>UITextView+Placeholder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>XLActionController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
