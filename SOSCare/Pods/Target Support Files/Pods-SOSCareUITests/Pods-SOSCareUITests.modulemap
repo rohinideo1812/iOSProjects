@@ -1,0 +1,6 @@
+framework module Pods_SOSCareUITests {
+  umbrella header "Pods-SOSCareUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
