@@ -1,16 +1,33 @@
 PODS:
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
+  - SMIconLabel (0.4.0)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
+  - SMIconLabel
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GoogleMaps
+    - GooglePlaces
+    - SMIconLabel
     - SnapKit
 
 SPEC CHECKSUMS:
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  SMIconLabel: a30e4316fb3d7808549005faa6a6798c06c2eeba
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 3da3c7133a7d1a7e075ba8629ac0fd1c32eeb57e
+PODFILE CHECKSUM: 906d3184409dd00ca6ca6a63f37df6c3ff151ae3
 
 COCOAPODS: 1.5.2

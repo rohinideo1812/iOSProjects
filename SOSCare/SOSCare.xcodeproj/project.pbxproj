@@ -18,6 +18,7 @@
 		0A69B74E20FDC6E9001E093D /* SOSCareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B74D20FDC6E9001E093D /* SOSCareUITests.swift */; };
 		0A69B75C20FDC915001E093D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B75B20FDC915001E093D /* UIColor+Extensions.swift */; };
 		0A69B75E20FE0B94001E093D /* UIExtension+UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B75D20FE0B94001E093D /* UIExtension+UIDevice.swift */; };
+		0A906B012100A4C9000D8CB0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A906B002100A4C9000D8CB0 /* MapViewController.swift */; };
 		6659BB60B4DF332AE26D5561 /* Pods_SOSCareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE3ABCF240C4E7140FD7E0A /* Pods_SOSCareUITests.framework */; };
 		D204467F5C75255B5DF8B821 /* Pods_SOSCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92583CCA869E8194D0DFEB41 /* Pods_SOSCare.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		0A69B74F20FDC6E9001E093D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A69B75B20FDC915001E093D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0A69B75D20FE0B94001E093D /* UIExtension+UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIExtension+UIDevice.swift"; sourceTree = "<group>"; };
+		0A906B002100A4C9000D8CB0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		292C4DA8313F764D99EBEFBF /* Pods-SOSCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSCare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare.debug.xcconfig"; sourceTree = "<group>"; };
 		5008BBADC45FDEA8A2F9FC25 /* Pods_SOSCareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOSCareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614A3D93C78249DE252B6C13 /* Pods-SOSCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSCare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				0A69B72A20FDC6E9001E093D /* AppDelegate.swift */,
 				0A69B72C20FDC6E9001E093D /* ViewController.swift */,
+				0A906B002100A4C9000D8CB0 /* MapViewController.swift */,
 				0A69B72E20FDC6E9001E093D /* Main.storyboard */,
 				0A69B73420FDC6E9001E093D /* Assets.xcassets */,
 				0A69B73620FDC6E9001E093D /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 				0A69B72420FDC6E9001E093D /* Frameworks */,
 				0A69B72520FDC6E9001E093D /* Resources */,
 				5319E6042A4B6E8CD5DCD81A /* [CP] Embed Pods Frameworks */,
+				32B813C38710687C46050326 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +330,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		32B813C38710687C46050326 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3AD117B9DB27E0F3EC7A9672 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,10 +375,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SMIconLabel/SMIconLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMIconLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A69B72D20FDC6E9001E093D /* ViewController.swift in Sources */,
+				0A906B012100A4C9000D8CB0 /* MapViewController.swift in Sources */,
 				0A69B73320FDC6E9001E093D /* SOSCare.xcdatamodeld in Sources */,
 				0A69B72B20FDC6E9001E093D /* AppDelegate.swift in Sources */,
 				0A69B75E20FE0B94001E093D /* UIExtension+UIDevice.swift in Sources */,

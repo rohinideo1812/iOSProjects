@@ -7,6 +7,9 @@ target 'SOSCare' do
 
   # Pods for SOSCare
     pod ‘SnapKit’
+    pod 'SMIconLabel'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
   target 'SOSCareTests' do
     inherit! :search_paths
     # Pods for testing
