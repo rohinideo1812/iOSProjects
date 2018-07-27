@@ -10,6 +10,11 @@ target 'SOSCare' do
     pod 'SMIconLabel'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'MJSnackBar'
+    pod 'EasyTipView', '~> 1.0.2'
+    pod 'SwiftyJSON'
+    pod 'SnapKit', '~> 4.0.0'
+
   target 'SOSCareTests' do
     inherit! :search_paths
     # Pods for testing

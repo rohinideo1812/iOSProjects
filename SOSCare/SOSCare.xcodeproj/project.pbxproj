@@ -18,7 +18,13 @@
 		0A69B74E20FDC6E9001E093D /* SOSCareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B74D20FDC6E9001E093D /* SOSCareUITests.swift */; };
 		0A69B75C20FDC915001E093D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B75B20FDC915001E093D /* UIColor+Extensions.swift */; };
 		0A69B75E20FE0B94001E093D /* UIExtension+UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A69B75D20FE0B94001E093D /* UIExtension+UIDevice.swift */; };
+		0A8BA7C82109F98900AF37B8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BA7C72109F98900AF37B8 /* UIView+Extension.swift */; };
+		0A8BA7CC210A01D100AF37B8 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BA7CB210A01D100AF37B8 /* CGFloat+Extension.swift */; };
 		0A906B012100A4C9000D8CB0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A906B002100A4C9000D8CB0 /* MapViewController.swift */; };
+		0AD14F672108612D009E9AA4 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD14F662108612D009E9AA4 /* UIButton+Extension.swift */; };
+		0AD14F69210861D9009E9AA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD14F68210861D9009E9AA4 /* LoginViewController.swift */; };
+		0AD879A3210ADE090070F0D0 /* PointerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD879A2210ADE090070F0D0 /* PointerUIView.swift */; };
+		0AD879A5210ADE1F0070F0D0 /* PointerUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD879A4210ADE1F0070F0D0 /* PointerUIView.xib */; };
 		6659BB60B4DF332AE26D5561 /* Pods_SOSCareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE3ABCF240C4E7140FD7E0A /* Pods_SOSCareUITests.framework */; };
 		D204467F5C75255B5DF8B821 /* Pods_SOSCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92583CCA869E8194D0DFEB41 /* Pods_SOSCare.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +63,13 @@
 		0A69B74F20FDC6E9001E093D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A69B75B20FDC915001E093D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0A69B75D20FE0B94001E093D /* UIExtension+UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIExtension+UIDevice.swift"; sourceTree = "<group>"; };
+		0A8BA7C72109F98900AF37B8 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		0A8BA7CB210A01D100AF37B8 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		0A906B002100A4C9000D8CB0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0AD14F662108612D009E9AA4 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		0AD14F68210861D9009E9AA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AD879A2210ADE090070F0D0 /* PointerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerUIView.swift; sourceTree = "<group>"; };
+		0AD879A4210ADE1F0070F0D0 /* PointerUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointerUIView.xib; sourceTree = "<group>"; };
 		292C4DA8313F764D99EBEFBF /* Pods-SOSCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSCare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare.debug.xcconfig"; sourceTree = "<group>"; };
 		5008BBADC45FDEA8A2F9FC25 /* Pods_SOSCareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOSCareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614A3D93C78249DE252B6C13 /* Pods-SOSCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSCare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +144,12 @@
 				0A69B73120FDC6E9001E093D /* SOSCare.xcdatamodeld */,
 				0A69B75B20FDC915001E093D /* UIColor+Extensions.swift */,
 				0A69B75D20FE0B94001E093D /* UIExtension+UIDevice.swift */,
+				0AD14F662108612D009E9AA4 /* UIButton+Extension.swift */,
+				0AD14F68210861D9009E9AA4 /* LoginViewController.swift */,
+				0A8BA7C72109F98900AF37B8 /* UIView+Extension.swift */,
+				0A8BA7CB210A01D100AF37B8 /* CGFloat+Extension.swift */,
+				0AD879A2210ADE090070F0D0 /* PointerUIView.swift */,
+				0AD879A4210ADE1F0070F0D0 /* PointerUIView.xib */,
 			);
 			path = SOSCare;
 			sourceTree = "<group>";
@@ -291,6 +309,7 @@
 			files = (
 				0A69B73820FDC6E9001E093D /* LaunchScreen.storyboard in Resources */,
 				0A69B73520FDC6E9001E093D /* Assets.xcassets in Resources */,
+				0AD879A5210ADE1F0070F0D0 /* PointerUIView.xib in Resources */,
 				0A69B73020FDC6E9001E093D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,13 +394,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SOSCare/Pods-SOSCare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EasyTipView/EasyTipView.framework",
+				"${BUILT_PRODUCTS_DIR}/MJSnackBar/MJSnackBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SMIconLabel/SMIconLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyTipView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJSnackBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMIconLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -416,9 +441,14 @@
 				0A69B72D20FDC6E9001E093D /* ViewController.swift in Sources */,
 				0A906B012100A4C9000D8CB0 /* MapViewController.swift in Sources */,
 				0A69B73320FDC6E9001E093D /* SOSCare.xcdatamodeld in Sources */,
+				0AD879A3210ADE090070F0D0 /* PointerUIView.swift in Sources */,
 				0A69B72B20FDC6E9001E093D /* AppDelegate.swift in Sources */,
+				0AD14F69210861D9009E9AA4 /* LoginViewController.swift in Sources */,
+				0A8BA7CC210A01D100AF37B8 /* CGFloat+Extension.swift in Sources */,
 				0A69B75E20FE0B94001E093D /* UIExtension+UIDevice.swift in Sources */,
 				0A69B75C20FDC915001E093D /* UIColor+Extensions.swift in Sources */,
+				0A8BA7C82109F98900AF37B8 /* UIView+Extension.swift in Sources */,
+				0AD14F672108612D009E9AA4 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

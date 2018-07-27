@@ -1,4 +1,5 @@
 PODS:
+  - EasyTipView (1.0.2)
   - GoogleMaps (2.7.0):
     - GoogleMaps/Maps (= 2.7.0)
   - GoogleMaps/Base (2.7.0)
@@ -6,28 +7,40 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
+  - MJSnackBar (1.0.2)
   - SMIconLabel (0.4.0)
   - SnapKit (4.0.0)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - EasyTipView (~> 1.0.2)
   - GoogleMaps
   - GooglePlaces
+  - MJSnackBar
   - SMIconLabel
   - SnapKit
+  - SnapKit (~> 4.0.0)
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - EasyTipView
     - GoogleMaps
     - GooglePlaces
+    - MJSnackBar
     - SMIconLabel
     - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  EasyTipView: b93a19be981cc2221d6d7191d49872f547e0bebf
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  MJSnackBar: ed280d1d20692abbabe6836f8004590dd9c9ab3e
   SMIconLabel: a30e4316fb3d7808549005faa6a6798c06c2eeba
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 906d3184409dd00ca6ca6a63f37df6c3ff151ae3
+PODFILE CHECKSUM: d37edb85701abf1e3c6b397e36069ddf2fa38f9e
 
 COCOAPODS: 1.5.2

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7694B6EF4E03F25AE28F8A1B0CF7499"
+               BlueprintIdentifier = "D6AECA874ADC64ED29934EDFEE50DDDC"
                BlueprintName = "SMIconLabel"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SMIconLabel.framework">

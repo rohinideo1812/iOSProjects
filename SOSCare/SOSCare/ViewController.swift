@@ -22,11 +22,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(ambulanceImg)
-        ambulanceImg.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view.snp.top).offset(20)
-            make.bottom.equalTo(self.view.snp.bottom).offset(0)
-            make.left.equalTo(self.view.snp.left).offset(0)
-            make.right.equalTo(self.view.snp.right).offset(0)
+         ambulanceImg.snp.makeConstraints { (make) -> Void in
+                    make.top.equalTo(self.view.snp.top).offset(20)
+                    make.bottom.equalTo(self.view.snp.bottom).offset(0)
+                    make.left.equalTo(self.view.snp.left).offset(0)
+                    make.right.equalTo(self.view.snp.right).offset(0)
         }
         ambulanceImg.image = UIImage(named:"ambulance")
         self.view.addSubview(baseView)
@@ -61,7 +61,6 @@ class ViewController: UIViewController {
             make.right.equalTo(upperView.snp.right).offset(-8)
             make.left.equalTo(imageOnUpperView.snp.right).offset(8)
             make.height.equalTo(60)
-            
         }
         labelOnUpperView.backgroundColor = UIColor.clear
         labelOnUpperView.layer.cornerRadius = 50
@@ -144,6 +143,8 @@ class ViewController: UIViewController {
             make.width.equalTo(35)
             make.height.equalTo(35)
         }
+//        otpImg.transform = CGAffineTransform(rotationAngle: (360 * 180) / CGFloat.pi)
+        otpImg.transform = otpImg.transform.rotated(by: CGFloat(M_PI_2))
         otpImg.backgroundColor = UIColor.clear
         otpImg.image = UIImage(named:"baseline_vpn_key_white_18dp")
         self.view.addSubview(phoneTextField)
@@ -179,7 +180,6 @@ class ViewController: UIViewController {
 
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let gradientLayer = CAGradientLayer()
@@ -187,6 +187,7 @@ class ViewController: UIViewController {
         gradientLayer.colors = [UIColor(hexString: "#3498DB").cgColor,UIColor(hexString:"#2ECC71").cgColor]
         gradientLayer.startPoint = CGPoint(x : 0.0,y : 0.5)
         gradientLayer.endPoint = CGPoint(x : 1.0,y : 0.5)
+        gradientLayer.cornerRadius = 25
         upperView.layer.addSublayer(gradientLayer)
         }
     
