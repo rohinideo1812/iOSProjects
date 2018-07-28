@@ -7,8 +7,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-
-        
      }
     
     @objc func deviceDidRotate(){

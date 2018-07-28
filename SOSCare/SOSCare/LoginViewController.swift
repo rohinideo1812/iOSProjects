@@ -9,7 +9,7 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var signUpPointerView: UIView!
     
     @IBOutlet weak var popUpView: UIView!
-    
+
     @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var loginBtn: UIButton!
@@ -25,7 +25,8 @@ class LoginViewController: UIViewController{
     var isLoginBtnPressed = false
     var isSignUpBtnPress = false
     var preferences = EasyTipView.Preferences()
-
+    let phoneTextField = UITextField()
+    let otpTextField = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController{
         self.signUpPointerView.isHidden = true
         self.popUpView.isHidden = true
         self.loginPointerView.isHidden = true
+        
        }
     
     
@@ -65,7 +67,6 @@ class LoginViewController: UIViewController{
             self.loginPointerView.isHidden = false
             self.isSignUpBtnPress = false
             self.signUpBtn.layer.backgroundColor = UIColor.clear.cgColor
-
 //            EasyTipView.show(forView: loginBtn,
 //                             withinSuperview: mainView,
 //                             text: "",
@@ -90,13 +91,24 @@ class LoginViewController: UIViewController{
             self.loginPointerView.isHidden = true
             self.isLoginBtnPressed = false
             self.loginBtn.layer.backgroundColor = UIColor.clear.cgColor
+            self.view.addSubview(phoneTextField)
+            phoneTextField.snp.makeConstraints{(make)-> Void in
+                make.top.equalTo(popUpView.snp.top).offset(8)
+                make.left.equalTo(popUpView.snp.right).offset(8)
+                make.right.equalTo(popUpView.snp.right).offset(-8)
+                make.height.equalTo(35)
+            }
+            phoneTextField.attributedPlaceholder = NSAttributedString(string: "Phone number",
+                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            phoneTextField.textColor = UIColor.white
 
-            //            EasyTipView.show(forView: loginBtn,
-            //                             withinSuperview: mainView,
-            //                             text: "",
-            //                             preferences: preferences)
+//                        EasyTipView.show(forView: loginBtn,
+//                                         withinSuperview: mainView,
+//                                         text: "",
+//                                         preferences: preferences)
+            
         }else{
-            self.loginBtn.layer.backgroundColor = UIColor.clear.cgColor
+            self.signUpBtn.layer.backgroundColor = UIColor.clear.cgColor
             self.isSignUpBtnPress = false
             self.signUpPointerView.isHidden = true
             self.popUpView.isHidden = true
